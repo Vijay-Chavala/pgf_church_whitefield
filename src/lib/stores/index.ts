@@ -47,6 +47,7 @@ export {
   getPrayerRequestStats,
   enablePrayerAutoRefresh
 } from './prayer-store'
+export { default as useChurchStore } from './church-store'
 
 // Combined store hooks for common patterns
 export const useAppStore = () => ({
