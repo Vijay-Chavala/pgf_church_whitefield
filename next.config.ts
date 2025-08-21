@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
-  
+
   // Turbopack configuration (stable)
   turbopack: {
     rules: {
@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  
+
   // Enhanced image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -35,12 +35,12 @@ const nextConfig: NextConfig = {
     disableStaticImages: false,
     unoptimized: false,
   },
-  
+
   // Compression and performance
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
-  
+
   // Enhanced security headers
   async headers() {
     return [
@@ -110,7 +110,7 @@ const nextConfig: NextConfig = {
       },
     ]
   },
-  
+
   // SEO-friendly redirects
   async redirects() {
     return [
@@ -126,7 +126,7 @@ const nextConfig: NextConfig = {
       },
     ]
   },
-  
+
   // API and sitemap rewrites
   async rewrites() {
     return [
@@ -144,13 +144,18 @@ const nextConfig: NextConfig = {
       },
     ]
   },
-  
+
   // Enable TypeScript strict mode
   typescript: {
     tsconfigPath: './tsconfig.json',
     ignoreBuildErrors: false,
   },
-  
+
+  // ESLint configuration - don't block builds on warnings
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+
   // Webpack optimizations
   webpack: (config, { dev, isServer }) => {
     // Production optimizations
@@ -175,19 +180,19 @@ const nextConfig: NextConfig = {
         },
       }
     }
-    
+
     // Handle SVGs
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     })
-    
+
     return config
   },
-  
+
   // Transpile packages for better performance
   transpilePackages: ['lucide-react', 'framer-motion'],
-  
+
   // Environment variables for build-time optimization
   env: {
     SITE_URL: process.env.SITE_URL || 'https://pgfteluguchurch.org',
@@ -196,12 +201,12 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID || '',
     NEXT_PUBLIC_GSC_ID: process.env.NEXT_PUBLIC_GSC_ID || '',
   },
-  
+
   // Compiler options for performance
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  
+
   // Production output optimization (only include when needed)
   ...(process.env.NODE_ENV === 'production' && { output: 'standalone' }),
 }
