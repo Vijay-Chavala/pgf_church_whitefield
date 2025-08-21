@@ -269,10 +269,9 @@ const ministriesData = {
   },
 }
 
-interface MinistryPageProps {
-  params: {
-    slug: string
-  }
+type PageProps = {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export async function generateStaticParams() {
@@ -281,7 +280,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: MinistryPageProps) {
+export async function generateMetadata({ params }: PageProps) {
   const ministry = ministriesData[params.slug as keyof typeof ministriesData]
 
   if (!ministry) {
@@ -296,7 +295,7 @@ export async function generateMetadata({ params }: MinistryPageProps) {
   }
 }
 
-export default function MinistryPage({ params }: MinistryPageProps) {
+export default function MinistryPage({ params }: PageProps) {
   const ministry = ministriesData[params.slug as keyof typeof ministriesData]
 
   if (!ministry) {
