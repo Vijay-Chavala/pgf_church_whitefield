@@ -1,26 +1,883 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+
+  /* Light Mode - Professional Church Theme */
+  /* Clean, modern, and accessible color palette */
+
+  /* Base Colors */
+  --background: 255 255 255; /* Pure white background */
+  --foreground: 15 23 42; /* Slate-800 for excellent readability */
+
+  /* Card & Surface Colors */
+  --card: 255 255 255; /* Pure white cards */
+  --card-foreground: 15 23 42; /* Dark text on cards */
+  --popover: 255 255 255; /* Pure white popovers */
+  --popover-foreground: 15 23 42; /* Dark text on popovers */
+
+  /* Primary - Professional Navy Blue */
+  --primary: 30 58 138; /* Blue-700 - professional and trustworthy */
+  --primary-foreground: 255 255 255; /* White text on blue */
+
+  /* Secondary - Warm Gold Accent */
+  --secondary: 180 83 9; /* Amber-700 - warm and welcoming */
+  --secondary-foreground: 255 255 255; /* White text on gold */
+
+  /* Muted Colors */
+  --muted: 248 250 252; /* Slate-50 - very light gray */
+  --muted-foreground: 100 116 139; /* Slate-500 - medium gray text */
+
+  /* Accent - Soft Blue */
+  --accent: 219 234 254; /* Blue-100 - soft blue background */
+  --accent-foreground: 30 58 138; /* Blue-700 text on light blue */
+
+  /* Interactive Elements */
+  --border: 226 232 240; /* Slate-200 - light gray borders */
+  --input: 248 250 252; /* Slate-50 - light input backgrounds */
+  --ring: 30 58 138; /* Blue-700 focus ring */
+
+  /* Status Colors */
+  --destructive: 220 38 38; /* Red-600 - professional red */
+  --destructive-foreground: 255 255 255; /* White text on red */
+
+  /* Chart Colors */
+  --chart-1: 30 58 138; /* Blue-700 */
+  --chart-2: 180 83 9; /* Amber-700 */
+  --chart-3: 16 185 129; /* Emerald-500 */
+  --chart-4: 139 92 246; /* Violet-500 */
+  --chart-5: 236 72 153; /* Pink-500 */
+}
+
+.dark {
+  /* Dark Mode - Modern and Accessible */
+  /* Optimized for readability, reduced eye strain, and professional appearance */
+
+  /* Base Colors - Deep but comfortable */
+  --background: 10 10 20; /* Deep navy-black, easier on eyes than pure black */
+  --foreground: 248 250 252; /* Slate-50 - excellent readability */
+
+  /* Card & Surface Colors - Layered depth */
+  --card: 20 20 35; /* Slightly elevated dark surfaces */
+  --card-foreground: 248 250 252; /* Light text on dark cards */
+  --popover: 20 20 35; /* Consistent with cards */
+  --popover-foreground: 248 250 252; /* Light text on dark popovers */
+
+  /* Primary - Vibrant Blue for visibility */
+  --primary: 59 130 246; /* Blue-500 - bright and accessible */
+  --primary-foreground: 10 10 20; /* Dark text on bright blue */
+
+  /* Secondary - Warm Amber */
+  --secondary: 245 158 11; /* Amber-500 - warm and welcoming */
+  --secondary-foreground: 10 10 20; /* Dark text on amber */
+
+  /* Muted Colors - Subtle and elegant */
+  --muted: 30 41 59; /* Slate-800 - muted backgrounds */
+  --muted-foreground: 148 163 184; /* Slate-400 - muted text */
+
+  /* Accent - Soft Blue */
+  --accent: 30 58 138; /* Blue-700 - accent color */
+  --accent-foreground: 248 250 252; /* Light text on accent */
+
+  /* Interactive Elements */
+  --border: 51 65 85; /* Slate-700 - visible borders */
+  --input: 20 20 35; /* Dark input backgrounds */
+  --ring: 59 130 246; /* Blue-500 focus ring */
+
+  /* Status Colors */
+  --destructive: 239 68 68; /* Red-500 - softer red for dark mode */
+  --destructive-foreground: 10 10 20; /* Dark text on red */
+
+  /* Chart Colors - Optimized for dark mode */
+  --chart-1: 59 130 246; /* Blue-500 */
+  --chart-2: 245 158 11; /* Amber-500 */
+  --chart-3: 16 185 129; /* Emerald-500 */
+  --chart-4: 139 92 246; /* Violet-500 */
+  --chart-5: 236 72 153; /* Pink-500 */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    /* Better text rendering for dark mode */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Force dark mode styles to work */
+  .dark body {
+    background-color: #0a0a14 !important;
+    color: #f8fafc !important;
+  }
+
+  .dark {
+    background-color: #0a0a14 !important;
+    color: #f8fafc !important;
+  }
+
+  .dark * {
+    border-color: #334155 !important;
+  }
+
+  /* Additional dark mode overrides */
+  .dark .bg-background {
+    background-color: #0a0a14 !important;
+  }
+
+  .dark .text-foreground {
+    color: #f8fafc !important;
+  }
+
+  .dark .bg-card {
+    background-color: #141423 !important;
+  }
+
+  .dark .text-card-foreground {
+    color: #f8fafc !important;
+  }
+
+  .dark .bg-muted {
+    background-color: #1e293b !important;
+  }
+
+  .dark .text-muted-foreground {
+    color: #94a3b8 !important;
+  }
+
+  /* Improved scrollbars for dark mode */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  /* Better focus styles for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Custom church typography */
+  .font-display {
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  /* Smooth transitions for theme switching */
+  * {
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  /* Improved button styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-2 focus:ring-primary/20 transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 focus:ring-2 focus:ring-secondary/20 transition-all duration-200;
+  }
+
+  /* Force button colors to ensure visibility */
+  button[data-slot='button'] {
+    --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+    box-shadow:
+      var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+      var(--tw-shadow);
+  }
+
+  /* Ensure primary buttons have proper background */
+  button[data-slot='button']:not([class*='variant-']) {
+    background-color: hsl(var(--primary) / 1);
+    color: hsl(var(--primary-foreground) / 1);
+  }
+
+  button[data-slot='button']:not([class*='variant-']):hover {
+    background-color: hsl(var(--primary) / 0.9);
+  }
+
+  /* Comprehensive button color fixes */
+  .bg-primary {
+    background-color: #1e3a8a !important; /* Blue-700 */
+  }
+
+  .text-primary-foreground {
+    color: #ffffff !important; /* White text */
+  }
+
+  .bg-secondary {
+    background-color: #b45309 !important; /* Amber-700 */
+  }
+
+  .text-secondary-foreground {
+    color: #ffffff !important; /* White text */
+  }
+
+  /* Dark mode button overrides */
+  .dark .bg-primary {
+    background-color: #3b82f6 !important; /* Blue-500 */
+  }
+
+  .dark .text-primary-foreground {
+    color: #0a0a14 !important; /* Dark text on bright blue */
+  }
+
+  .dark .bg-secondary {
+    background-color: #f59e0b !important; /* Amber-500 */
+  }
+
+  .dark .text-secondary-foreground {
+    color: #0a0a14 !important; /* Dark text on amber */
+  }
+
+  /* Button component specific fixes */
+  button,
+  .btn {
+    color: inherit !important;
+  }
+
+  /* Ensure button text is always visible */
+  .bg-primary button,
+  .bg-primary .btn,
+  button.bg-primary,
+  .btn.bg-primary {
+    color: #ffffff !important;
+  }
+
+  .dark .bg-primary button,
+  .dark .bg-primary .btn,
+  .dark button.bg-primary,
+  .dark .btn.bg-primary {
+    color: #0a0a14 !important;
+  }
+
+  .bg-secondary button,
+  .bg-secondary .btn,
+  button.bg-secondary,
+  .btn.bg-secondary {
+    color: #ffffff !important;
+  }
+
+  .dark .bg-secondary button,
+  .dark .bg-secondary .btn,
+  .dark button.bg-secondary,
+  .dark .btn.bg-secondary {
+    color: #0a0a14 !important;
+  }
+
+  /* Button variant specific fixes */
+  .bg-primary.text-primary-foreground {
+    background-color: #1e3a8a !important;
+    color: #ffffff !important;
+  }
+
+  .dark .bg-primary.text-primary-foreground {
+    background-color: #3b82f6 !important;
+    color: #0a0a14 !important;
+  }
+
+  .bg-secondary.text-secondary-foreground {
+    background-color: #b45309 !important;
+    color: #ffffff !important;
+  }
+
+  .dark .bg-secondary.text-secondary-foreground {
+    background-color: #f59e0b !important;
+    color: #0a0a14 !important;
+  }
+
+  /* Destructive button fixes */
+  .bg-destructive {
+    background-color: #dc2626 !important;
+  }
+
+  .text-destructive-foreground {
+    color: #ffffff !important;
+  }
+
+  .dark .bg-destructive {
+    background-color: #ef4444 !important;
+  }
+
+  .dark .text-destructive-foreground {
+    color: #0a0a14 !important;
+  }
+
+  /* Outline button fixes */
+  .border.border-input.bg-background {
+    border-color: #e2e8f0 !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  .dark .border.border-input.bg-background {
+    border-color: #334155 !important;
+    background-color: #0a0a14 !important;
+    color: #f8fafc !important;
+  }
+
+  /* Ghost button fixes */
+  .hover\\:bg-accent:hover {
+    background-color: #dbeafe !important;
+    color: #1e3a8a !important;
+  }
+
+  .dark .hover\\:bg-accent:hover {
+    background-color: #1e3a8a !important;
+    color: #f8fafc !important;
+  }
+
+  /* Link button fixes */
+  .text-primary {
+    color: #1e3a8a !important;
+  }
+
+  .dark .text-primary {
+    color: #3b82f6 !important;
+  }
+
+  /* Ministry Cards Specific Fixes */
+  .dark .text-muted-foreground {
+    color: #94a3b8 !important;
+  }
+
+  .dark .text-foreground {
+    color: #f8fafc !important;
+  }
+
+  /* Card component fixes */
+  .dark .bg-card {
+    background-color: #141423 !important;
+  }
+
+  .dark .text-card-foreground {
+    color: #f8fafc !important;
+  }
+
+  /* Ministry card specific overrides */
+  .dark .bg-gradient-to-br.from-blue-50.to-indigo-50 {
+    background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+  }
+
+  .dark .bg-gradient-to-br.from-green-50.to-emerald-50 {
+    background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+  }
+
+  .dark .bg-gradient-to-br.from-orange-50.to-amber-50 {
+    background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+  }
+
+  .dark .bg-gradient-to-br.from-purple-50.to-violet-50 {
+    background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+  }
+
+  .dark .bg-gradient-to-br.from-pink-50.to-rose-50 {
+    background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+  }
+
+  /* Border color fixes for ministry cards */
+  .dark .border-blue-200 {
+    border-color: #475569 !important;
+  }
+
+  .dark .border-green-200 {
+    border-color: #475569 !important;
+  }
+
+  .dark .border-orange-200 {
+    border-color: #475569 !important;
+  }
+
+  .dark .border-purple-200 {
+    border-color: #475569 !important;
+  }
+
+  .dark .border-pink-200 {
+    border-color: #475569 !important;
+  }
+
+  /* Ensure all text in cards is visible */
+  .dark .card * {
+    color: #f8fafc !important;
+  }
+
+  .dark .card .text-muted-foreground {
+    color: #94a3b8 !important;
+  }
+
+  .dark .card .text-primary {
+    color: #3b82f6 !important;
+  }
+
+  /* Specific ministry card text fixes */
+  .dark .bg-gradient-to-br.from-blue-50.to-indigo-50 *,
+  .dark .bg-gradient-to-br.from-green-50.to-emerald-50 *,
+  .dark .bg-gradient-to-br.from-orange-50.to-amber-50 *,
+  .dark .bg-gradient-to-br.from-purple-50.to-violet-50 *,
+  .dark .bg-gradient-to-br.from-pink-50.to-rose-50 * {
+    color: #f8fafc !important;
+  }
+
+  .dark .bg-gradient-to-br.from-blue-50.to-indigo-50 .text-muted-foreground,
+  .dark .bg-gradient-to-br.from-green-50.to-emerald-50 .text-muted-foreground,
+  .dark .bg-gradient-to-br.from-orange-50.to-amber-50 .text-muted-foreground,
+  .dark .bg-gradient-to-br.from-purple-50.to-violet-50 .text-muted-foreground,
+  .dark .bg-gradient-to-br.from-pink-50.to-rose-50 .text-muted-foreground {
+    color: #94a3b8 !important;
+  }
+
+  /* Additional ministry card text fixes */
+  .dark .text-slate-800 {
+    color: #f8fafc !important;
+  }
+
+  .dark .text-slate-600 {
+    color: #94a3b8 !important;
+  }
+
+  .dark .text-gray-200 {
+    color: #475569 !important;
+  }
+
+  .dark .border-gray-200 {
+    border-color: #475569 !important;
+  }
+
+  /* Ensure all ministry card content is visible */
+  .dark [class*='bg-gradient-to-br'] {
+    background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+  }
+
+  .dark [class*='bg-gradient-to-br'] * {
+    color: #f8fafc !important;
+  }
+
+  .dark [class*='bg-gradient-to-br'] .text-muted-foreground,
+  .dark [class*='bg-gradient-to-br'] .text-slate-600 {
+    color: #94a3b8 !important;
+  }
+
+  .dark [class*='bg-gradient-to-br'] .text-primary {
+    color: #3b82f6 !important;
+  }
+
+  /* Card title and content fixes */
+  .dark .card-title,
+  .dark .card h3,
+  .dark .card h4,
+  .dark .card h5,
+  .dark .card h6 {
+    color: #f8fafc !important;
+  }
+
+  .dark .card p {
+    color: #e2e8f0 !important;
+  }
+
+  .dark .card .text-sm {
+    color: #94a3b8 !important;
+  }
+
+  .dark .card .text-xs {
+    color: #94a3b8 !important;
+  }
+
+  /* Home page section specific fixes */
+  .dark .bg-gradient-to-b.from-slate-50.to-white {
+    background: linear-gradient(to bottom, #1e293b, #0a0a14) !important;
+  }
+
+  .dark .bg-gradient-to-b.from-muted\/30.to-background {
+    background: linear-gradient(to bottom, #1e293b, #0a0a14) !important;
+  }
+
+  .dark .bg-white {
+    background-color: #141423 !important;
+  }
+
+  .dark .bg-slate-50 {
+    background-color: #1e293b !important;
+  }
+
+  .dark .bg-slate-100 {
+    background-color: #334155 !important;
+  }
+
+  /* Text color fixes for home page sections */
+  .dark .text-slate-800 {
+    color: #f8fafc !important;
+  }
+
+  .dark .text-slate-600 {
+    color: #94a3b8 !important;
+  }
+
+  .dark .text-slate-700 {
+    color: #cbd5e1 !important;
+  }
+
+  /* Card background fixes */
+  .dark .bg-white\/95 {
+    background-color: rgba(20, 20, 35, 0.95) !important;
+  }
+
+  .dark .bg-card\/95 {
+    background-color: rgba(20, 20, 35, 0.95) !important;
+  }
+
+  /* Section background fixes */
+  .dark .bg-gradient-to-br.from-primary\/10.via-background.to-primary\/5 {
+    background: linear-gradient(
+      to bottom right,
+      rgba(59, 130, 246, 0.1),
+      #0a0a14,
+      rgba(59, 130, 246, 0.05)
+    ) !important;
+  }
+
+  .dark .bg-gradient-to-br.from-primary\/10.via-muted\/20.to-primary\/5 {
+    background: linear-gradient(
+      to bottom right,
+      rgba(59, 130, 246, 0.1),
+      rgba(30, 41, 59, 0.2),
+      rgba(59, 130, 246, 0.05)
+    ) !important;
+  }
+
+  /* Welcome message section specific fixes */
+  .dark .bg-card\/80 {
+    background-color: rgba(20, 20, 35, 0.8) !important;
+  }
+
+  .dark .border-border {
+    border-color: #334155 !important;
+  }
+
+  /* Ensure welcome message text is visible in dark mode */
+  .dark .text-card-foreground {
+    color: #f8fafc !important;
+  }
+
+  .dark .text-muted-foreground {
+    color: #94a3b8 !important;
+  }
+
+  /* Hero banner text should always be light */
+  .text-white {
+    color: #ffffff !important;
+  }
+
+  /* Ensure hero banner subtitle is always light colored */
+  .hero-banner .text-white {
+    color: #ffffff !important;
+  }
+
+  /* Navigation Menu and Dropdown Menu Background Fixes */
+  .bg-popover {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  .dark .bg-popover {
+    background-color: rgba(20, 20, 35, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  /* Navigation Menu Viewport Background */
+  [data-slot='navigation-menu-viewport'] {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .dark [data-slot='navigation-menu-viewport'] {
+    background-color: rgba(20, 20, 35, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Dropdown Menu Content Background */
+  [data-slot='dropdown-menu-content'] {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .dark [data-slot='dropdown-menu-content'] {
+    background-color: rgba(20, 20, 35, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Mobile Menu Sheet Background */
+  [data-radix-sheet-content] {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  .dark [data-radix-sheet-content] {
+    background-color: rgba(20, 20, 35, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  /* Navigation Menu Content Background */
+  [data-slot='navigation-menu-content'] {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  .dark [data-slot='navigation-menu-content'] {
+    background-color: rgba(20, 20, 35, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  /* Ensure proper text colors in navigation menus */
+  .text-popover-foreground {
+    color: #0f172a !important;
+  }
+
+  .dark .text-popover-foreground {
+    color: #f8fafc !important;
+  }
+
+  /* Navigation menu hover states */
+  .hover\\:bg-accent:hover {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+  }
+
+  .dark .hover\\:bg-accent:hover {
+    background-color: rgba(59, 130, 246, 0.2) !important;
+  }
+
+  /* Focus states for navigation items */
+  .focus\\:bg-accent:focus {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+  }
+
+  .dark .focus\\:bg-accent:focus {
+    background-color: rgba(59, 130, 246, 0.25) !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Enhanced Guest Speakers Swiper Styles */
+.guest-speakers-swiper {
+  padding-bottom: 20px !important;
+}
+
+.guest-speakers-swiper .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.guest-speakers-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 640px) {
+  .guest-speakers-swiper .swiper-slide {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .guest-speakers-swiper .swiper-slide {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .guest-speakers-swiper .swiper-slide {
+    max-width: 33.333%;
+    flex: 0 0 33.333%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .guest-speakers-swiper .swiper-slide {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+}
+
+.guest-speakers-swiper .swiper-slide > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.guest-speakers-swiper .swiper-slide .relative {
+  position: relative;
+  width: 100%;
+}
+
+.guest-speakers-swiper .swiper-slide .relative img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.guest-speakers-swiper .swiper-slide .p-4 {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Dark mode improvements for swiper */
+.dark .guest-speakers-swiper .swiper-slide {
+  @apply bg-card border-border;
+}
+
+.guest-speakers-swiper .swiper-wrapper {
+  align-items: stretch;
+  display: flex;
+}
+
+.guest-speakers-swiper .swiper-slide {
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .guest-speakers-swiper .swiper-slide .relative {
+    height: 320px;
+  }
+}
+
+@media (min-width: 641px) {
+  .guest-speakers-swiper .swiper-slide .relative {
+    height: 280px;
+  }
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.guest-speakers-swiper .swiper-slide .group:hover {
+  transform: translateY(-4px) !important;
+  box-shadow:
+    0 10px 25px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.guest-speakers-swiper .swiper-slide .group:hover img {
+  transform: scale(1.05) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.guest-speakers-swiper .swiper-slide .group {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+
+.guest-speakers-swiper::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .guest-speakers-swiper {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .guest-speakers-swiper .swiper-slide .group:hover {
+    transform: translateY(-2px) !important;
+  }
+}
+
+.guest-speakers-swiper .swiper-slide {
+  transition: opacity 0.3s ease;
+}
+
+.guest-speakers-swiper .swiper-slide:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.guest-speakers-swiper .swiper-slide:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.guest-speakers-swiper .swiper-slide:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.guest-speakers-swiper .swiper-slide:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

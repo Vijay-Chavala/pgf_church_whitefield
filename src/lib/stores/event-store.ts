@@ -1,0 +1,337 @@
+import { create } from 'zustand'
+import type { EventState, EventFilters, Event } from './types'
+
+// Mock event data - In a real app, this would come from an API
+const mockEvents: Event[] = [
+  {
+    id: 'christmas-2024',
+    title: 'Christmas Celebration 2024',
+    titleTe: 'క్రిస్మస్ వేడుకలు 2024',
+    description: 'Join us for a joyous Christmas celebration with special carols, fellowship, and worship service. Bring your family and friends for this blessed occasion.',
+    descriptionTe: 'ప్రత్యేక కీర్తనలు, సహవాసం మరియు ఆరాధన సేవతో ఆనందకరమైన క్రిస్మస్ వేడుకలో మాతో చేరండి. ఈ ఆశీర్వాద సందర్భానికి మీ కుటుంబం మరియు స్నేహితులను తీసుకొని రండి.',
+    date: '2024-12-25T10:00:00',
+    endDate: '2024-12-25T12:30:00',
+    location: 'Main Sanctuary',
+    locationTe: 'ప్రధాన మందిరం',
+    category: 'worship',
+    isUpcoming: true,
+    isFeatured: true,
+    registrationRequired: false,
+    maxAttendees: 500,
+    currentAttendees: 0,
+    imageUrl: '/images/events/christmas-2024.jpg',
+    organizer: 'Church Administration',
+    organizerTe: 'చర్చ్ పరిపాలన',
+    tags: ['christmas', 'worship', 'celebration', 'family'],
+    price: 0,
+    registrationOpen: true,
+    registrationDeadline: '2024-12-24T23:59:59'
+  },
+  {
+    id: 'new-year-prayer-2024',
+    title: 'New Year Prayer Service',
+    titleTe: 'నూతన సంవత్సర ప్రార్థనా సేవ',
+    description: 'Start the new year with prayer and thanksgiving. A special midnight prayer service to welcome 2025 with God\'s blessings.',
+    descriptionTe: 'ప్రార్థన మరియు కృతజ్ఞతతో నూతన సంవత్సరాన్ని ప్రారంభించండి. దేవుని ఆశీర్వాదాలతో 2025ను స్వాగతించడానికి ప్రత్యేక అర్ధరాత్రి ప్రార్థనా సేవ.',
+    date: '2024-12-31T23:00:00',
+    endDate: '2025-01-01T01:00:00',
+    location: 'Main Sanctuary',
+    locationTe: 'ప్రధాన మందిరం',
+    category: 'prayer',
+    isUpcoming: true,
+    isFeatured: true,
+    registrationRequired: true,
+    maxAttendees: 300,
+    currentAttendees: 150,
+    imageUrl: '/images/events/new-year-prayer.jpg',
+    organizer: 'Pastor John David',
+    organizerTe: 'పాస్టర్ జాన్ దేవిడ్',
+    tags: ['new-year', 'prayer', 'midnight', 'thanksgiving'],
+    price: 0,
+    registrationOpen: true,
+    registrationDeadline: '2024-12-30T23:59:59'
+  },
+  {
+    id: 'youth-retreat-2024',
+    title: 'Youth Winter Retreat',
+    titleTe: 'యువజన శీతాకాల ఉపవాస సభ',
+    description: 'A three-day youth retreat focusing on spiritual growth, fellowship, and fun activities. Open for ages 13-25.',
+    descriptionTe: 'ఆధ్యాత్మిక వృద్ధి, సహవాసం మరియు వినోద కార్యకలాపాలపై దృష్టి సారించే మూడు రోజుల యువజన ఉపవాస సభ. 13-25 వయస్సు వారికి తెరవబడింది.',
+    date: '2025-01-15T09:00:00',
+    endDate: '2025-01-17T17:00:00',
+    location: 'Faith Camp Grounds, Mysore',
+    locationTe: 'ఫెయిత్ క్యాంప్ గ్రౌండ్స్, మైసూర్',
+    category: 'youth',
+    isUpcoming: true,
+    isFeatured: false,
+    registrationRequired: true,
+    maxAttendees: 50,
+    currentAttendees: 32,
+    imageUrl: '/images/events/youth-retreat.jpg',
+    organizer: 'Youth Ministry Team',
+    organizerTe: 'యువజన పరిచర్య బృందం',
+    tags: ['youth', 'retreat', 'camp', 'fellowship'],
+    price: 2500,
+    registrationOpen: true,
+    registrationDeadline: '2025-01-10T23:59:59'
+  },
+  {
+    id: 'womens-conference-2024',
+    title: 'Women\'s Annual Conference',
+    titleTe: 'మహిళల వార్షిక సమావేశం',
+    description: 'Annual women\'s conference with inspiring speakers, workshops, and fellowship time. Theme: "Daughters of the King".',
+    descriptionTe: 'ప్రేరణాత్మక వక్తలు, వర్క్‌షాప్‌లు మరియు సహవాస సమయంతో వార్షిక మహిళల సమావేశం. థీమ్: "రాజు కుమార్తెలు".',
+    date: '2025-02-08T09:00:00',
+    endDate: '2025-02-08T17:00:00',
+    location: 'Church Fellowship Hall',
+    locationTe: 'చర్చ్ సహవాస మందిరం',
+    category: 'conference',
+    isUpcoming: true,
+    isFeatured: true,
+    registrationRequired: true,
+    maxAttendees: 200,
+    currentAttendees: 89,
+    imageUrl: '/images/events/womens-conference.jpg',
+    organizer: 'Women\'s Ministry',
+    organizerTe: 'మహిళల పరిచర్య',
+    tags: ['women', 'conference', 'workshop', 'fellowship'],
+    price: 500,
+    registrationOpen: true,
+    registrationDeadline: '2025-02-05T23:59:59'
+  },
+  {
+    id: 'easter-2024',
+    title: 'Easter Celebration 2024',
+    titleTe: 'ఈస్టర్ వేడుకలు 2024',
+    description: 'Celebrate the resurrection of Jesus Christ with special worship service, communion, and fellowship meal.',
+    descriptionTe: 'ప్రత్యేక ఆరాధన సేవ, కమ్యూనియన్ మరియు సహవాస భోజనంతో యేసుక్రీస్తు పునరుత్థానాన్ని జరుపుకోండి.',
+    date: '2024-03-31T10:00:00',
+    endDate: '2024-03-31T14:00:00',
+    location: 'Main Sanctuary & Fellowship Hall',
+    locationTe: 'ప్రధాన మందిరం & సహవాస మందిరం',
+    category: 'worship',
+    isUpcoming: false,
+    isFeatured: false,
+    registrationRequired: false,
+    maxAttendees: 600,
+    currentAttendees: 450,
+    imageUrl: '/images/events/easter-2024.jpg',
+    organizer: 'Church Leadership',
+    organizerTe: 'చర్చ్ నాయకత్వం',
+    tags: ['easter', 'resurrection', 'worship', 'communion'],
+    price: 0,
+    registrationOpen: false,
+    registrationDeadline: '2024-03-30T23:59:59'
+  }
+]
+
+export const useEventStore = create<EventState>((set, get) => ({
+  events: mockEvents,
+  featuredEvents: mockEvents.filter(event => event.isFeatured),
+  upcomingEvents: mockEvents.filter(event => event.isUpcoming),
+  filters: {},
+  selectedEvent: null,
+  isLoading: false,
+  error: null,
+  
+  setEvents: (events: Event[]) => {
+    set({ 
+      events,
+      featuredEvents: events.filter(event => event.isFeatured),
+      upcomingEvents: events.filter(event => event.isUpcoming)
+    })
+  },
+  
+  setFilters: (filters: EventFilters) => {
+    set({ filters })
+  },
+  
+  setSelectedEvent: (event: Event | null) => {
+    set({ selectedEvent: event })
+  },
+  
+  fetchEvents: async () => {
+    set({ isLoading: true, error: null })
+    
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      // In a real app, this would be an API call
+      const events = mockEvents
+      
+      set({
+        events,
+        featuredEvents: events.filter(event => event.isFeatured),
+        upcomingEvents: events.filter(event => event.isUpcoming),
+        isLoading: false
+      })
+      
+    } catch (error) {
+      set({
+        error: error instanceof Error ? error.message : 'Failed to fetch events',
+        isLoading: false
+      })
+    }
+  },
+  
+  fetchEventById: async (id: string): Promise<Event | null> => {
+    set({ isLoading: true, error: null })
+    
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 500))
+      
+      const event = mockEvents.find(e => e.id === id) || null
+      
+      if (event) {
+        set({ selectedEvent: event })
+      }
+      
+      set({ isLoading: false })
+      return event
+      
+    } catch (error) {
+      set({
+        error: error instanceof Error ? error.message : 'Failed to fetch event',
+        isLoading: false
+      })
+      return null
+    }
+  },
+  
+  registerForEvent: async (eventId: string, participantData: any): Promise<boolean> => {
+    set({ isLoading: true, error: null })
+    
+    try {
+      // Simulate API call for registration
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      
+      // Find the event and update attendee count
+      const { events } = get()
+      const eventIndex = events.findIndex(e => e.id === eventId)
+      
+      if (eventIndex === -1) {
+        throw new Error('Event not found')
+      }
+      
+      const event = events[eventIndex]
+      
+      if (!event.registrationOpen) {
+        throw new Error('Registration is closed for this event')
+      }
+      
+      if (event.maxAttendees && event.currentAttendees >= event.maxAttendees) {
+        throw new Error('Event is full')
+      }
+      
+      // Update the event with new attendee count
+      const updatedEvents = [...events]
+      updatedEvents[eventIndex] = {
+        ...event,
+        currentAttendees: event.currentAttendees + 1
+      }
+      
+      set({ 
+        events: updatedEvents,
+        isLoading: false 
+      })
+      
+      // Also update other derived states
+      const featuredEvents = updatedEvents.filter(e => e.isFeatured)
+      const upcomingEvents = updatedEvents.filter(e => e.isUpcoming)
+      
+      set({ featuredEvents, upcomingEvents })
+      
+      return true
+      
+    } catch (error) {
+      set({
+        error: error instanceof Error ? error.message : 'Registration failed',
+        isLoading: false
+      })
+      return false
+    }
+  },
+  
+  getFilteredEvents: (): Event[] => {
+    const { events, filters } = get()
+    
+    return events.filter(event => {
+      // Category filter
+      if (filters.category && event.category !== filters.category) {
+        return false
+      }
+      
+      // Upcoming filter
+      if (filters.upcoming !== undefined && event.isUpcoming !== filters.upcoming) {
+        return false
+      }
+      
+      // Featured filter
+      if (filters.featured !== undefined && event.isFeatured !== filters.featured) {
+        return false
+      }
+      
+      // Date range filter
+      if (filters.dateRange) {
+        const eventDate = new Date(event.date)
+        if (eventDate < filters.dateRange.start || eventDate > filters.dateRange.end) {
+          return false
+        }
+      }
+      
+      // Registration open filter
+      if (filters.registrationOpen !== undefined && event.registrationOpen !== filters.registrationOpen) {
+        return false
+      }
+      
+      return true
+    })
+  },
+  
+  clearError: () => {
+    set({ error: null })
+  }
+}))
+
+// Utility functions for working with events
+export const isEventFull = (event: Event): boolean => {
+  return event.maxAttendees ? event.currentAttendees >= event.maxAttendees : false
+}
+
+export const isRegistrationClosed = (event: Event): boolean => {
+  if (!event.registrationOpen) return true
+  if (!event.registrationDeadline) return false
+  
+  const deadline = new Date(event.registrationDeadline)
+  return new Date() > deadline
+}
+
+export const getEventStatus = (event: Event): 'upcoming' | 'ongoing' | 'past' => {
+  const now = new Date()
+  const eventStart = new Date(event.date)
+  const eventEnd = event.endDate ? new Date(event.endDate) : eventStart
+  
+  if (now < eventStart) return 'upcoming'
+  if (now > eventEnd) return 'past'
+  return 'ongoing'
+}
+
+export const formatEventDate = (date: string, locale: string = 'en-US'): string => {
+  const eventDate = new Date(date)
+  return eventDate.toLocaleDateString(locale, {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+}
+
+export const formatEventTime = (date: string, locale: string = 'en-US'): string => {
+  const eventDate = new Date(date)
+  return eventDate.toLocaleTimeString(locale, {
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+} 

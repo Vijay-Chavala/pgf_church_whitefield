@@ -1,0 +1,1 @@
+export { SermonsPage } from './sermons-page' 
