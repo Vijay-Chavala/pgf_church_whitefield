@@ -1,5 +1,13 @@
 import { type NextRequest } from 'next/server'
 
+interface SitemapPage {
+  url: string
+  lastmod: string
+  changefreq: string
+  priority: string
+  alternates?: Array<{ href: string; hreflang: string }>
+}
+
 export async function GET(request: NextRequest) {
   const host = request.headers.get('host')
   const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http'
@@ -32,30 +40,50 @@ export async function GET(request: NextRequest) {
       lastmod: new Date().toISOString(),
       changefreq: 'weekly',
       priority: '0.8',
+      alternates: [
+        { href: `${baseUrl}/ministries/sunday-service`, hreflang: 'en' },
+        { href: `${baseUrl}/te/ministries/sunday-service`, hreflang: 'te' },
+      ],
     },
     {
       url: '/ministries/online-prayer',
       lastmod: new Date().toISOString(),
       changefreq: 'weekly',
       priority: '0.8',
+      alternates: [
+        { href: `${baseUrl}/ministries/online-prayer`, hreflang: 'en' },
+        { href: `${baseUrl}/te/ministries/online-prayer`, hreflang: 'te' },
+      ],
     },
     {
       url: '/ministries/youth-ministry',
       lastmod: new Date().toISOString(),
       changefreq: 'weekly',
       priority: '0.8',
+      alternates: [
+        { href: `${baseUrl}/ministries/youth-ministry`, hreflang: 'en' },
+        { href: `${baseUrl}/te/ministries/youth-ministry`, hreflang: 'te' },
+      ],
     },
     {
       url: '/ministries/womens-ministry',
       lastmod: new Date().toISOString(),
       changefreq: 'weekly',
       priority: '0.8',
+      alternates: [
+        { href: `${baseUrl}/ministries/womens-ministry`, hreflang: 'en' },
+        { href: `${baseUrl}/te/ministries/womens-ministry`, hreflang: 'te' },
+      ],
     },
     {
       url: '/ministries/sunday-school',
       lastmod: new Date().toISOString(),
       changefreq: 'weekly',
       priority: '0.8',
+      alternates: [
+        { href: `${baseUrl}/ministries/sunday-school`, hreflang: 'en' },
+        { href: `${baseUrl}/te/ministries/sunday-school`, hreflang: 'te' },
+      ],
     },
     {
       url: '/sermons',
@@ -81,7 +109,7 @@ export async function GET(request: NextRequest) {
 
   // In a real application, you would fetch dynamic content from your database
   // For now, we'll include some sample dynamic pages
-  const dynamicPages = [
+  const dynamicPages: SitemapPage[] = [
     // Sample event pages
     {
       url: '/events/youth-retreat-2024',
@@ -139,7 +167,7 @@ ${allPages
     <priority>${page.priority}</priority>${page.alternates
             ? page.alternates
               .map(
-                (alt) =>
+                (alt: { href: string; hreflang: string }) =>
                   `
     <xhtml:link rel="alternate" hreflang="${alt.hreflang}" href="${alt.href}" />`
               )

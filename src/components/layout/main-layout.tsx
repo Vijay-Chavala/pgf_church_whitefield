@@ -44,7 +44,8 @@ export default function MainLayout({
   loading = false,
   loadingMessage,
 }: MainLayoutProps) {
-  const { isGlobalLoading } = useLoadingStore()
+  const { states } = useLoadingStore()
+  const isGlobalLoading = states.global
   const [mounted, setMounted] = React.useState(false)
 
   // Handle client-side mounting
@@ -60,7 +61,7 @@ export default function MainLayout({
   }
 
   if (isLoading) {
-    return <PageLoading message={loadingMessage} />
+    return <PageLoading message={loadingMessage || 'Loading...'} />
   }
 
   return (

@@ -24,10 +24,10 @@ interface BreadcrumbNavProps {
   maxItems?: number
 }
 
-export default function BreadcrumbNav({ 
-  className, 
+export default function BreadcrumbNav({
+  className,
   showHome = true,
-  maxItems = 4 
+  maxItems = 4,
 }: BreadcrumbNavProps) {
   const pathname = usePathname()
   const { currentLanguage } = useLanguageStore()
@@ -36,14 +36,18 @@ export default function BreadcrumbNav({
   // Generate breadcrumb items from pathname
   const generateBreadcrumbs = React.useMemo(() => {
     const pathSegments = pathname.split('/').filter(Boolean)
-    const breadcrumbs: Array<{ label: string; href: string; isActive?: boolean }> = []
+    const breadcrumbs: Array<{
+      label: string
+      href: string
+      isActive?: boolean
+    }> = []
 
     // Add home if showHome is true
     if (showHome) {
       breadcrumbs.push({
         label: currentLanguage === 'te' ? 'హోమ్' : 'Home',
         href: '/',
-        isActive: pathname === '/'
+        isActive: pathname === '/',
       })
     }
 
@@ -54,7 +58,7 @@ export default function BreadcrumbNav({
 
     // Build breadcrumbs from path segments
     let currentPath = ''
-    
+
     pathSegments.forEach((segment, index) => {
       currentPath += `/${segment}`
       const isLast = index === pathSegments.length - 1
@@ -69,7 +73,7 @@ export default function BreadcrumbNav({
           foundItem = navItem
           break
         }
-        
+
         // Search in sub-items
         if (navItem.subItems) {
           for (const subItem of navItem.subItems) {
@@ -80,18 +84,21 @@ export default function BreadcrumbNav({
             }
           }
         }
-        
+
         if (foundItem) break
       }
 
       // Add parent item if we found a sub-item
       if (parentItem && breadcrumbs.length > 0) {
-        const parentExists = breadcrumbs.some(crumb => crumb.href === parentItem.href)
+        const parentExists = breadcrumbs.some(
+          crumb => crumb.href === parentItem.href
+        )
         if (!parentExists) {
           breadcrumbs.push({
-            label: currentLanguage === 'te' ? parentItem.labelTe : parentItem.label,
+            label:
+              currentLanguage === 'te' ? parentItem.labelTe : parentItem.label,
             href: parentItem.href,
-            isActive: false
+            isActive: false,
           })
         }
       }
@@ -101,7 +108,7 @@ export default function BreadcrumbNav({
         breadcrumbs.push({
           label: currentLanguage === 'te' ? foundItem.labelTe : foundItem.label,
           href: currentPath,
-          isActive: isLast
+          isActive: isLast,
         })
       } else {
         // Fallback: create breadcrumb from segment
@@ -109,11 +116,11 @@ export default function BreadcrumbNav({
           .split('-')
           .map(word => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ')
-        
+
         breadcrumbs.push({
           label: formattedLabel,
           href: currentPath,
-          isActive: isLast
+          isActive: isLast,
         })
       }
     })
@@ -125,7 +132,7 @@ export default function BreadcrumbNav({
       return [
         firstItem,
         { label: '...', href: '', isActive: false },
-        ...lastItems
+        ...lastItems,
       ]
     }
 
@@ -138,9 +145,11 @@ export default function BreadcrumbNav({
   }
 
   return (
-    <nav 
-      className={cn("py-3", className)} 
-      aria-label={currentLanguage === 'te' ? 'నావిగేషన్ పాత్' : 'Breadcrumb navigation'}
+    <nav
+      className={cn('py-3', className)}
+      aria-label={
+        currentLanguage === 'te' ? 'నావిగేషన్ పాత్' : 'Breadcrumb navigation'
+      }
     >
       <Breadcrumb>
         <BreadcrumbList>
@@ -149,26 +158,28 @@ export default function BreadcrumbNav({
             const isEllipsis = crumb?.label === '...'
 
             if (!crumb) return null
-            
+
             return (
               <React.Fragment key={`${crumb.href}-${index}`}>
                 <BreadcrumbItem>
                   {isEllipsis ? (
-                    <span className="text-muted-foreground">...</span>
+                    <span className='text-muted-foreground'>...</span>
                   ) : isLast ? (
-                    <BreadcrumbPage className="text-foreground font-medium">
+                    <BreadcrumbPage className='text-foreground font-medium'>
                       {crumb.label}
                     </BreadcrumbPage>
                   ) : (
-                    <BreadcrumbLink 
+                    <BreadcrumbLink
                       asChild
-                      className="text-muted-foreground hover:text-foreground transition-colors"
+                      className='text-muted-foreground hover:text-foreground transition-colors'
                     >
                       <Link href={crumb.href}>
                         {index === 0 && showHome ? (
-                          <div className="flex items-center space-x-1">
-                            <Home className="w-4 h-4" />
-                            <span className="hidden sm:inline">{crumb.label}</span>
+                          <div className='flex items-center space-x-1'>
+                            <Home className='w-4 h-4' />
+                            <span className='hidden sm:inline'>
+                              {crumb.label}
+                            </span>
                           </div>
                         ) : (
                           crumb.label
@@ -177,10 +188,10 @@ export default function BreadcrumbNav({
                     </BreadcrumbLink>
                   )}
                 </BreadcrumbItem>
-                
+
                 {!isLast && !isEllipsis && (
                   <BreadcrumbSeparator>
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className='w-4 h-4' />
                   </BreadcrumbSeparator>
                 )}
               </React.Fragment>
@@ -198,12 +209,20 @@ export function useBreadcrumbs() {
   const { currentLanguage } = useLanguageStore()
 
   const updateBreadcrumbs = React.useCallback(
-    (crumbs: Array<{ label: { en: string; te: string } | string; href: string }>) => {
+    (
+      crumbs: Array<{
+        label: { en: string; te: string } | string
+        href: string
+      }>
+    ) => {
       const formattedCrumbs = crumbs.map(crumb => ({
-        label: typeof crumb.label === 'string' 
-          ? crumb.label 
-          : (currentLanguage === 'te' ? crumb.label.te : crumb.label.en),
-        href: crumb.href
+        label:
+          typeof crumb.label === 'string'
+            ? crumb.label
+            : currentLanguage === 'te'
+              ? crumb.label.te
+              : crumb.label.en,
+        href: crumb.href,
       }))
       setBreadcrumbs(formattedCrumbs)
     },
@@ -212,11 +231,15 @@ export function useBreadcrumbs() {
 
   const addBreadcrumb = React.useCallback(
     (label: { en: string; te: string } | string, href: string) => {
-      const formattedLabel = typeof label === 'string' 
-        ? label 
-        : (currentLanguage === 'te' ? label.te : label.en)
-      
-      setBreadcrumbs((prev: Array<{ label: string; href: string }>) => [...prev, { label: formattedLabel, href }])
+      const formattedLabel =
+        typeof label === 'string'
+          ? label
+          : currentLanguage === 'te'
+            ? label.te
+            : label.en
+
+      const currentBreadcrumbs = useNavigationStore.getState().breadcrumbs
+      setBreadcrumbs([...currentBreadcrumbs, { label: formattedLabel, href }])
     },
     [setBreadcrumbs, currentLanguage]
   )
@@ -228,13 +251,15 @@ export function useBreadcrumbs() {
   return {
     updateBreadcrumbs,
     addBreadcrumb,
-    clearBreadcrumbs
+    clearBreadcrumbs,
   }
 }
 
 // Structured Data for Breadcrumbs (SEO)
-export function BreadcrumbStructuredData({ breadcrumbs }: { 
-  breadcrumbs: Array<{ label: string; href: string }> 
+export function BreadcrumbStructuredData({
+  breadcrumbs,
+}: {
+  breadcrumbs: Array<{ label: string; href: string }>
 }) {
   const structuredData = {
     '@context': 'https://schema.org',
@@ -243,14 +268,14 @@ export function BreadcrumbStructuredData({ breadcrumbs }: {
       '@type': 'ListItem',
       position: index + 1,
       name: crumb.label,
-      item: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://pgfteluguchurch.org'}${crumb.href}`
-    }))
+      item: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://pgfteluguchurch.org'}${crumb.href}`,
+    })),
   }
 
   return (
     <script
-      type="application/ld+json"
+      type='application/ld+json'
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
     />
   )
-} 
+}

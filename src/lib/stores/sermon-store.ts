@@ -13,9 +13,12 @@ const mockSermons: Sermon[] = [
       id: 'john-david',
       name: 'Pastor John David',
       nameTe: 'పాస్టర్ జాన్ దేవిడ్',
-      image: '/images/pastors/john-david.jpg',
+      title: 'Senior Pastor',
+      titleTe: 'సీనియర్ పాస్టర్',
       bio: 'Senior Pastor with over 20 years of ministry experience.',
-      bioTe: '20 సంవత్సరాలకు మించిన పరిచర్య అనుభవం ఉన్న సీనియర్ పాస్టర్.'
+      bioTe: '20 సంవత్సరాలకు మించిన పరిచర్య అనుభవం ఉన్న సీనియర్ పాస్టర్.',
+      image: '/images/pastors/john-david.jpg',
+      yearJoined: 2004
     },
     date: '2024-01-07T10:00:00',
     duration: 45,
@@ -41,9 +44,12 @@ const mockSermons: Sermon[] = [
       id: 'mary-samuel',
       name: 'Pastor Mary Samuel',
       nameTe: 'పాస్టర్ మేరీ శామ్యూల్',
-      image: '/images/pastors/mary-samuel.jpg',
+      title: 'Associate Pastor',
+      titleTe: 'అసోసియేట్ పాస్టర్',
       bio: 'Associate Pastor specializing in women\'s ministry and counseling.',
-      bioTe: 'మహిళల పరిచర్య మరియు సలహాలలో ప్రత్యేకత కలిగిన అసోసియేట్ పాస్టర్.'
+      bioTe: 'మహిళల పరిచర్య మరియు సలహాలలో ప్రత్యేకత కలిగిన అసోసియేట్ పాస్టర్.',
+      image: '/images/pastors/mary-samuel.jpg',
+      yearJoined: 2010
     },
     date: '2024-01-14T10:00:00',
     duration: 38,
@@ -69,9 +75,12 @@ const mockSermons: Sermon[] = [
       id: 'john-david',
       name: 'Pastor John David',
       nameTe: 'పాస్టర్ జాన్ దేవిడ్',
-      image: '/images/pastors/john-david.jpg',
+      title: 'Senior Pastor',
+      titleTe: 'సీనియర్ పాస్టర్',
       bio: 'Senior Pastor with over 20 years of ministry experience.',
-      bioTe: '20 సంవత్సరాలకు మించిన పరిచర్య అనుభవం ఉన్న సీనియర్ పాస్టర్.'
+      bioTe: '20 సంవత్సరాలకు మించిన పరిచర్య అనుభవం ఉన్న సీనియర్ పాస్టర్.',
+      image: '/images/pastors/john-david.jpg',
+      yearJoined: 2004
     },
     date: '2024-01-21T10:00:00',
     duration: 42,
@@ -97,9 +106,12 @@ const mockSermons: Sermon[] = [
       id: 'mary-samuel',
       name: 'Pastor Mary Samuel',
       nameTe: 'పాస్టర్ మేరీ శామ్యూల్',
-      image: '/images/pastors/mary-samuel.jpg',
+      title: 'Associate Pastor',
+      titleTe: 'అసోసియేట్ పాస్టర్',
       bio: 'Associate Pastor specializing in women\'s ministry and counseling.',
-      bioTe: 'మహిళల పరిచర్య మరియు సలహాలలో ప్రత్యేకత కలిగిన అసోసియేట్ పాస్టర్.'
+      bioTe: 'మహిళల పరిచర్య మరియు సలహాలలో ప్రత్యేకత కలిగిన అసోసియేట్ పాస్టర్.',
+      image: '/images/pastors/mary-samuel.jpg',
+      yearJoined: 2010
     },
     date: '2024-01-28T10:00:00',
     duration: 41,
@@ -167,48 +179,48 @@ export const useSermonStore = create<SermonState>((set, get) => ({
   duration: 0,
   volume: 1,
   error: null,
-  
+
   setSermons: (sermons: Sermon[]) => {
-    set({ 
+    set({
       sermons,
       featuredSermons: sermons.slice(0, 3)
     })
   },
-  
+
   setSeries: (series: SermonSeries[]) => {
     set({ series })
   },
-  
+
   setCurrentSermon: (sermon: Sermon | null) => {
-    set({ 
+    set({
       currentSermon: sermon,
       duration: sermon?.duration ? sermon.duration * 60 : 0, // Convert minutes to seconds
       currentTime: 0,
       isPlaying: false
     })
   },
-  
+
   setCurrentSeries: (series: SermonSeries | null) => {
     set({ currentSeries: series })
   },
-  
+
   setFilters: (filters: SermonFilters) => {
     set({ filters })
   },
-  
+
   fetchSermons: async () => {
     set({ isLoading: true, error: null })
-    
+
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
-      
+
       set({
         sermons: mockSermons,
         featuredSermons: mockSermons.slice(0, 3),
         isLoading: false
       })
-      
+
     } catch (error) {
       set({
         error: error instanceof Error ? error.message : 'Failed to fetch sermons',
@@ -216,27 +228,27 @@ export const useSermonStore = create<SermonState>((set, get) => ({
       })
     }
   },
-  
+
   fetchSermonById: async (id: string): Promise<Sermon | null> => {
     set({ isLoading: true, error: null })
-    
+
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 500))
-      
+
       const sermon = mockSermons.find(s => s.id === id) || null
-      
+
       if (sermon) {
-        set({ 
+        set({
           currentSermon: sermon,
           duration: sermon.duration * 60, // Convert minutes to seconds
           currentTime: 0
         })
       }
-      
+
       set({ isLoading: false })
       return sermon
-      
+
     } catch (error) {
       set({
         error: error instanceof Error ? error.message : 'Failed to fetch sermon',
@@ -245,7 +257,7 @@ export const useSermonStore = create<SermonState>((set, get) => ({
       return null
     }
   },
-  
+
   playSermon: (sermon: Sermon) => {
     set({
       currentSermon: sermon,
@@ -253,10 +265,10 @@ export const useSermonStore = create<SermonState>((set, get) => ({
       duration: sermon.duration * 60, // Convert minutes to seconds
       error: null
     })
-    
+
     // In a real app, this would interface with an audio player
     console.log(`Playing sermon: ${sermon.title}`)
-    
+
     // Dispatch event for audio player component
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('sermonPlay', {
@@ -264,22 +276,22 @@ export const useSermonStore = create<SermonState>((set, get) => ({
       }))
     }
   },
-  
+
   pauseSermon: () => {
     set({ isPlaying: false })
-    
+
     // Dispatch event for audio player component
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('sermonPause'))
     }
   },
-  
+
   seekTo: (time: number) => {
     const { duration } = get()
     const clampedTime = Math.max(0, Math.min(time, duration))
-    
+
     set({ currentTime: clampedTime })
-    
+
     // Dispatch event for audio player component
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('sermonSeek', {
@@ -287,11 +299,11 @@ export const useSermonStore = create<SermonState>((set, get) => ({
       }))
     }
   },
-  
+
   setVolume: (volume: number) => {
     const clampedVolume = Math.max(0, Math.min(volume, 1))
     set({ volume: clampedVolume })
-    
+
     // Dispatch event for audio player component
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('sermonVolumeChange', {
@@ -299,21 +311,21 @@ export const useSermonStore = create<SermonState>((set, get) => ({
       }))
     }
   },
-  
+
   getFilteredSermons: (): Sermon[] => {
     const { sermons, filters } = get()
-    
+
     return sermons.filter(sermon => {
       // Pastor filter
       if (filters.pastor && sermon.pastor.id !== filters.pastor) {
         return false
       }
-      
+
       // Series filter
       if (filters.series && sermon.series !== filters.series) {
         return false
       }
-      
+
       // Date range filter
       if (filters.dateRange) {
         const sermonDate = new Date(sermon.date)
@@ -321,59 +333,59 @@ export const useSermonStore = create<SermonState>((set, get) => ({
           return false
         }
       }
-      
+
       // Tags filter
       if (filters.tags && filters.tags.length > 0) {
-        const hasMatchingTag = filters.tags.some(filterTag => 
+        const hasMatchingTag = filters.tags.some(filterTag =>
           sermon.tags.some(sermonTag => sermonTag.toLowerCase().includes(filterTag.toLowerCase()))
         )
         if (!hasMatchingTag) {
           return false
         }
       }
-      
+
       // Has audio filter
       if (filters.hasAudio !== undefined && !!sermon.audioUrl !== filters.hasAudio) {
         return false
       }
-      
+
       // Has video filter
       if (filters.hasVideo !== undefined && !!sermon.videoUrl !== filters.hasVideo) {
         return false
       }
-      
+
       return sermon.isPublished
     })
   },
-  
+
   incrementViews: (sermonId: string) => {
     const { sermons } = get()
-    const updatedSermons = sermons.map(sermon => 
-      sermon.id === sermonId 
+    const updatedSermons = sermons.map(sermon =>
+      sermon.id === sermonId
         ? { ...sermon, views: sermon.views + 1 }
         : sermon
     )
-    
+
     set({ sermons: updatedSermons })
-    
+
     // In a real app, this would make an API call to track the view
     console.log(`Incremented views for sermon: ${sermonId}`)
   },
-  
+
   incrementDownloads: (sermonId: string) => {
     const { sermons } = get()
-    const updatedSermons = sermons.map(sermon => 
-      sermon.id === sermonId 
+    const updatedSermons = sermons.map(sermon =>
+      sermon.id === sermonId
         ? { ...sermon, downloads: sermon.downloads + 1 }
         : sermon
     )
-    
+
     set({ sermons: updatedSermons })
-    
+
     // In a real app, this would make an API call to track the download
     console.log(`Incremented downloads for sermon: ${sermonId}`)
   },
-  
+
   clearError: () => {
     set({ error: null })
   }
@@ -383,7 +395,7 @@ export const useSermonStore = create<SermonState>((set, get) => ({
 export const formatSermonDuration = (minutes: number): string => {
   const hours = Math.floor(minutes / 60)
   const mins = minutes % 60
-  
+
   if (hours > 0) {
     return `${hours}h ${mins}m`
   }

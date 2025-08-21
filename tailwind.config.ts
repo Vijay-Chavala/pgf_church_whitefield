@@ -240,7 +240,7 @@ const config: Config = {
     },
   },
   plugins: [
-    function ({ addUtilities }) {
+    function ({ addUtilities }: { addUtilities: any }) {
       addUtilities({
         '.gradient-primary': {
           background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',

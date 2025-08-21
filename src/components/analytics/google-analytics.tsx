@@ -49,7 +49,7 @@ export function useGAPageView() {
     if (!GA_TRACKING_ID || !window.gtag) return
 
     const url = pathname + (searchParams.toString() ? `?${searchParams}` : '')
-    
+
     window.gtag('config', GA_TRACKING_ID, {
       page_path: url,
       page_title: document.title,
@@ -102,7 +102,7 @@ export const churchAnalytics = {
       action: 'register_event',
       category: GA_CATEGORIES.EVENT,
       label: eventName,
-      value: cost,
+      value: cost || 0,
     })
   },
 
@@ -205,8 +205,8 @@ export function trackWebVitals() {
   if (!GA_TRACKING_ID || typeof window === 'undefined') return
 
   // Track Core Web Vitals
-  import('web-vitals').then(({ onCLS, onFID, onFCP, onLCP, onTTFB }) => {
-    onCLS((metric) => {
+  import('web-vitals').then(({ onCLS, onFCP, onLCP, onTTFB }) => {
+    onCLS(metric => {
       window.gtag('event', 'web_vitals', {
         event_category: 'Web Vitals',
         event_label: 'CLS',
@@ -215,16 +215,10 @@ export function trackWebVitals() {
       })
     })
 
-    onFID((metric) => {
-      window.gtag('event', 'web_vitals', {
-        event_category: 'Web Vitals',
-        event_label: 'FID',
-        value: Math.round(metric.value),
-        non_interaction: true,
-      })
-    })
+    // Note: FID has been replaced by INP in web-vitals v3
+    // onFID is no longer available
 
-    onFCP((metric) => {
+    onFCP(metric => {
       window.gtag('event', 'web_vitals', {
         event_category: 'Web Vitals',
         event_label: 'FCP',
@@ -233,7 +227,7 @@ export function trackWebVitals() {
       })
     })
 
-    onLCP((metric) => {
+    onLCP(metric => {
       window.gtag('event', 'web_vitals', {
         event_category: 'Web Vitals',
         event_label: 'LCP',
@@ -242,7 +236,7 @@ export function trackWebVitals() {
       })
     })
 
-    onTTFB((metric) => {
+    onTTFB(metric => {
       window.gtag('event', 'web_vitals', {
         event_category: 'Web Vitals',
         event_label: 'TTFB',
@@ -266,11 +260,11 @@ export default function GoogleAnalytics({ children }: GoogleAnalyticsProps) {
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-        strategy="afterInteractive"
+        strategy='afterInteractive'
       />
       <Script
-        id="google-analytics"
-        strategy="afterInteractive"
+        id='google-analytics'
+        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -303,4 +297,4 @@ export default function GoogleAnalytics({ children }: GoogleAnalyticsProps) {
       {children}
     </>
   )
-} 
+}

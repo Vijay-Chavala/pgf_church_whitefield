@@ -109,11 +109,11 @@ export const useNavigationStore = create<NavigationState>((set, get) => ({
     const updatedItems: NavigationItem[] = navigationItems.map(item => ({
       ...item,
       isActive: item.id === section || item.href === section,
-      subItems: item.subItems?.map(subItem => ({
+      subItems: item.subItems ? item.subItems.map(subItem => ({
         ...subItem,
         isActive: subItem.id === section || subItem.href === section
-      })) || undefined
-    }))
+      })) : undefined
+    })) as NavigationItem[]
 
     set({ navigationItems: updatedItems })
   },

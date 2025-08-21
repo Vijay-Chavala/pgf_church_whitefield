@@ -92,21 +92,21 @@ const searchableContent = {
 // Search algorithm with fuzzy matching
 const performSearch = (query: string, filters: SearchFilters): SearchResult[] => {
   if (!query.trim()) return []
-  
+
   const searchTerm = query.toLowerCase().trim()
   const results: SearchResult[] = []
-  
+
   // Helper function to calculate relevance score
   const calculateRelevance = (
-    title: string, 
-    titleTe: string, 
-    description: string, 
+    title: string,
+    titleTe: string,
+    description: string,
     descriptionTe: string,
     tags: string[]
   ): { score: number; highlights: string[] } => {
     let score = 0
     const highlights: string[] = []
-    
+
     // Title exact match gets highest score
     if (title.toLowerCase().includes(searchTerm)) {
       score += 100
@@ -116,7 +116,7 @@ const performSearch = (query: string, filters: SearchFilters): SearchResult[] =>
       score += 100
       highlights.push(titleTe)
     }
-    
+
     // Description match gets medium score
     if (description.toLowerCase().includes(searchTerm)) {
       score += 50
@@ -126,7 +126,7 @@ const performSearch = (query: string, filters: SearchFilters): SearchResult[] =>
       score += 50
       highlights.push(descriptionTe.substring(0, 100) + '...')
     }
-    
+
     // Tag match gets lower score
     tags.forEach(tag => {
       if (tag.toLowerCase().includes(searchTerm)) {
@@ -134,20 +134,20 @@ const performSearch = (query: string, filters: SearchFilters): SearchResult[] =>
         highlights.push(`Tag: ${tag}`)
       }
     })
-    
+
     // Fuzzy matching for partial words
     const words = searchTerm.split(' ')
     words.forEach(word => {
       if (word.length > 2) {
         const titleWords = title.toLowerCase().split(' ')
         const descWords = description.toLowerCase().split(' ')
-        
+
         titleWords.forEach(titleWord => {
           if (titleWord.includes(word) && titleWord !== word) {
             score += 10
           }
         })
-        
+
         descWords.forEach(descWord => {
           if (descWord.includes(word) && descWord !== word) {
             score += 5
@@ -155,17 +155,17 @@ const performSearch = (query: string, filters: SearchFilters): SearchResult[] =>
         })
       }
     })
-    
+
     return { score, highlights }
   }
-  
+
   // Search through all content types
   Object.entries(searchableContent).forEach(([contentType, items]) => {
     // Apply category filter
     if (filters.category && filters.category !== 'all' && contentType !== filters.category) {
       return
     }
-    
+
     items.forEach(item => {
       const { score, highlights } = calculateRelevance(
         item.title,
@@ -174,7 +174,7 @@ const performSearch = (query: string, filters: SearchFilters): SearchResult[] =>
         item.descriptionTe,
         item.tags || []
       )
-      
+
       if (score > 0) {
         // Apply date filter if specified
         if (filters.dateRange && 'date' in item && item.date) {
@@ -183,18 +183,18 @@ const performSearch = (query: string, filters: SearchFilters): SearchResult[] =>
             return
           }
         }
-        
+
         // Apply tag filter if specified
         if (filters.tags && filters.tags.length > 0) {
           const itemTags = item.tags || []
-          const hasMatchingTag = filters.tags.some(filterTag => 
+          const hasMatchingTag = filters.tags.some(filterTag =>
             itemTags.some(itemTag => itemTag.toLowerCase().includes(filterTag.toLowerCase()))
           )
           if (!hasMatchingTag) {
             return
           }
         }
-        
+
         results.push({
           id: item.id,
           title: item.title,
@@ -203,14 +203,14 @@ const performSearch = (query: string, filters: SearchFilters): SearchResult[] =>
           descriptionTe: item.descriptionTe,
           type: item.type,
           url: item.url,
-          date: 'date' in item ? item.date : undefined,
+          date: 'date' in item ? item.date || '' : '',
           relevanceScore: score,
           highlights
         })
       }
     })
   })
-  
+
   // Sort by relevance score
   return results.sort((a, b) => b.relevanceScore - a.relevanceScore)
 }
@@ -218,10 +218,10 @@ const performSearch = (query: string, filters: SearchFilters): SearchResult[] =>
 // Generate search suggestions based on query
 const generateSuggestions = (query: string): string[] => {
   if (!query || query.length < 2) return []
-  
+
   const suggestions = new Set<string>()
   const searchTerm = query.toLowerCase()
-  
+
   // Extract common terms from all content
   Object.values(searchableContent).flat().forEach(item => {
     // Add title words
@@ -230,7 +230,7 @@ const generateSuggestions = (query: string): string[] => {
         suggestions.add(word)
       }
     })
-    
+
     // Add tags
     if (item.tags) {
       item.tags.forEach(tag => {
@@ -240,7 +240,7 @@ const generateSuggestions = (query: string): string[] => {
       })
     }
   })
-  
+
   return Array.from(suggestions).slice(0, 5)
 }
 
@@ -258,10 +258,10 @@ export const useSearchStore = create<SearchState>()(
       totalResults: 0,
       suggestions: [],
       recentSearches: [],
-      
+
       setQuery: (query: string) => {
         set({ query })
-        
+
         // Generate suggestions for non-empty queries
         if (query.length > 1) {
           const suggestions = generateSuggestions(query)
@@ -270,43 +270,43 @@ export const useSearchStore = create<SearchState>()(
           set({ suggestions: [] })
         }
       },
-      
+
       setFilters: (filters: SearchFilters) => {
         set({ filters })
-        
+
         // Re-run search if there's an active query
         const { query } = get()
         if (query && get().hasSearched) {
           get().performSearch(query, filters)
         }
       },
-      
+
       performSearch: async (query: string, filters?: SearchFilters) => {
         const searchFilters = filters || get().filters
-        
-        set({ 
+
+        set({
           isSearching: true,
-          query 
+          query
         })
-        
+
         // Simulate API delay
         await new Promise(resolve => setTimeout(resolve, 300))
-        
+
         try {
           const results = performSearch(query, searchFilters)
-          
+
           set({
             results,
             totalResults: results.length,
             isSearching: false,
             hasSearched: true
           })
-          
+
           // Add to recent searches if it's a meaningful query
           if (query.length > 2) {
             get().addRecentSearch(query)
           }
-          
+
         } catch (error) {
           console.error('Search error:', error)
           set({
@@ -317,7 +317,7 @@ export const useSearchStore = create<SearchState>()(
           })
         }
       },
-      
+
       clearSearch: () => {
         set({
           query: '',
@@ -327,17 +327,17 @@ export const useSearchStore = create<SearchState>()(
           suggestions: []
         })
       },
-      
+
       addRecentSearch: (query: string) => {
         const { recentSearches } = get()
         const updatedSearches = [
           query,
           ...recentSearches.filter(search => search !== query)
         ].slice(0, 10) // Keep only last 10 searches
-        
+
         set({ recentSearches: updatedSearches })
       },
-      
+
       clearRecentSearches: () => {
         set({ recentSearches: [] })
       }
