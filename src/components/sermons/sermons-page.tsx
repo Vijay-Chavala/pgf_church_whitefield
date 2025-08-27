@@ -268,13 +268,11 @@ export function SermonsPage() {
                 <SermonCard
                   key={sermon.id}
                   sermon={sermon}
-                  index={index}
                   viewMode={viewMode}
                   currentLanguage={currentLanguage}
                   getText={getText}
                   formatDate={formatDate}
                   formatDuration={formatDuration}
-                  watchOnYoutubeText={getText(pageContent.watchOnYoutube)}
                 />
               ))}
             </div>
@@ -287,31 +285,27 @@ export function SermonsPage() {
 
 interface SermonCardProps {
   sermon: SermonData
-  index: number
   viewMode: 'grid' | 'list'
   currentLanguage: string
   getText: (textObj: { en: string; te: string }) => string
   formatDate: (dateString: string) => string
   formatDuration: (minutes?: number) => string
-  watchOnYoutubeText: string
 }
 
 function SermonCard({
   sermon,
-  index,
   viewMode,
   currentLanguage,
   getText,
   formatDate,
   formatDuration,
-  watchOnYoutubeText,
 }: SermonCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 0.6 }}
       className='group'
     >
       <Card
@@ -412,7 +406,9 @@ function SermonCard({
               }
             >
               <BookOpen className='w-4 h-4 mr-2' />
-              {watchOnYoutubeText}
+              {currentLanguage === 'te'
+                ? 'YouTube లో చూడండి'
+                : 'Watch on YouTube'}
             </Button>
           </CardContent>
         </div>
