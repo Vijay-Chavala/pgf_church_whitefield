@@ -1,8 +1,9 @@
 'use client'
 
+import { Suspense } from 'react'
 import Script from 'next/script'
-import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID
 
@@ -40,8 +41,8 @@ declare global {
   }
 }
 
-// Track page views
-export function useGAPageView() {
+// Track page views with Suspense wrapper
+function GAPageViewTracker() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -56,6 +57,17 @@ export function useGAPageView() {
       page_location: window.location.href,
     })
   }, [pathname, searchParams])
+
+  return null
+}
+
+// Track page views
+export function useGAPageView() {
+  return (
+    <Suspense fallback={null}>
+      <GAPageViewTracker />
+    </Suspense>
+  )
 }
 
 // Track custom events
