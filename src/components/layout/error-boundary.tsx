@@ -78,7 +78,7 @@ class ErrorBoundaryClass extends React.Component<
     })
 
     // Log error
-    console.error('Error caught by boundary:', error, errorInfo)
+    // console.error('Error caught by boundary:', error, errorInfo)
 
     // Call custom error handler
     if (this.props.onError) {
@@ -439,7 +439,7 @@ export function useErrorHandler() {
 
   const handleError = React.useCallback((error: Error) => {
     setError(error)
-    console.error('Error handled:', error)
+    // console.error('Error handled:', error)
 
     // Send to monitoring service
     if (

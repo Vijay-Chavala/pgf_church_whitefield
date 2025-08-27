@@ -307,7 +307,7 @@ export const useSearchStore = create<SearchState>()(
             get().addRecentSearch(query)
           }
 
-        } catch (error) {
+        } catch (_error) {
           // Silently handle search error
           set({
             results: [],

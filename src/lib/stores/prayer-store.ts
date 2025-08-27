@@ -381,7 +381,7 @@ export const enablePrayerAutoRefresh = (intervalMinutes: number = 5) => {
 
   const interval = setInterval(() => {
     const { fetchPublicRequests } = usePrayerStore.getState()
-    fetchPublicRequests().catch(console.error)
+    fetchPublicRequests().catch(() => { })
   }, intervalMinutes * 60 * 1000)
 
   return () => clearInterval(interval)

@@ -71,7 +71,7 @@ export function GallerySection({
         <h2 className='text-3xl md:text-4xl font-bold text-slate-800 mb-4 text-center'>
           {getText(title)}
         </h2>
-        <div className='w-24 h-1 bg-primary mx-auto rounded-full mb-8'></div>
+        <div className='w-24 h-1 bg-primary mx-auto rounded-full mb-8' />
         <p className='text-center text-slate-600 text-lg max-w-2xl mx-auto'>
           {categoryId === 'church'
             ? getText({

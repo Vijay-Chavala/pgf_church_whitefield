@@ -360,7 +360,7 @@ export const loadDraft = (): boolean => {
       useContactStore.getState().setFormData(draftData)
       return true
     }
-  } catch (error) {
+  } catch (_error) {
     // Silently handle draft loading error
   }
 

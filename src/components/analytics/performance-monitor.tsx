@@ -157,8 +157,8 @@ function monitorLongTasks() {
     })
 
     observer.observe({ entryTypes: ['longtask'] })
-  } catch (error) {
-    console.warn('Long task monitoring not supported:', error)
+  } catch (_error) {
+    // console.warn('Long task monitoring not supported:', error)
   }
 }
 
@@ -169,10 +169,11 @@ function monitorMemoryUsage() {
   const memory = (performance as any).memory
   if (!memory) return
 
+  const { usedJSHeapSize, totalJSHeapSize, jsHeapSizeLimit } = memory
   const memoryInfo = {
-    usedJSHeapSize: memory.usedJSHeapSize,
-    totalJSHeapSize: memory.totalJSHeapSize,
-    jsHeapSizeLimit: memory.jsHeapSizeLimit,
+    usedJSHeapSize,
+    totalJSHeapSize,
+    jsHeapSizeLimit,
   }
 
   // Send memory usage if it's high (over 80% of limit)
@@ -207,11 +208,12 @@ function monitorNetworkQuality() {
   const connection = (navigator as any).connection
   if (!connection) return
 
+  const { effectiveType, downlink, rtt, saveData } = connection
   const networkInfo = {
-    effectiveType: connection.effectiveType,
-    downlink: connection.downlink,
-    rtt: connection.rtt,
-    saveData: connection.saveData,
+    effectiveType,
+    downlink,
+    rtt,
+    saveData,
   }
 
   if (window.gtag) {

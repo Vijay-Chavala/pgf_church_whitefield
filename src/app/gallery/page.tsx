@@ -184,7 +184,7 @@ export default function GalleryPage() {
                 {/* Separator between categories */}
                 {index < filteredCategories.length - 1 && (
                   <div className='my-20'>
-                    <div className='w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent'></div>
+                    <div className='w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent' />
                   </div>
                 )}
               </motion.div>

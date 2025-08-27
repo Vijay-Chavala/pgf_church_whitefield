@@ -353,7 +353,7 @@ export function HeroBanner() {
             className='mb-8'
           >
             <div className='relative'>
-              <div className='animate-spin rounded-full h-24 w-24 border-4 border-white/20 border-t-white mx-auto mb-6'></div>
+              <div className='animate-spin rounded-full h-24 w-24 border-4 border-white/20 border-t-white mx-auto mb-6' />
               <div className='absolute inset-0 flex items-center justify-center'>
                 <span className='text-sm font-bold'>
                   {Math.round(loadingProgress)}%
@@ -630,11 +630,11 @@ export function HeroBanner() {
         >
           {isAutoPlaying ? (
             <div className='w-4 h-4 flex space-x-1'>
-              <div className='w-1.5 h-4 bg-white rounded-sm'></div>
-              <div className='w-1.5 h-4 bg-white rounded-sm'></div>
+              <div className='w-1.5 h-4 bg-white rounded-sm' />
+              <div className='w-1.5 h-4 bg-white rounded-sm' />
             </div>
           ) : (
-            <div className='w-4 h-4 border-l-4 border-white border-y-2 border-y-transparent border-r-0 ml-1'></div>
+            <div className='w-4 h-4 border-l-4 border-white border-y-2 border-y-transparent border-r-0 ml-1' />
           )}
         </button>
       </div>

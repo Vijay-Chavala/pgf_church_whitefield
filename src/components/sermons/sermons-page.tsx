@@ -303,8 +303,8 @@ function SermonCard({
   currentLanguage,
   getText,
   formatDate,
-  formatDuration,
-  watchOnYoutubeText,
+  _formatDuration,
+  _watchOnYoutubeText,
 }: SermonCardProps) {
   return (
     <motion.div

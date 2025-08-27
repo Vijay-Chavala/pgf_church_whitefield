@@ -344,6 +344,6 @@ export const restoreLoadingState = () => {
       })
     }
   } catch (error) {
-    console.error('Error restoring loading state:', error)
+    // console.error('Error restoring loading state:', error)
   }
 } 
