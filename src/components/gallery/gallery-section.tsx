@@ -110,7 +110,7 @@ export function GallerySection({
                   <h3 className='text-2xl font-semibold text-slate-700 mb-2'>
                     {subcategory}
                   </h3>
-                  <div className='w-16 h-0.5 bg-primary/60 mx-auto rounded-full'></div>
+                  <div className='w-16 h-0.5 bg-primary/60 mx-auto rounded-full' />
                 </div>
 
                 {/* Images Grid */}
@@ -121,7 +121,7 @@ export function GallerySection({
                   viewport={{ once: true }}
                   className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'
                 >
-                  {subcategoryImages.map((image, index) => (
+                  {subcategoryImages.map(image => (
                     <motion.div
                       key={image.id}
                       variants={itemVariants}
@@ -138,7 +138,7 @@ export function GallerySection({
                           />
 
                           {/* Hover Overlay */}
-                          <div className='absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300'></div>
+                          <div className='absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300' />
 
                           {/* View Icon */}
                           <div className='absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>

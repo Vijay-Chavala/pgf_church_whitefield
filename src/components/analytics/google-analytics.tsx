@@ -33,10 +33,10 @@ declare global {
   interface Window {
     gtag: (
       command: 'config' | 'event' | 'js' | 'consent',
-      targetId: string | Date,
-      config?: Record<string, any>
+      _targetId: string | Date,
+      _config?: Record<string, unknown>
     ) => void
-    dataLayer: Record<string, any>[]
+    dataLayer: Record<string, unknown>[]
   }
 }
 
@@ -65,7 +65,7 @@ export function trackGAEvent({ action, category, label, value }: GAEvent) {
   window.gtag('event', action, {
     event_category: category,
     event_label: label,
-    value: value,
+    value,
   })
 }
 
@@ -253,7 +253,7 @@ interface GoogleAnalyticsProps {
 
 export default function GoogleAnalytics({ children }: GoogleAnalyticsProps) {
   if (!GA_TRACKING_ID) {
-    return <>{children}</>
+    return children
   }
 
   return (

@@ -72,14 +72,14 @@ export const usePrayerStore = create<PrayerRequestState>()(
       currentRequest: null,
       isSubmitting: false,
       error: null,
-      
+
       submitRequest: async (requestData): Promise<boolean> => {
         set({ isSubmitting: true, error: null })
-        
+
         try {
           // Simulate API call
           await new Promise(resolve => setTimeout(resolve, 1500))
-          
+
           const newRequest: PrayerRequest = {
             ...requestData,
             id: `prayer-${Date.now()}`,
@@ -87,28 +87,28 @@ export const usePrayerStore = create<PrayerRequestState>()(
             prayerCount: 0,
             status: 'pending'
           }
-          
+
           const { requests, publicRequests } = get()
-          
+
           // Add to all requests
           const updatedRequests = [...requests, newRequest]
-          
+
           // Add to public requests if not anonymous and public
-          const updatedPublicRequests = newRequest.isPublic 
+          const updatedPublicRequests = newRequest.isPublic
             ? [...publicRequests, newRequest]
             : publicRequests
-          
+
           set({
             requests: updatedRequests,
             publicRequests: updatedPublicRequests,
             isSubmitting: false
           })
-          
+
           // In a real app, this would make an API call
-          console.log('Prayer request submitted:', newRequest)
-          
+          // console.log('Prayer request submitted:', newRequest)
+
           return true
-          
+
         } catch (error) {
           set({
             error: error instanceof Error ? error.message : 'Failed to submit prayer request',
@@ -117,33 +117,33 @@ export const usePrayerStore = create<PrayerRequestState>()(
           return false
         }
       },
-      
+
       prayForRequest: async (requestId: string): Promise<void> => {
         try {
           // Simulate API call
           await new Promise(resolve => setTimeout(resolve, 300))
-          
+
           const { requests, publicRequests } = get()
-          
+
           // Update prayer count in all requests
           const updatedRequests = requests.map(req =>
             req.id === requestId
               ? { ...req, prayerCount: req.prayerCount + 1 }
               : req
           )
-          
+
           // Update prayer count in public requests
           const updatedPublicRequests = publicRequests.map(req =>
             req.id === requestId
               ? { ...req, prayerCount: req.prayerCount + 1 }
               : req
           )
-          
+
           set({
             requests: updatedRequests,
             publicRequests: updatedPublicRequests
           })
-          
+
           // Store in localStorage to prevent duplicate prayers
           if (typeof window !== 'undefined') {
             const prayedRequests = JSON.parse(
@@ -154,75 +154,75 @@ export const usePrayerStore = create<PrayerRequestState>()(
               localStorage.setItem('prayed-requests', JSON.stringify(prayedRequests))
             }
           }
-          
-          console.log('Prayed for request:', requestId)
-          
+
+          // console.log('Prayed for request:', requestId)
+
         } catch (error) {
           set({
             error: error instanceof Error ? error.message : 'Failed to record prayer'
           })
         }
       },
-      
+
       updateRequestStatus: async (
-        requestId: string, 
-        status: PrayerRequest['status'], 
+        requestId: string,
+        status: PrayerRequest['status'],
         testimonial?: string
       ): Promise<boolean> => {
         set({ isSubmitting: true, error: null })
-        
+
         try {
           // Simulate API call
           await new Promise(resolve => setTimeout(resolve, 1000))
-          
+
           const { requests, publicRequests, myRequests } = get()
           const now = new Date().toISOString()
-          
+
           // Update in all requests
           const updatedRequests = requests.map(req =>
             req.id === requestId
-              ? { 
-                  ...req, 
-                  status,
-                  answeredDate: status === 'answered' ? now : (req.answeredDate || undefined),
-                  testimonial: testimonial || req.testimonial || undefined
-                } as PrayerRequest
+              ? {
+                ...req,
+                status,
+                answeredDate: status === 'answered' ? now : (req.answeredDate || undefined),
+                testimonial: testimonial || req.testimonial || undefined
+              } as PrayerRequest
               : req
           )
-          
+
           // Update in public requests
           const updatedPublicRequests = publicRequests.map(req =>
             req.id === requestId
-              ? { 
-                  ...req, 
-                  status,
-                  answeredDate: status === 'answered' ? now : (req.answeredDate || undefined),
-                  testimonial: testimonial || req.testimonial || undefined
-                } as PrayerRequest
+              ? {
+                ...req,
+                status,
+                answeredDate: status === 'answered' ? now : (req.answeredDate || undefined),
+                testimonial: testimonial || req.testimonial || undefined
+              } as PrayerRequest
               : req
           )
-          
+
           // Update in my requests
           const updatedMyRequests = myRequests.map(req =>
             req.id === requestId
-              ? { 
-                  ...req, 
-                  status,
-                  answeredDate: status === 'answered' ? now : (req.answeredDate || undefined),
-                  testimonial: testimonial || req.testimonial || undefined
-                } as PrayerRequest
+              ? {
+                ...req,
+                status,
+                answeredDate: status === 'answered' ? now : (req.answeredDate || undefined),
+                testimonial: testimonial || req.testimonial || undefined
+              } as PrayerRequest
               : req
           )
-          
+
           set({
             requests: updatedRequests,
             publicRequests: updatedPublicRequests,
             myRequests: updatedMyRequests,
             isSubmitting: false
           })
-          
+
           return true
-          
+
         } catch (error) {
           set({
             error: error instanceof Error ? error.message : 'Failed to update request status',
@@ -231,22 +231,22 @@ export const usePrayerStore = create<PrayerRequestState>()(
           return false
         }
       },
-      
+
       fetchPublicRequests: async (): Promise<void> => {
         set({ isSubmitting: true, error: null })
-        
+
         try {
           // Simulate API call
           await new Promise(resolve => setTimeout(resolve, 800))
-          
+
           // Filter public requests
           const publicRequests = mockPrayerRequests.filter(req => req.isPublic)
-          
+
           set({
             publicRequests,
             isSubmitting: false
           })
-          
+
         } catch (error) {
           set({
             error: error instanceof Error ? error.message : 'Failed to fetch prayer requests',
@@ -254,22 +254,22 @@ export const usePrayerStore = create<PrayerRequestState>()(
           })
         }
       },
-      
+
       fetchMyRequests: async (email: string): Promise<void> => {
         set({ isSubmitting: true, error: null })
-        
+
         try {
           // Simulate API call
           await new Promise(resolve => setTimeout(resolve, 600))
-          
+
           // Filter requests by email
           const myRequests = mockPrayerRequests.filter(req => req.email === email)
-          
+
           set({
             myRequests,
             isSubmitting: false
           })
-          
+
         } catch (error) {
           set({
             error: error instanceof Error ? error.message : 'Failed to fetch your requests',
@@ -277,11 +277,11 @@ export const usePrayerStore = create<PrayerRequestState>()(
           })
         }
       },
-      
+
       setCurrentRequest: (request: PrayerRequest | null) => {
         set({ currentRequest: request })
       },
-      
+
       clearError: () => {
         set({ error: null })
       }
@@ -305,7 +305,7 @@ export const formatPrayerDate = (date: string, locale: string = 'en-US'): string
   const requestDate = new Date(date)
   const now = new Date()
   const diffInDays = Math.floor((now.getTime() - requestDate.getTime()) / (1000 * 60 * 60 * 24))
-  
+
   if (diffInDays === 0) {
     return locale === 'te' ? 'ఈ రోజు' : 'Today'
   } else if (diffInDays === 1) {
@@ -330,7 +330,7 @@ export const getPrayerCategoryLabel = (category: PrayerRequest['category'], lang
     salvation: { en: 'Salvation', te: 'మోక్షం' },
     other: { en: 'Other', te: 'ఇతర' }
   }
-  
+
   return labels[category][language]
 }
 
@@ -340,23 +340,23 @@ export const getPrayerStatusLabel = (status: PrayerRequest['status'], language: 
     praying: { en: 'Praying', te: 'ప్రార్థనలో' },
     answered: { en: 'Answered', te: 'జవాబు వచ్చింది' }
   }
-  
+
   return labels[status][language]
 }
 
 export const canUserPrayForRequest = (requestId: string): boolean => {
   if (typeof window === 'undefined') return true
-  
+
   const prayedRequests = JSON.parse(
     localStorage.getItem('prayed-requests') || '[]'
   )
-  
+
   return !prayedRequests.includes(requestId)
 }
 
 export const getPrayerRequestStats = () => {
   const { requests } = usePrayerStore.getState()
-  
+
   return {
     total: requests.length,
     pending: requests.filter(req => req.status === 'pending').length,
@@ -378,11 +378,11 @@ export const getPrayerRequestStats = () => {
 // Auto-refresh public requests periodically
 export const enablePrayerAutoRefresh = (intervalMinutes: number = 5) => {
   if (typeof window === 'undefined') return
-  
+
   const interval = setInterval(() => {
     const { fetchPublicRequests } = usePrayerStore.getState()
     fetchPublicRequests().catch(console.error)
   }, intervalMinutes * 60 * 1000)
-  
+
   return () => clearInterval(interval)
 } 

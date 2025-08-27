@@ -5,25 +5,25 @@ interface ChurchStore {
   // Theme state
   isDarkMode: boolean
   toggleTheme: () => void
-  
+
   // Navigation state
   isMenuOpen: boolean
   activeSection: string
   setMenuOpen: (open: boolean) => void
   setActiveSection: (section: string) => void
-  
+
   // Language state
   currentLanguage: 'te' | 'en'
   toggleLanguage: () => void
-  
+
   // Church service state
   upcomingServices: ServiceInfo[]
   setUpcomingServices: (services: ServiceInfo[]) => void
-  
+
   // Contact form state
   isContactFormOpen: boolean
   setContactFormOpen: (open: boolean) => void
-  
+
   // Loading states
   isLoading: boolean
   setLoading: (loading: boolean) => void
@@ -48,21 +48,21 @@ const useChurchStore = create<ChurchStore>()(
       toggleTheme: () => {
         const { isDarkMode } = get()
         set({ isDarkMode: !isDarkMode }, false, 'toggleTheme')
-        
+
         // Update document class for theme switching
         if (typeof document !== 'undefined') {
           document.documentElement.classList.toggle('dark', !isDarkMode)
         }
       },
-      
+
       // Navigation state
       isMenuOpen: false,
       activeSection: 'home',
-      setMenuOpen: (open: boolean) =>
-        set({ isMenuOpen: open }, false, 'setMenuOpen'),
-      setActiveSection: (section: string) =>
-        set({ activeSection: section }, false, 'setActiveSection'),
-      
+      setMenuOpen: (_open: boolean) =>
+        set({ isMenuOpen: _open }, false, 'setMenuOpen'),
+      setActiveSection: (_section: string) =>
+        set({ activeSection: _section }, false, 'setActiveSection'),
+
       // Language state
       currentLanguage: 'en',
       toggleLanguage: () => {
@@ -73,21 +73,21 @@ const useChurchStore = create<ChurchStore>()(
           'toggleLanguage'
         )
       },
-      
+
       // Church service state
       upcomingServices: [],
-      setUpcomingServices: (services: ServiceInfo[]) =>
-        set({ upcomingServices: services }, false, 'setUpcomingServices'),
-      
+      setUpcomingServices: (_services: ServiceInfo[]) =>
+        set({ upcomingServices: _services }, false, 'setUpcomingServices'),
+
       // Contact form state
       isContactFormOpen: false,
-      setContactFormOpen: (open: boolean) =>
-        set({ isContactFormOpen: open }, false, 'setContactFormOpen'),
-      
+      setContactFormOpen: (_open: boolean) =>
+        set({ isContactFormOpen: _open }, false, 'setContactFormOpen'),
+
       // Loading states
       isLoading: false,
-      setLoading: (loading: boolean) =>
-        set({ isLoading: loading }, false, 'setLoading'),
+      setLoading: (_loading: boolean) =>
+        set({ isLoading: _loading }, false, 'setLoading'),
     }),
     {
       name: 'church-store',

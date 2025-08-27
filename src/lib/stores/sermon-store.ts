@@ -267,7 +267,7 @@ export const useSermonStore = create<SermonState>((set, get) => ({
     })
 
     // In a real app, this would interface with an audio player
-    console.log(`Playing sermon: ${sermon.title}`)
+    // console.log(`Playing sermon: ${sermon.title}`)
 
     // Dispatch event for audio player component
     if (typeof window !== 'undefined') {
@@ -369,7 +369,7 @@ export const useSermonStore = create<SermonState>((set, get) => ({
     set({ sermons: updatedSermons })
 
     // In a real app, this would make an API call to track the view
-    console.log(`Incremented views for sermon: ${sermonId}`)
+    // console.log(`Incremented views for sermon: ${sermonId}`)
   },
 
   incrementDownloads: (sermonId: string) => {
@@ -383,7 +383,7 @@ export const useSermonStore = create<SermonState>((set, get) => ({
     set({ sermons: updatedSermons })
 
     // In a real app, this would make an API call to track the download
-    console.log(`Incremented downloads for sermon: ${sermonId}`)
+    // console.log(`Incremented downloads for sermon: ${sermonId}`)
   },
 
   clearError: () => {

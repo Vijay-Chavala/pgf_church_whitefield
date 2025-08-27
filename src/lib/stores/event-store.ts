@@ -236,7 +236,7 @@ export const useEventStore = create<EventState>((set, get) => ({
     }
   },
 
-  registerForEvent: async (eventId: string, participantData: any): Promise<boolean> => {
+  registerForEvent: async (eventId: string, _participantData: any): Promise<boolean> => {
     set({ isLoading: true, error: null })
 
     try {

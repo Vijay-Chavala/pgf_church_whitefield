@@ -103,7 +103,12 @@ export default function Header({ className }: HeaderProps) {
     return IconComponent ? <IconComponent className='w-4 h-4' /> : null
   }
 
-  const getLabel = (item: { labelTe?: string; label: string }) => {
+  const getLabel = (
+    item: { labelTe?: string; label: string } | { en: string; te: string }
+  ) => {
+    if ('en' in item && 'te' in item) {
+      return currentLanguage === 'te' ? item.te : item.en
+    }
     return currentLanguage === 'te' ? item.labelTe : item.label
   }
 

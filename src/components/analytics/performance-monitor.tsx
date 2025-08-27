@@ -40,7 +40,9 @@ function sendToAnalytics(metric: PerformanceMetric) {
     window.gtag('event', 'web_vitals', {
       event_category: 'Web Vitals',
       event_label: metric.name,
-      value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+      value: Math.round(
+        metric.name === 'CLS' ? metric.value * 1000 : metric.value
+      ),
       custom_parameter_rating: metric.rating,
       custom_parameter_navigation: metric.navigationType,
       non_interaction: true,
@@ -49,12 +51,12 @@ function sendToAnalytics(metric: PerformanceMetric) {
 
   // Send to console in development
   if (process.env.NODE_ENV === 'development') {
-    console.log('🔥 Performance Metric:', {
-      name: metric.name,
-      value: metric.value,
-      rating: metric.rating,
-      id: metric.id,
-    })
+    // console.log('🔥 Performance Metric:', {
+    //   name: metric.name,
+    //   value: metric.value,
+    //   rating: metric.rating,
+    //   id: metric.id,
+    // })
   }
 
   // Send to custom analytics endpoint (optional)
@@ -73,8 +75,8 @@ function sendToAnalytics(metric: PerformanceMetric) {
         userAgent: navigator.userAgent,
         timestamp: Date.now(),
       }),
-    }).catch((error) => {
-      console.warn('Failed to send performance metric:', error)
+    }).catch(() => {
+      // Silently handle performance metric send failure
     })
   }
 }
@@ -84,8 +86,8 @@ function monitorResourcePerformance() {
   if (typeof window === 'undefined' || !window.performance) return
 
   // Monitor images loading
-  const observer = new PerformanceObserver((list) => {
-    list.getEntries().forEach((entry) => {
+  const observer = new PerformanceObserver(list => {
+    list.getEntries().forEach(entry => {
       if (entry.entryType === 'resource') {
         const resourceEntry = entry as PerformanceResourceTiming
 
@@ -102,7 +104,10 @@ function monitorResourcePerformance() {
         }
 
         // Track failed resources
-        if (resourceEntry.transferSize === 0 && resourceEntry.decodedBodySize === 0) {
+        if (
+          resourceEntry.transferSize === 0 &&
+          resourceEntry.decodedBodySize === 0
+        ) {
           if (window.gtag) {
             window.gtag('event', 'resource_error', {
               event_category: 'Performance',
@@ -123,11 +128,12 @@ function monitorResourcePerformance() {
 
 // Monitor long tasks (blocking the main thread)
 function monitorLongTasks() {
-  if (typeof window === 'undefined' || !('PerformanceObserver' in window)) return
+  if (typeof window === 'undefined' || !('PerformanceObserver' in window))
+    return
 
   try {
-    const observer = new PerformanceObserver((list) => {
-      list.getEntries().forEach((entry) => {
+    const observer = new PerformanceObserver(list => {
+      list.getEntries().forEach(entry => {
         if (entry.entryType === 'longtask') {
           const longTaskEntry = entry as PerformanceEntry & { duration: number }
 
@@ -141,10 +147,10 @@ function monitorLongTasks() {
           }
 
           if (process.env.NODE_ENV === 'development') {
-            console.warn('⚠️ Long task detected:', {
-              duration: longTaskEntry.duration,
-              startTime: longTaskEntry.startTime,
-            })
+            // console.warn('⚠️ Long task detected:', {
+            //   duration: longTaskEntry.duration,
+            //   startTime: longTaskEntry.startTime,
+            // })
           }
         }
       })
@@ -170,7 +176,8 @@ function monitorMemoryUsage() {
   }
 
   // Send memory usage if it's high (over 80% of limit)
-  const memoryUsagePercentage = (memoryInfo.usedJSHeapSize / memoryInfo.jsHeapSizeLimit) * 100
+  const memoryUsagePercentage =
+    (memoryInfo.usedJSHeapSize / memoryInfo.jsHeapSizeLimit) * 100
 
   if (memoryUsagePercentage > 80) {
     if (window.gtag) {
@@ -184,12 +191,12 @@ function monitorMemoryUsage() {
   }
 
   if (process.env.NODE_ENV === 'development') {
-    console.log('📊 Memory Usage:', {
-      used: `${Math.round(memoryInfo.usedJSHeapSize / 1024 / 1024)} MB`,
-      total: `${Math.round(memoryInfo.totalJSHeapSize / 1024 / 1024)} MB`,
-      limit: `${Math.round(memoryInfo.jsHeapSizeLimit / 1024 / 1024)} MB`,
-      percentage: `${memoryUsagePercentage.toFixed(2)}%`,
-    })
+    // console.log('📊 Memory Usage:', {
+    //   used: `${Math.round(memoryInfo.usedJSHeapSize / 1024 / 1024)} MB`,
+    //   total: `${Math.round(memoryInfo.totalJSHeapSize / 1024 / 1024)} MB`,
+    //   limit: `${Math.round(memoryInfo.jsHeapSizeLimit / 1024 / 1024)} MB`,
+    //   percentage: `${memoryUsagePercentage.toFixed(2)}%`,
+    // })
   }
 }
 
@@ -219,9 +226,12 @@ function monitorNetworkQuality() {
   }
 
   // Warn about slow connections
-  if (networkInfo.effectiveType === 'slow-2g' || networkInfo.effectiveType === '2g') {
+  if (
+    networkInfo.effectiveType === 'slow-2g' ||
+    networkInfo.effectiveType === '2g'
+  ) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('🐌 Slow network detected:', networkInfo)
+      // console.warn('🐌 Slow network detected:', networkInfo)
     }
   }
 }
@@ -229,7 +239,7 @@ function monitorNetworkQuality() {
 export default function PerformanceMonitor() {
   useEffect(() => {
     // Core Web Vitals monitoring
-    onCLS((metric) => {
+    onCLS(metric => {
       sendToAnalytics({
         name: 'CLS',
         value: metric.value,
@@ -243,7 +253,7 @@ export default function PerformanceMonitor() {
     // Note: FID has been replaced by INP in web-vitals v3
     // onFID is no longer available
 
-    onFCP((metric) => {
+    onFCP(metric => {
       sendToAnalytics({
         name: 'FCP',
         value: metric.value,
@@ -254,7 +264,7 @@ export default function PerformanceMonitor() {
       })
     })
 
-    onLCP((metric) => {
+    onLCP(metric => {
       sendToAnalytics({
         name: 'LCP',
         value: metric.value,
@@ -265,7 +275,7 @@ export default function PerformanceMonitor() {
       })
     })
 
-    onTTFB((metric) => {
+    onTTFB(metric => {
       sendToAnalytics({
         name: 'TTFB',
         value: metric.value,
@@ -276,7 +286,7 @@ export default function PerformanceMonitor() {
       })
     })
 
-    onINP((metric) => {
+    onINP(metric => {
       sendToAnalytics({
         name: 'INP',
         value: metric.value,
@@ -290,7 +300,7 @@ export default function PerformanceMonitor() {
     // Additional monitoring
     monitorResourcePerformance()
     monitorLongTasks()
-    
+
     // Monitor memory and network periodically
     const monitoringInterval = setInterval(() => {
       monitorMemoryUsage()
@@ -305,4 +315,4 @@ export default function PerformanceMonitor() {
 
   // This component doesn't render anything
   return null
-} 
+}

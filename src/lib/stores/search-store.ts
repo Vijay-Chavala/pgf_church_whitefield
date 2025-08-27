@@ -120,11 +120,11 @@ const performSearch = (query: string, filters: SearchFilters): SearchResult[] =>
     // Description match gets medium score
     if (description.toLowerCase().includes(searchTerm)) {
       score += 50
-      highlights.push(description.substring(0, 100) + '...')
+      highlights.push(`${description.substring(0, 100)}...`)
     }
     if (descriptionTe.includes(searchTerm)) {
       score += 50
-      highlights.push(descriptionTe.substring(0, 100) + '...')
+      highlights.push(`${descriptionTe.substring(0, 100)}...`)
     }
 
     // Tag match gets lower score
@@ -308,7 +308,7 @@ export const useSearchStore = create<SearchState>()(
           }
 
         } catch (error) {
-          console.error('Search error:', error)
+          // Silently handle search error
           set({
             results: [],
             totalResults: 0,

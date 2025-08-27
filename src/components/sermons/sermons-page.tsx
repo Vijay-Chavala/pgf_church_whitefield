@@ -132,7 +132,7 @@ export function SermonsPage() {
     <div className='min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100'>
       {/* Header Section */}
       <section className='relative py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white overflow-hidden'>
-        <div className='absolute inset-0 bg-black/20'></div>
+        <div className='absolute inset-0 bg-black/20' />
         <div className='relative z-10 container mx-auto px-4'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -150,8 +150,8 @@ export function SermonsPage() {
         </div>
 
         {/* Decorative Elements */}
-        <div className='absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full blur-xl'></div>
-        <div className='absolute -bottom-8 -left-8 w-32 h-32 bg-white/10 rounded-full blur-xl'></div>
+        <div className='absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full blur-xl' />
+        <div className='absolute -bottom-8 -left-8 w-32 h-32 bg-white/10 rounded-full blur-xl' />
       </section>
 
       {/* Filters and Search */}

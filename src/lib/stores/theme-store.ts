@@ -140,7 +140,7 @@ if (typeof window !== 'undefined') {
       const systemTheme = getSystemTheme()
       const actualTheme = theme === 'system' ? systemTheme : theme
       applyTheme(actualTheme)
-    } catch (error) {
+    } catch (_error) {
       // Fallback to system theme if parsing fails
       applyTheme(getSystemTheme())
     }

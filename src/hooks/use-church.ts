@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import useChurchStore from '@/lib/stores/church-store'
 import { useThemeStore } from '@/lib/stores/theme-store'
+// import type { ChurchService } from '@/types'
 // import type { Language } from '@/types'
 
 // Hook for managing church language preference
@@ -135,12 +136,12 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
       const item = window.localStorage.getItem(key)
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
-      console.error(`Error reading localStorage key "${key}":`, error)
+      // Silently handle localStorage read error
       return initialValue
     }
   })
 
-  const setValue = (value: T | ((val: T) => T)) => {
+  const setValue = (value: T | ((_val: T) => T)) => {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value
       setStoredValue(valueToStore)
@@ -148,7 +149,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
         window.localStorage.setItem(key, JSON.stringify(valueToStore))
       }
     } catch (error) {
-      console.error(`Error setting localStorage key "${key}":`, error)
+      // Silently handle localStorage write error
     }
   }
 
@@ -156,9 +157,9 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
 }
 
 // Hook for form validation
-export function useFormValidation<T extends Record<string, any>>(
+export function useFormValidation<T extends Record<string, unknown>>(
   initialValues: T,
-  validationRules: Record<keyof T, (value: any) => string | null>
+  validationRules: Record<keyof T, (value: unknown) => string | null>
 ) {
   const [values, setValues] = useState<T>(initialValues)
   const [errors, setErrors] = useState<Partial<Record<keyof T, string>>>({})

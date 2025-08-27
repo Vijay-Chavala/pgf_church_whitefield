@@ -323,7 +323,7 @@ export const isFieldRequired = (field: keyof ContactFormData): boolean => {
 export const trackFormInteraction = (action: string, field?: string) => {
   if (typeof window !== 'undefined') {
     // Google Analytics or other analytics service
-    console.log(`Contact Form: ${action}${field ? ` - ${field}` : ''}`)
+    // console.log(`Contact Form: ${action}${field ? ` - ${field}` : ''}`)
 
     // Custom event for analytics
     window.dispatchEvent(new CustomEvent('contactFormInteraction', {
@@ -361,7 +361,7 @@ export const loadDraft = (): boolean => {
       return true
     }
   } catch (error) {
-    console.error('Error loading form draft:', error)
+    // Silently handle draft loading error
   }
 
   return false
