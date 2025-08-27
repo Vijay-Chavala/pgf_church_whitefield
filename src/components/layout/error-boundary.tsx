@@ -29,6 +29,7 @@ import { Separator } from '@/components/ui/separator'
 
 import { useLanguageStore } from '@/lib/stores/language-store'
 import { cn } from '@/lib/utils'
+import Link from 'next/link'
 
 // Error Boundary Class Component (required for React Error Boundaries)
 interface ErrorBoundaryState {
@@ -47,7 +48,7 @@ class ErrorBoundaryClass extends React.Component<
   },
   ErrorBoundaryState
 > {
-  constructor(props: any) {
+  constructor(props: ErrorBoundaryProps) {
     super(props)
     this.state = {
       hasError: false,
@@ -56,7 +57,7 @@ class ErrorBoundaryClass extends React.Component<
     }
   }
 
-  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+  static getDerivedStateFromError(_error: Error): ErrorBoundaryState {
     return {
       hasError: true,
       error,
@@ -79,8 +80,8 @@ class ErrorBoundaryClass extends React.Component<
     }
 
     // Send error to monitoring service (if available)
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      ;(window as any).gtag('event', 'exception', {
+    if (typeof window !== 'undefined' && (window as typeof window & { gtag?: Function }).gtag) {
+      ;(window as typeof window & { gtag: Function }).gtag('event', 'exception', {
         description: error.toString(),
         fatal: false,
       })
@@ -381,12 +382,12 @@ export function NotFoundError() {
 
         <div className='flex flex-col sm:flex-row gap-3 justify-center'>
           <Button asChild>
-            <a href='/' className='flex items-center space-x-2'>
+            <Link href='/' className='flex items-center space-x-2'>
               <Home className='w-4 h-4' />
               <span>
                 {currentLanguage === 'te' ? 'హోమ్‌కు వెళ్లు' : 'Go Home'}
               </span>
-            </a>
+            </Link>
           </Button>
 
           <Button variant='outline' onClick={() => window.history.back()}>
@@ -424,8 +425,8 @@ export function useErrorHandler() {
     console.error('Error handled:', error)
 
     // Send to monitoring service
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      ;(window as any).gtag('event', 'exception', {
+    if (typeof window !== 'undefined' && (window as typeof window & { gtag?: Function }).gtag) {
+      ;(window as typeof window & { gtag: Function }).gtag('event', 'exception', {
         description: error.toString(),
         fatal: false,
       })

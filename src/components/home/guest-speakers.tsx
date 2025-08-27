@@ -1,6 +1,5 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
@@ -9,7 +8,7 @@ import { ExternalLink, Play } from 'lucide-react'
 import { useLanguageStore } from '@/lib/stores/language-store'
 import { guestSpeakers } from '@/data/guest-speakers-data'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Navigation } from 'swiper/modules'
+import { Autoplay } from 'swiper/modules'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -74,7 +73,7 @@ export function GuestSpeakers() {
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
-            loop={true}
+            loop
             breakpoints={{
               640: {
                 slidesPerView: 2,
@@ -90,10 +89,10 @@ export function GuestSpeakers() {
               },
             }}
             className='guest-speakers-swiper'
-            watchSlidesProgress={true}
+            watchSlidesProgress
             centeredSlides={false}
             slidesPerGroupSkip={1}
-            grabCursor={true}
+            grabCursor
           >
             {guestSpeakers.map((speaker, index) => (
               <SwiperSlide key={speaker.id}>

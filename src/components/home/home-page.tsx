@@ -5,7 +5,6 @@ import { useLanguageStore } from '@/lib/stores/language-store'
 import {
   HeroBanner,
   WelcomeMessage,
-  UpcomingEvents,
   SermonHighlights,
   GuestSpeakers,
   GalleryOverview,

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Calendar, User, ArrowRight, BookOpen, Clock } from 'lucide-react'
+import { Calendar, User, ArrowRight, BookOpen } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -33,15 +33,16 @@ export function SermonHighlights() {
     })
   }
 
-  const formatDuration = (minutes?: number) => {
-    if (!minutes) return ''
-    if (minutes < 60) {
-      return `${minutes} ${currentLanguage === 'te' ? 'నిమిషాలు' : 'min'}`
-    }
-    const hours = Math.floor(minutes / 60)
-    const mins = minutes % 60
-    return `${hours}h ${mins}m`
-  }
+  // Duration formatting function (unused but kept for future use)
+  // const formatDuration = (minutes?: number) => {
+  //   if (!minutes) return ''
+  //   if (minutes < 60) {
+  //     return `${minutes} ${currentLanguage === 'te' ? 'నిమిషాలు' : 'min'}`
+  //   }
+  //   const hours = Math.floor(minutes / 60)
+  //   const mins = minutes % 60
+  //   return `${hours}h ${mins}m`
+  // }
 
   return (
     <section className='relative py-20 px-4 overflow-hidden'>

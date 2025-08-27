@@ -264,7 +264,7 @@ export function HeroBanner() {
   const { currentLanguage } = useLanguageStore()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
+  const [, setLoadedImages] = useState<Set<string>>(new Set())
   const [isLoading, setIsLoading] = useState(true)
   const [loadingProgress, setLoadingProgress] = useState(0)
 
@@ -297,7 +297,7 @@ export function HeroBanner() {
           loadedCount++
           setLoadingProgress((loadedCount / totalImages) * 100)
         } catch (error) {
-          console.warn(`Failed to preload image: ${slide.image}`, error)
+          // Silently handle image preload failures
           loadedCount++
           setLoadingProgress((loadedCount / totalImages) * 100)
         }
@@ -308,7 +308,7 @@ export function HeroBanner() {
         // Add small delay to show completion
         setTimeout(() => setIsLoading(false), 500)
       } catch (error) {
-        console.warn('Some images failed to preload:', error)
+        // Silently handle preload failures
         setTimeout(() => setIsLoading(false), 500)
       }
     }
@@ -517,7 +517,7 @@ export function HeroBanner() {
                       className=''
                     >
                       <blockquote className='text-sm md:text-base lg:text-lg text-yellow-200 italic max-w-3xl mx-auto leading-relaxed'>
-                        "
+                        &ldquo;
                         {getText(
                           currentSlideData?.bibleVerse ||
                             heroSlides[0]?.bibleVerse || {
@@ -525,7 +525,7 @@ export function HeroBanner() {
                               te: 'దేవుడు లోకమును ఎంతో ప్రేమించెను...',
                             }
                         )}
-                        "
+                        &rdquo;
                       </blockquote>
                       <cite className='text-xs md:text-sm text-yellow-300 font-semibold'>
                         —{' '}

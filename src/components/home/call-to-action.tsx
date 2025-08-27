@@ -2,15 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import {
-  MapPin,
-  Clock,
-  Phone,
-  Mail,
-  Calendar,
-  Navigation,
-  BookOpen,
-} from 'lucide-react'
+import { MapPin, Clock, Phone, Mail, Calendar, Navigation } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useLanguageStore } from '@/lib/stores/language-store'

@@ -4,7 +4,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   Menu,
   X,
@@ -49,7 +49,7 @@ import { useLanguageStore } from '@/lib/stores/language-store'
 import { useThemeStore } from '@/lib/stores/theme-store'
 import { churchSettings } from '@/data/church-data'
 import { cn } from '@/lib/utils'
-import LanguageSwitcher from './language-switcher'
+// import LanguageSwitcher from './language-switcher'
 
 const iconMap = {
   home: Home,
@@ -79,7 +79,7 @@ export default function Header({ className }: HeaderProps) {
   } = useNavigationStore()
   const { currentLanguage } = useLanguageStore()
   const { getCurrentTheme } = useThemeStore()
-  const isDarkMode = getCurrentTheme() === 'dark'
+  // const isDarkMode = getCurrentTheme() === 'dark'
   const [scrolled, setScrolled] = React.useState(false)
 
   // Handle scroll effect
@@ -103,7 +103,7 @@ export default function Header({ className }: HeaderProps) {
     return IconComponent ? <IconComponent className='w-4 h-4' /> : null
   }
 
-  const getLabel = (item: any) => {
+  const getLabel = (item: { labelTe?: string; label: string }) => {
     return currentLanguage === 'te' ? item.labelTe : item.label
   }
 

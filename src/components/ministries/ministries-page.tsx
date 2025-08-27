@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+// import { Badge } from '@/components/ui/badge'
 import { useLanguageStore } from '@/lib/stores/language-store'
 import { MainLayout } from '@/components/layout'
 
@@ -127,7 +127,10 @@ const ministriesData = [
       en: 'During Sunday Services',
       te: 'ఆదివారం సేవల సమయంలో',
     },
-      location: { en: 'Kids Hall (Anugraha Hall)', te: 'పిల్లల హాల్ (అనుగ్రహ హాల్)' },
+    location: {
+      en: 'Kids Hall (Anugraha Hall)',
+      te: 'పిల్లల హాల్ (అనుగ్రహ హాల్)',
+    },
     leader: { en: 'Sunday School Teachers', te: 'ఆదివారం పాఠశాల ఉపాధ్యాయులు' },
     members: 50,
     color: 'from-yellow-500 to-orange-600',

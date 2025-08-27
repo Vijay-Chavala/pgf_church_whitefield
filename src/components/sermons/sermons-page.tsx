@@ -7,7 +7,6 @@ import {
   User,
   Clock,
   BookOpen,
-  Filter,
   Search,
   Grid,
   List,
