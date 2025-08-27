@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { ContactFormState, ContactFormData, ContactFormValidation, Language } from './types'
+import type { ContactFormState, ContactFormData, ContactFormValidation } from './types'
 
 // Default form data
 const defaultFormData: ContactFormData = {

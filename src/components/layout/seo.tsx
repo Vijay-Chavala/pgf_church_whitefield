@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { usePathname } from 'next/navigation'
 
 import { useLanguageStore } from '@/lib/stores/language-store'
-import { churchSettings } from '@/data/church-data'
+// import { churchSettings } from '@/data/church-data'
 
 // SEO Configuration Types
 interface SEOProps {

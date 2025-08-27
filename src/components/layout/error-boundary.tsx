@@ -38,6 +38,12 @@ interface ErrorBoundaryState {
   errorInfo: React.ErrorInfo | null
 }
 
+interface ErrorBoundaryProps {
+  children: React.ReactNode
+  fallback?: React.ComponentType<{ error: Error; reset: () => void }>
+  onError?: (error: Error, errorInfo: React.ErrorInfo) => void
+}
+
 class ErrorBoundaryClass extends React.Component<
   {
     children: React.ReactNode
@@ -80,8 +86,19 @@ class ErrorBoundaryClass extends React.Component<
     }
 
     // Send error to monitoring service (if available)
-    if (typeof window !== 'undefined' && (window as typeof window & { gtag?: Function }).gtag) {
-      ;(window as typeof window & { gtag: Function }).gtag('event', 'exception', {
+    if (
+      typeof window !== 'undefined' &&
+      (
+        window as typeof window & {
+          gtag?: (command: string, params: Record<string, unknown>) => void
+        }
+      ).gtag
+    ) {
+      ;(
+        window as typeof window & {
+          gtag: (command: string, params: Record<string, unknown>) => void
+        }
+      ).gtag('event', 'exception', {
         description: error.toString(),
         fatal: false,
       })
@@ -425,8 +442,19 @@ export function useErrorHandler() {
     console.error('Error handled:', error)
 
     // Send to monitoring service
-    if (typeof window !== 'undefined' && (window as typeof window & { gtag?: Function }).gtag) {
-      ;(window as typeof window & { gtag: Function }).gtag('event', 'exception', {
+    if (
+      typeof window !== 'undefined' &&
+      (
+        window as typeof window & {
+          gtag?: (command: string, params: Record<string, unknown>) => void
+        }
+      ).gtag
+    ) {
+      ;(
+        window as typeof window & {
+          gtag: (command: string, params: Record<string, unknown>) => void
+        }
+      ).gtag('event', 'exception', {
         description: error.toString(),
         fatal: false,
       })

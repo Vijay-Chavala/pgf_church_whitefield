@@ -296,7 +296,7 @@ export function HeroBanner() {
           await preloadImage(slide.image)
           loadedCount++
           setLoadingProgress((loadedCount / totalImages) * 100)
-        } catch (error) {
+        } catch (_error) {
           // Silently handle image preload failures
           loadedCount++
           setLoadingProgress((loadedCount / totalImages) * 100)
@@ -307,7 +307,7 @@ export function HeroBanner() {
         await Promise.all(imagePromises)
         // Add small delay to show completion
         setTimeout(() => setIsLoading(false), 500)
-      } catch (error) {
+      } catch (_error) {
         // Silently handle preload failures
         setTimeout(() => setIsLoading(false), 500)
       }

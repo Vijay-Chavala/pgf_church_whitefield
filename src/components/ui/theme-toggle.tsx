@@ -19,7 +19,7 @@ export function ThemeToggle({
   size = 'sm',
 }: ThemeToggleProps) {
   const { theme, toggleTheme, getCurrentTheme } = useThemeStore()
-  const isDarkMode = getCurrentTheme() === 'dark'
+  // const isDarkMode = getCurrentTheme() === 'dark'
 
   const getThemeIcon = () => {
     switch (theme) {

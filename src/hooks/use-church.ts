@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import useChurchStore from '@/lib/stores/church-store'
 import { useThemeStore } from '@/lib/stores/theme-store'
-import type { Language } from '@/types'
+// import type { Language } from '@/types'
 
 // Hook for managing church language preference
 export function useLanguage() {

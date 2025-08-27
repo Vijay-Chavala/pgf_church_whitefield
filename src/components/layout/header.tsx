@@ -78,7 +78,7 @@ export default function Header({ className }: HeaderProps) {
     setActiveSection,
   } = useNavigationStore()
   const { currentLanguage } = useLanguageStore()
-  const { getCurrentTheme } = useThemeStore()
+  // const { getCurrentTheme } = useThemeStore()
   // const isDarkMode = getCurrentTheme() === 'dark'
   const [scrolled, setScrolled] = React.useState(false)
 

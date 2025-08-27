@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { SearchState, SearchFilters, SearchResult, Language } from './types'
+import type { SearchState, SearchFilters, SearchResult } from './types'
 
 // Mock search data - In a real app, this would come from an API
 const searchableContent = {
