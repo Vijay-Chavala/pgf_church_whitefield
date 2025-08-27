@@ -11,7 +11,8 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 
-function GalleryPageContent() {
+// Component that uses useSearchParams - must be wrapped in Suspense
+function GalleryPageWithSearchParams() {
   const { currentLanguage } = useLanguageStore()
   const searchParams = useSearchParams()
   const categoryFilter = searchParams.get('category')
@@ -121,116 +122,6 @@ function GalleryPageContent() {
   const kidsCategoryText = getText({
     en: 'Kids Activities',
     te: 'పిల్లల కార్యకలాపాలు',
-  })
-
-  const fellowshipCategoryText = getText({
-    en: 'Fellowship',
-    te: 'సహవాసం',
-  })
-
-  const eventsCategoryText = getText({
-    en: 'Special Events',
-    te: 'ప్రత్యేక కార్యక్రమాలు',
-  })
-
-  const celebrationsCategoryText = getText({
-    en: 'Celebrations',
-    te: 'వేడుకలు',
-  })
-
-  const ministryCategoryText = getText({
-    en: 'Ministry',
-    te: 'మినిస్ట్రీ',
-  })
-
-  const worshipCategoryText = getText({
-    en: 'Worship',
-    te: 'ఆరాధన',
-  })
-
-  const outreachCategoryText = getText({
-    en: 'Outreach',
-    te: 'విస్తరణ',
-  })
-
-  const youthCategoryText = getText({
-    en: 'Youth',
-    te: 'యువత',
-  })
-
-  const familyCategoryText = getText({
-    en: 'Family',
-    te: 'కుటుంబం',
-  })
-
-  const prayerCategoryText = getText({
-    en: 'Prayer',
-    te: 'ప్రార్థన',
-  })
-
-  const bibleStudyCategoryText = getText({
-    en: 'Bible Study',
-    te: 'బైబిల్ అధ్యయనం',
-  })
-
-  const sundaySchoolCategoryText = getText({
-    en: 'Sunday School',
-    te: 'సండే స్కూల్',
-  })
-
-  const vbsCategoryText = getText({
-    en: 'Vacation Bible School',
-    te: 'వేసవి బైబిల్ స్కూల్',
-  })
-
-  const christmasCategoryText = getText({
-    en: 'Christmas',
-    te: 'క్రిస్మస్',
-  })
-
-  const easterCategoryText = getText({
-    en: 'Easter',
-    te: 'ఈస్టర్',
-  })
-
-  const palmSundayCategoryText = getText({
-    en: 'Palm Sunday',
-    te: 'పామ్ సండే',
-  })
-
-  const baptismCategoryText = getText({
-    en: 'Baptism',
-    te: 'బాప్టిజం',
-  })
-
-  const weddingCategoryText = getText({
-    en: 'Wedding',
-    te: 'వివాహం',
-  })
-
-  const funeralCategoryText = getText({
-    en: 'Funeral',
-    te: 'అంత్యక్రియలు',
-  })
-
-  const dedicationCategoryText = getText({
-    en: 'Dedication',
-    te: 'అంకితం',
-  })
-
-  const graduationCategoryText = getText({
-    en: 'Graduation',
-    te: 'గ్రాడ్యుయేషన్',
-  })
-
-  const birthdayCategoryText = getText({
-    en: 'Birthday',
-    te: 'పుట్టినరోజు',
-  })
-
-  const anniversaryCategoryText = getText({
-    en: 'Anniversary',
-    te: 'వార్షికోత్సవం',
   })
 
   return (
@@ -352,10 +243,11 @@ function GalleryPageFallback() {
   )
 }
 
+// Main export - wraps the component that uses useSearchParams with Suspense
 export default function GalleryPage() {
   return (
     <Suspense fallback={<GalleryPageFallback />}>
-      <GalleryPageContent />
+      <GalleryPageWithSearchParams />
     </Suspense>
   )
 }
