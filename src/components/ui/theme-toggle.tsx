@@ -18,7 +18,7 @@ export function ThemeToggle({
   variant = 'ghost',
   size = 'sm',
 }: ThemeToggleProps) {
-  const { theme, toggleTheme, getCurrentTheme } = useThemeStore()
+  const { theme, toggleTheme } = useThemeStore()
   // const isDarkMode = getCurrentTheme() === 'dark'
 
   const getThemeIcon = () => {

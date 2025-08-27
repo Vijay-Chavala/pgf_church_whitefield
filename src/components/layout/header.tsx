@@ -46,7 +46,7 @@ import {
 
 import { useNavigationStore } from '@/lib/stores/navigation-store'
 import { useLanguageStore } from '@/lib/stores/language-store'
-import { useThemeStore } from '@/lib/stores/theme-store'
+// import { useThemeStore } from '@/lib/stores/theme-store'
 import { churchSettings } from '@/data/church-data'
 import { cn } from '@/lib/utils'
 // import LanguageSwitcher from './language-switcher'

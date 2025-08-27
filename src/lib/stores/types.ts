@@ -23,9 +23,9 @@ export type Language = 'en' | 'te'
 export interface LanguageState {
   currentLanguage: Language
   isLoading: boolean
-  setLanguage: (_language: Language) => void
+  setLanguage: (language: Language) => void
   toggleLanguage: () => void
-  t: (_key: string, _fallback?: string) => string
+  t: (key: string, fallback?: string) => string
 }
 
 // Theme Store Types
@@ -35,7 +35,7 @@ export interface ThemeState {
   theme: Theme
   systemTheme: 'light' | 'dark'
   isLoading: boolean
-  setTheme: (_theme: Theme) => void
+  setTheme: (theme: Theme) => void
   toggleTheme: () => void
   getCurrentTheme: () => 'light' | 'dark'
 }
@@ -57,10 +57,10 @@ export interface NavigationState {
   activeSection: string
   breadcrumbs: Array<{ label: string; href: string }>
   navigationItems: NavigationItem[]
-  setMenuOpen: (_open: boolean) => void
-  setMobileMenuOpen: (_open: boolean) => void
-  setActiveSection: (_section: string) => void
-  setBreadcrumbs: (_breadcrumbs: Array<{ label: string; href: string }>) => void
+  setMenuOpen: (open: boolean) => void
+  setMobileMenuOpen: (open: boolean) => void
+  setActiveSection: (section: string) => void
+  setBreadcrumbs: (breadcrumbs: Array<{ label: string; href: string }>) => void
   toggleMobileMenu: () => void
   closeAllMenus: () => void
 }
@@ -98,11 +98,11 @@ export interface SearchState {
   totalResults: number
   suggestions: string[]
   recentSearches: string[]
-  setQuery: (_query: string) => void
-  setFilters: (_filters: SearchFilters) => void
-  performSearch: (_query: string, _filters?: SearchFilters) => Promise<void>
+  setQuery: (query: string) => void
+  setFilters: (filters: SearchFilters) => void
+  performSearch: (query: string, filters?: SearchFilters) => Promise<void>
   clearSearch: () => void
-  addRecentSearch: (_query: string) => void
+  addRecentSearch: (query: string) => void
   clearRecentSearches: () => void
 }
 
@@ -126,12 +126,12 @@ export interface EventState {
   selectedEvent: Event | null
   isLoading: boolean
   error: string | null
-  setEvents: (_events: Event[]) => void
-  setFilters: (_filters: EventFilters) => void
-  setSelectedEvent: (_event: Event | null) => void
+  setEvents: (events: Event[]) => void
+  setFilters: (filters: EventFilters) => void
+  setSelectedEvent: (event: Event | null) => void
   fetchEvents: () => Promise<void>
-  fetchEventById: (_id: string) => Promise<Event | null>
-  registerForEvent: (_eventId: string, _participantData: any) => Promise<boolean>
+  fetchEventById: (id: string) => Promise<Event | null>
+  registerForEvent: (eventId: string, participantData: any) => Promise<boolean>
   getFilteredEvents: () => Event[]
   clearError: () => void
 }
@@ -197,20 +197,20 @@ export interface SermonState {
   duration: number
   volume: number
   error: string | null
-  setSermons: (_sermons: Sermon[]) => void
-  setSeries: (_series: SermonSeries[]) => void
-  setCurrentSermon: (_sermon: Sermon | null) => void
-  setCurrentSeries: (_series: SermonSeries | null) => void
-  setFilters: (_filters: SermonFilters) => void
+  setSermons: (sermons: Sermon[]) => void
+  setSeries: (series: SermonSeries[]) => void
+  setCurrentSermon: (sermon: Sermon | null) => void
+  setCurrentSeries: (series: SermonSeries | null) => void
+  setFilters: (filters: SermonFilters) => void
   fetchSermons: () => Promise<void>
-  fetchSermonById: (_id: string) => Promise<Sermon | null>
-  playSermon: (_sermon: Sermon) => void
+  fetchSermonById: (id: string) => Promise<Sermon | null>
+  playSermon: (sermon: Sermon) => void
   pauseSermon: () => void
-  seekTo: (_time: number) => void
-  setVolume: (_volume: number) => void
+  seekTo: (time: number) => void
+  setVolume: (volume: number) => void
   getFilteredSermons: () => Sermon[]
-  incrementViews: (_sermonId: string) => void
-  incrementDownloads: (_sermonId: string) => void
+  incrementViews: (sermonId: string) => void
+  incrementDownloads: (sermonId: string) => void
   clearError: () => void
 }
 

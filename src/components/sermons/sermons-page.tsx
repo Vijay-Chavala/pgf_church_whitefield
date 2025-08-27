@@ -298,7 +298,7 @@ interface SermonCardProps {
 
 function SermonCard({
   sermon,
-  index: _index,
+  index,
   viewMode,
   currentLanguage,
   getText,
