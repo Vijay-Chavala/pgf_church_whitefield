@@ -25,7 +25,7 @@ export interface LanguageState {
   isLoading: boolean
   setLanguage: (language: Language) => void
   toggleLanguage: () => void
-  t: (key: string, fallback?: string) => string
+  t: (key: string) => string
 }
 
 // Theme Store Types
@@ -100,7 +100,7 @@ export interface SearchState {
   recentSearches: string[]
   setQuery: (query: string) => void
   setFilters: (filters: SearchFilters) => void
-  performSearch: (query: string, filters?: SearchFilters) => Promise<void>
+  performSearch: (query: string) => Promise<void>
   clearSearch: () => void
   addRecentSearch: (query: string) => void
   clearRecentSearches: () => void

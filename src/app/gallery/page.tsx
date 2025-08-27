@@ -1,5 +1,6 @@
 'use client'
 
+import { Suspense } from 'react'
 import { MainLayout } from '@/components/layout'
 import { GallerySection } from '@/components/gallery'
 import { galleryCategories } from '@/data/gallery-data'
@@ -10,7 +11,7 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 
-export default function GalleryPage() {
+function GalleryPageContent() {
   const { currentLanguage } = useLanguageStore()
   const searchParams = useSearchParams()
   const categoryFilter = searchParams.get('category')
@@ -99,173 +100,322 @@ export default function GalleryPage() {
 
   const backToHomeText = getText({
     en: 'Back to Home',
-    te: 'హోమ్‌కు తిరిగి',
+    te: 'హోమ్‌కు వెళ్లు',
   })
 
-  const viewAllGalleryText = getText({
-    en: 'View All Gallery',
-    te: 'మొత్తం గ్యాలరీ చూడండి',
+  const viewAllText = getText({
+    en: 'View All',
+    te: 'అన్నీ చూడండి',
   })
+
+  const filterText = getText({
+    en: 'Filter by Category',
+    te: 'వర్గం ద్వారా ఫిల్టర్ చేయండి',
+  })
+
+  const allCategoriesText = getText({
+    en: 'All Categories',
+    te: 'అన్ని వర్గాలు',
+  })
+
+  const churchCategoryText = getText({
+    en: 'Church Events',
+    te: 'చర్చి కార్యక్రమాలు',
+  })
+
+  const kidsCategoryText = getText({
+    en: 'Kids Activities',
+    te: 'పిల్లల కార్యకలాపాలు',
+  })
+
+  const fellowshipCategoryText = getText({
+    en: 'Fellowship',
+    te: 'సహవాసం',
+  })
+
+  const eventsCategoryText = getText({
+    en: 'Special Events',
+    te: 'ప్రత్యేక కార్యక్రమాలు',
+  })
+
+  const celebrationsCategoryText = getText({
+    en: 'Celebrations',
+    te: 'వేడుకలు',
+  })
+
+  const ministryCategoryText = getText({
+    en: 'Ministry',
+    te: 'మినిస్ట్రీ',
+  })
+
+  const worshipCategoryText = getText({
+    en: 'Worship',
+    te: 'ఆరాధన',
+  })
+
+  const outreachCategoryText = getText({
+    en: 'Outreach',
+    te: 'విస్తరణ',
+  })
+
+  const youthCategoryText = getText({
+    en: 'Youth',
+    te: 'యువత',
+  })
+
+  const familyCategoryText = getText({
+    en: 'Family',
+    te: 'కుటుంబం',
+  })
+
+  const prayerCategoryText = getText({
+    en: 'Prayer',
+    te: 'ప్రార్థన',
+  })
+
+  const bibleStudyCategoryText = getText({
+    en: 'Bible Study',
+    te: 'బైబిల్ అధ్యయనం',
+  })
+
+  const sundaySchoolCategoryText = getText({
+    en: 'Sunday School',
+    te: 'సండే స్కూల్',
+  })
+
+  const vbsCategoryText = getText({
+    en: 'Vacation Bible School',
+    te: 'వేసవి బైబిల్ స్కూల్',
+  })
+
+  const christmasCategoryText = getText({
+    en: 'Christmas',
+    te: 'క్రిస్మస్',
+  })
+
+  const easterCategoryText = getText({
+    en: 'Easter',
+    te: 'ఈస్టర్',
+  })
+
+  const palmSundayCategoryText = getText({
+    en: 'Palm Sunday',
+    te: 'పామ్ సండే',
+  })
+
+  const baptismCategoryText = getText({
+    en: 'Baptism',
+    te: 'బాప్టిజం',
+  })
+
+  const weddingCategoryText = getText({
+    en: 'Wedding',
+    te: 'వివాహం',
+  })
+
+  const funeralCategoryText = getText({
+    en: 'Funeral',
+    te: 'అంత్యక్రియలు',
+  })
+
+  const dedicationCategoryText = getText({
+    en: 'Dedication',
+    te: 'అంకితం',
+  })
+
+  const graduationCategoryText = getText({
+    en: 'Graduation',
+    te: 'గ్రాడ్యుయేషన్',
+  })
+
+  const birthdayCategoryText = getText({
+    en: 'Birthday',
+    te: 'పుట్టినరోజు',
+  })
+
+  const anniversaryCategoryText = getText({
+    en: 'Anniversary',
+    te: 'వార్షికోత్సవం',
+  })
+
+  const getCategoryText = (category: string) => {
+    switch (category) {
+      case 'church':
+        return churchCategoryText
+      case 'kids':
+        return kidsCategoryText
+      case 'fellowship':
+        return fellowshipCategoryText
+      case 'events':
+        return eventsCategoryText
+      case 'celebrations':
+        return celebrationsCategoryText
+      case 'ministry':
+        return ministryCategoryText
+      case 'worship':
+        return worshipCategoryText
+      case 'outreach':
+        return outreachCategoryText
+      case 'youth':
+        return youthCategoryText
+      case 'family':
+        return familyCategoryText
+      case 'prayer':
+        return prayerCategoryText
+      case 'bible-study':
+        return bibleStudyCategoryText
+      case 'sunday-school':
+        return sundaySchoolCategoryText
+      case 'vbs':
+        return vbsCategoryText
+      case 'christmas':
+        return christmasCategoryText
+      case 'easter':
+        return easterCategoryText
+      case 'palm-sunday':
+        return palmSundayCategoryText
+      case 'baptism':
+        return baptismCategoryText
+      case 'wedding':
+        return weddingCategoryText
+      case 'funeral':
+        return funeralCategoryText
+      case 'dedication':
+        return dedicationCategoryText
+      case 'graduation':
+        return graduationCategoryText
+      case 'birthday':
+        return birthdayCategoryText
+      case 'anniversary':
+        return anniversaryCategoryText
+      default:
+        return category
+    }
+  }
 
   return (
     <MainLayout seo={seoConfig}>
-      <div className='min-h-screen bg-gradient-to-b from-slate-50 to-white'>
-        {/* Hero Section */}
-        <div className='bg-gradient-to-r from-primary to-primary/80 text-white py-20 relative overflow-hidden'>
-          {/* Background Pattern */}
-          <div className='absolute inset-0 opacity-10'>
-            <div
-              className='absolute inset-0'
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-              }}
-            />
+      <div className='container mx-auto px-4 py-8'>
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className='text-center mb-8'
+        >
+          <div className='flex items-center justify-center mb-4'>
+            <Camera className='w-8 h-8 text-primary mr-3' />
+            <h1 className='text-4xl font-bold text-foreground'>
+              {getPageTitle()}
+            </h1>
           </div>
+          <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+            {getPageSubtitle()}
+          </p>
+        </motion.div>
 
-          <div className='container mx-auto px-4 text-center relative z-10'>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className='max-w-4xl mx-auto'
-            >
-              <div className='mb-6'>
-                <Camera className='h-16 w-16 mx-auto mb-4 text-white/90' />
-              </div>
-              <h1 className='text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg'>
-                {getPageTitle()}
-              </h1>
-              <p className='text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto'>
-                {getPageSubtitle()}
-              </p>
-
-              {/* Navigation */}
-              <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-                <Link
-                  href='/'
-                  className='inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-all duration-300'
-                >
-                  <ArrowLeft className='h-4 w-4' />
-                  {backToHomeText}
-                </Link>
-
-                {/* Show "View All Gallery" button when filtered */}
-                {categoryFilter && (
-                  <Link
-                    href='/gallery'
-                    className='inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-all duration-300'
-                  >
-                    <Grid3X3 className='h-4 w-4' />
-                    {viewAllGalleryText}
-                  </Link>
-                )}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Gallery Content */}
-        <div className='container mx-auto px-4 py-16'>
-          {filteredCategories.length > 0 ? (
-            filteredCategories.map((category, index) => (
-              <motion.div
-                key={category.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-              >
-                <GallerySection
-                  title={category.title}
-                  images={category.images}
-                  categoryId={category.id}
-                />
-
-                {/* Separator between categories */}
-                {index < filteredCategories.length - 1 && (
-                  <div className='my-20'>
-                    <div className='w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent' />
-                  </div>
-                )}
-              </motion.div>
-            ))
-          ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className='text-center py-20'
-            >
-              <Camera className='h-16 w-16 mx-auto mb-6 text-slate-400' />
-              <h3 className='text-2xl font-bold text-slate-700 mb-4'>
-                {getText({
-                  en: 'No images found',
-                  te: 'చిత్రాలు కనుగొనబడలేదు',
-                })}
-              </h3>
-              <p className='text-slate-600 mb-8'>
-                {getText({
-                  en: 'There are no images in this category yet.',
-                  te: 'ఈ వర్గంలో ఇంకా చిత్రాలు లేవు.',
-                })}
-              </p>
+        {/* Filter Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className='mb-8'
+        >
+          <div className='flex flex-col sm:flex-row items-center justify-between gap-4'>
+            <div className='flex items-center space-x-2'>
+              <Grid3X3 className='w-5 h-5 text-muted-foreground' />
+              <span className='text-sm font-medium text-muted-foreground'>
+                {filterText}
+              </span>
+            </div>
+            <div className='flex flex-wrap gap-2'>
               <Link
                 href='/gallery'
-                className='inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-all duration-300'
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  !categoryFilter
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
               >
-                <Grid3X3 className='h-4 w-4' />
-                {viewAllGalleryText}
+                {allCategoriesText}
               </Link>
-            </motion.div>
-          )}
-        </div>
-
-        {/* Footer Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className='bg-slate-100 py-16'
-        >
-          <div className='container mx-auto px-4 text-center max-w-2xl'>
-            <h3 className='text-2xl font-bold text-slate-800 mb-4'>
-              {getText({
-                en: 'Have photos from our events?',
-                te: 'మా కార్యక్రమాల నుండి ఫోటోలు ఉన్నాయా?',
-              })}
-            </h3>
-            <p className='text-slate-600 mb-8'>
-              {getText({
-                en: "We'd love to include your photos in our gallery! Share your beautiful moments with the church family.",
-                te: 'మా గ్యాలరీలో మీ ఫోటోలను చేర్చాలని మేము ఇష్టపడతాము! చర్చి కుటుంబంతో మీ అందమైన క్షణాలను పంచుకోండి.',
-              })}
-            </p>
-            <a
-              href='mailto:pgf.prayerrequests@gmail.com'
-              className='inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105'
-            >
-              <svg
-                className='w-5 h-5'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
+              <Link
+                href='/gallery?category=church'
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  categoryFilter === 'church'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
               >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-                />
-              </svg>
-              {getText({
-                en: 'Contact Us',
-                te: 'మమ్మల్ని సంప్రదించండి',
-              })}
-            </a>
+                {churchCategoryText}
+              </Link>
+              <Link
+                href='/gallery?category=kids'
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  categoryFilter === 'kids'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
+              >
+                {kidsCategoryText}
+              </Link>
+            </div>
           </div>
+        </motion.div>
+
+        {/* Gallery Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          {filteredCategories.map((category, index) => (
+            <GallerySection
+              key={category.id}
+              title={category.title}
+              images={category.images}
+              categoryId={category.id}
+            />
+          ))}
+        </motion.div>
+
+        {/* Back to Home Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className='text-center mt-12'
+        >
+          <Link
+            href='/'
+            className='inline-flex items-center space-x-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors'
+          >
+            <ArrowLeft className='w-4 h-4' />
+            <span>{backToHomeText}</span>
+          </Link>
         </motion.div>
       </div>
     </MainLayout>
+  )
+}
+
+// Loading fallback component
+function GalleryPageFallback() {
+  return (
+    <MainLayout>
+      <div className='container mx-auto px-4 py-8'>
+        <div className='text-center'>
+          <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4'></div>
+          <p className='text-muted-foreground'>Loading gallery...</p>
+        </div>
+      </div>
+    </MainLayout>
+  )
+}
+
+export default function GalleryPage() {
+  return (
+    <Suspense fallback={<GalleryPageFallback />}>
+      <GalleryPageContent />
+    </Suspense>
   )
 }

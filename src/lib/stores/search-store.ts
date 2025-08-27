@@ -277,7 +277,7 @@ export const useSearchStore = create<SearchState>()(
         // Re-run search if there's an active query
         const { query } = get()
         if (query && get().hasSearched) {
-          get().performSearch(query, filters)
+          get().performSearch(query)
         }
       },
 

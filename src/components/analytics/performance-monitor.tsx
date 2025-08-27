@@ -157,8 +157,8 @@ function monitorLongTasks() {
     })
 
     observer.observe({ entryTypes: ['longtask'] })
-  } catch (_error) {
-    // console.warn('Long task monitoring not supported:', error)
+  } catch {
+    // console.warn('Long task monitoring not supported')
   }
 }
 
@@ -166,7 +166,15 @@ function monitorLongTasks() {
 function monitorMemoryUsage() {
   if (typeof window === 'undefined' || !('memory' in performance)) return
 
-  const memory = (performance as any).memory
+  const memory = (
+    performance as Performance & {
+      memory?: {
+        usedJSHeapSize: number
+        totalJSHeapSize: number
+        jsHeapSizeLimit: number
+      }
+    }
+  ).memory
   if (!memory) return
 
   const { usedJSHeapSize, totalJSHeapSize, jsHeapSizeLimit } = memory
@@ -205,7 +213,16 @@ function monitorMemoryUsage() {
 function monitorNetworkQuality() {
   if (typeof navigator === 'undefined' || !('connection' in navigator)) return
 
-  const connection = (navigator as any).connection
+  const connection = (
+    navigator as Navigator & {
+      connection?: {
+        effectiveType: string
+        downlink: number
+        rtt: number
+        saveData: boolean
+      }
+    }
+  ).connection
   if (!connection) return
 
   const { effectiveType, downlink, rtt, saveData } = connection
@@ -248,7 +265,11 @@ export default function PerformanceMonitor() {
         delta: metric.delta,
         id: metric.id,
         rating: getPerformanceRating('CLS', metric.value),
-        navigationType: metric.navigationType as any,
+        navigationType: metric.navigationType as
+          | 'navigate'
+          | 'reload'
+          | 'back-forward'
+          | 'prerender',
       })
     })
 
@@ -262,7 +283,11 @@ export default function PerformanceMonitor() {
         delta: metric.delta,
         id: metric.id,
         rating: getPerformanceRating('FCP', metric.value),
-        navigationType: metric.navigationType as any,
+        navigationType: metric.navigationType as
+          | 'navigate'
+          | 'reload'
+          | 'back-forward'
+          | 'prerender',
       })
     })
 
@@ -273,7 +298,11 @@ export default function PerformanceMonitor() {
         delta: metric.delta,
         id: metric.id,
         rating: getPerformanceRating('LCP', metric.value),
-        navigationType: metric.navigationType as any,
+        navigationType: metric.navigationType as
+          | 'navigate'
+          | 'reload'
+          | 'back-forward'
+          | 'prerender',
       })
     })
 
@@ -284,7 +313,11 @@ export default function PerformanceMonitor() {
         delta: metric.delta,
         id: metric.id,
         rating: getPerformanceRating('TTFB', metric.value),
-        navigationType: metric.navigationType as any,
+        navigationType: metric.navigationType as
+          | 'navigate'
+          | 'reload'
+          | 'back-forward'
+          | 'prerender',
       })
     })
 
@@ -295,7 +328,11 @@ export default function PerformanceMonitor() {
         delta: metric.delta,
         id: metric.id,
         rating: getPerformanceRating('INP', metric.value),
-        navigationType: metric.navigationType as any,
+        navigationType: metric.navigationType as
+          | 'navigate'
+          | 'reload'
+          | 'back-forward'
+          | 'prerender',
       })
     })
 

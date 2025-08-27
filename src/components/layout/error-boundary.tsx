@@ -41,7 +41,7 @@ interface ErrorBoundaryState {
 interface ErrorBoundaryProps {
   children: React.ReactNode
   fallback?: React.ComponentType<{ error: Error; reset: () => void }>
-  onError?: (_error: Error, _errorInfo: React.ErrorInfo) => void
+  onError?: (error: Error, errorInfo: React.ErrorInfo) => void
 }
 
 class ErrorBoundaryClass extends React.Component<
@@ -50,7 +50,7 @@ class ErrorBoundaryClass extends React.Component<
     fallback?:
       | React.ComponentType<{ error: Error; reset: () => void }>
       | undefined
-    onError?: ((_error: Error, _errorInfo: React.ErrorInfo) => void) | undefined
+    onError?: ((error: Error, errorInfo: React.ErrorInfo) => void) | undefined
   },
   ErrorBoundaryState
 > {
@@ -424,7 +424,7 @@ export default function ErrorBoundary({
 }: {
   children: React.ReactNode
   fallback?: React.ComponentType<{ error: Error; reset: () => void }>
-  onError?: (_error: Error, _errorInfo: React.ErrorInfo) => void
+  onError?: (error: Error, errorInfo: React.ErrorInfo) => void
 }) {
   return (
     <ErrorBoundaryClass fallback={fallback} onError={onError}>

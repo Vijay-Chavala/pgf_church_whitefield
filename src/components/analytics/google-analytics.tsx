@@ -32,9 +32,9 @@ export const GA_CATEGORIES = {
 declare global {
   interface Window {
     gtag: (
-      _command: 'config' | 'event' | 'js' | 'consent',
-      _targetId: string | Date,
-      _config?: Record<string, unknown>
+      command: 'config' | 'event' | 'js' | 'consent',
+      targetId: string | Date,
+      config?: Record<string, unknown>
     ) => void
     dataLayer: Record<string, unknown>[]
   }
