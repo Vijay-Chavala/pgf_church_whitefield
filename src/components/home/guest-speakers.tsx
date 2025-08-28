@@ -178,7 +178,7 @@ export function GuestSpeakers() {
       {/* Custom styles for the swiper */}
       <style jsx global>{`
         .guest-speakers-swiper {
-          padding-bottom: 20px;
+          padding: 20px 0;
         }
 
         .guest-speakers-swiper .swiper-slide {

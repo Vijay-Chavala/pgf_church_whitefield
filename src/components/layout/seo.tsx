@@ -190,7 +190,7 @@ export function OrganizationStructuredData() {
     url: siteUrl,
     logo: `${siteUrl}/images/logo.png`,
     image: `${siteUrl}/images/church-building.jpg`,
-    email: 'info@pgfteluguchurch.org',
+    email: 'pgfbanglore@gmail.com',
     telephone: '+91-98765-43210',
     address: {
       '@type': 'PostalAddress',
@@ -216,7 +216,7 @@ export function OrganizationStructuredData() {
       telephone: '+91-98765-43210',
       contactType: 'customer service',
       availableLanguage: ['English', 'Telugu'],
-      email: 'info@pgfteluguchurch.org',
+      email: 'pgfbanglore@gmail.com',
     },
     member: [
       {

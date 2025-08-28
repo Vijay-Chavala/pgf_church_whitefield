@@ -159,7 +159,7 @@ export function SermonsPage() {
         <div className='container mx-auto px-4'>
           <div className='flex flex-col lg:flex-row gap-4 items-center justify-between'>
             {/* Search */}
-            <div className='relative flex-1 max-w-md'>
+           {/**  <div className='relative flex-1 max-w-md'>
               <Search className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4' />
               <Input
                 type='text'
@@ -168,9 +168,8 @@ export function SermonsPage() {
                 onChange={e => setSearchTerm(e.target.value)}
                 className='pl-10'
               />
-            </div>
-
-            {/* Filters */}
+            </div> **/}
+{/** 
             <div className='flex flex-wrap gap-4 items-center'>
               <Select value={selectedSeries} onValueChange={setSelectedSeries}>
                 <SelectTrigger className='w-40'>
@@ -207,7 +206,6 @@ export function SermonsPage() {
                 </SelectContent>
               </Select>
 
-              {/* View Mode Toggle */}
               <div className='flex border rounded-lg p-1 bg-gray-50'>
                 <Button
                   variant={viewMode === 'grid' ? 'default' : 'ghost'}
@@ -226,7 +224,7 @@ export function SermonsPage() {
                   <List className='w-4 h-4' />
                 </Button>
               </div>
-            </div>
+            </div> **/}
           </div>
         </div>
       </section>
@@ -330,26 +328,26 @@ function SermonCard({
           />
 
           {/* Duration Badge */}
-          {sermon.duration && (
+{/*           {sermon.duration && (
             <div className='absolute top-4 right-4'>
               <Badge className='bg-black/70 text-white flex items-center gap-1'>
                 <Clock className='w-3 h-3' />
                 {formatDuration(sermon.duration)}
               </Badge>
             </div>
-          )}
+          )} */}
 
           {/* New Badge */}
-          {sermon.isNew && (
+     {/*      {sermon.isNew && (
             <div className='absolute top-4 left-4'>
               <Badge className='bg-primary text-primary-foreground'>
                 {currentLanguage === 'te' ? 'కొత్తది' : 'New'}
               </Badge>
             </div>
-          )}
+          )} */}
 
           {/* Series Badge */}
-          {sermon.series && (
+      {/*     {sermon.series && (
             <div className='absolute bottom-4 left-4'>
               <Badge
                 variant='secondary'
@@ -358,21 +356,21 @@ function SermonCard({
                 {getText(sermon.series)}
               </Badge>
             </div>
-          )}
+          )} */}
         </div>
 
         <div className={`${viewMode === 'list' ? 'flex-1' : ''}`}>
           <CardHeader className='pb-3'>
-            <CardTitle
+            {/* <CardTitle
               className={`font-bold line-clamp-2 mb-3 ${
                 viewMode === 'list' ? 'text-xl' : 'text-lg'
               }`}
             >
               {getText(sermon.title)}
-            </CardTitle>
+            </CardTitle> */}
 
             {/* Sermon Meta */}
-            <div className='flex flex-wrap items-center gap-4 text-sm text-muted-foreground'>
+          {/*   <div className='flex flex-wrap items-center gap-4 text-sm text-muted-foreground'>
               <div className='flex items-center gap-1'>
                 <User className='w-4 h-4' />
                 <span>{getText(sermon.speaker)}</span>
@@ -382,17 +380,17 @@ function SermonCard({
                 <Calendar className='w-4 h-4' />
                 <span>{formatDate(sermon.date)}</span>
               </div>
-            </div>
+            </div> */}
           </CardHeader>
 
           <CardContent className='pt-0'>
-            <p
+            {/* <p
               className={`text-muted-foreground text-sm mb-6 ${
                 viewMode === 'list' ? 'line-clamp-2' : 'line-clamp-3'
               }`}
             >
               {getText(sermon.description)}
-            </p>
+            </p> */}
 
             {/* Action Button */}
             <Button

@@ -114,7 +114,7 @@ export const metadata: Metadata = {
   classification: 'Religious Organization',
   other: {
     'og:phone_number': '+91-80-28452100',
-    'og:email': 'info@pgfteluguchurch.org',
+    'og:email': 'pgfbanglore@gmail.com',
     'og:latitude': '12.9698',
     'og:longitude': '77.7500',
     'og:street-address': 'Anugraha Hall, St. Joseph Convent School Campus',
@@ -131,7 +131,7 @@ export const metadata: Metadata = {
     'place:location:latitude': '12.9698',
     'place:location:longitude': '77.7500',
     'contact:phone_number': '+91-80-28452100',
-    'contact:email': 'info@pgfteluguchurch.org',
+    'contact:email': 'pgfbanglore@gmail.com',
   },
 }
 
@@ -167,9 +167,9 @@ export default function RootLayout({
         <link rel='dns-prefetch' href='//www.facebook.com' />
 
         {/* Favicon and App Icons */}
-        <link rel='icon' href='/favicon.ico' sizes='32x32' />
-        <link rel='icon' href='/PGFLOGO.png' type='image/png' sizes='512x512' />
-        <link rel='apple-touch-icon' href='/PGFLOGO.png' sizes='512x512' />
+        <link rel='icon' href='/PGFLOGO.ico' sizes='32x32' />
+        <link rel='icon' href='/PGFLOGO.ico' type='image/ico' sizes='512x512' />
+        <link rel='apple-touch-icon' href='/PGFLOGO.ico' sizes='512x512' />
         <link rel='manifest' href='/manifest.json' />
 
         {/* Additional SEO Meta Tags */}

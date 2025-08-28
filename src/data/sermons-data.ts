@@ -27,7 +27,7 @@ export const latestSermonsData: SermonData[] = [
       te: "పాస్టర్ రవి కుమార్"
     },
     date: "2024-01-21",
-    youtubeLiveLink: "https://www.youtube.com/embed/c4pghohDMH4?si=-qA1LfPovMhTFyi0",
+    youtubeLiveLink: "https://www.youtube.com/embed/fuuIFUOYu1o?si=ex37YELg0gNi4LrE",
     series: {
       en: "Living by Faith",
       te: "విశ్వాసంతో జీవించడం"
@@ -47,11 +47,11 @@ export const latestSermonsData: SermonData[] = [
       te: "ప్రార్థన యొక్క మార్చే శక్తిని అర్థం చేసుకోవడం మరియు స్తుతులు స్వర్గ ద్వారాలను ఎలా తెరుస్తాయో తెలుసుకోవడం."
     },
     speaker: {
-      en: "Pastor Hepsiba",
+      en: "Pastor Ravi Kumar",
       te: "పాస్టర్ హెప్సిబా"
     },
     date: "2024-01-14",
-    youtubeLiveLink: "https://www.youtube.com/embed/X9OM3VbncNM?si=Ia5mFhqJ2cMX98np",
+    youtubeLiveLink: "https://www.youtube.com/embed/qs2x1DCFWKE?si=5k0C35OJGc0dSHak",
     series: {
       en: "Spiritual Warfare",
       te: "ఆధ్యాత్మిక యుద్ధం"

@@ -16,7 +16,7 @@ NEXT_PUBLIC_SITE_DOMAIN="pgfteluguchurch.org"
 NEXT_PUBLIC_CHURCH_NAME="Peniel Gospel Fellowship Telugu Church"
 NEXT_PUBLIC_CHURCH_SHORT_NAME="PGF Telugu Church"
 NEXT_PUBLIC_CHURCH_PHONE="+91-80-28452100"
-NEXT_PUBLIC_CHURCH_EMAIL="info@pgfteluguchurch.org"
+NEXT_PUBLIC_CHURCH_EMAIL="pgfbanglore@gmail.com"
 NEXT_PUBLIC_CHURCH_WHATSAPP="+91-98450-12345"
 
 # Address Information

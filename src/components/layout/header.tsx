@@ -152,7 +152,7 @@ export default function Header({ className }: HeaderProps) {
               <p className='text-xs text-muted-foreground'>
                 {currentLanguage === 'te'
                   ? 'పెనీయేల్ గాస్పెల్ ఫెలోషిప్'
-                  : 'Peniel Gospel Fellowship'}
+                  : 'Peniel Gospel Fellowship Whitefield,Bangalore'}
               </p>
             </div>
           </Link>

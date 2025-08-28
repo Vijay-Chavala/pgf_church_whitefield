@@ -36,21 +36,21 @@ export const navigationItems: NavItem[] = [
 // Church settings and information
 export const churchSettings: ChurchSettings = {
   churchName: {
-    en: 'Peniel Gospel Fellowship Telugu Church',
-    te: 'పెనీయేల్ గాస్పెల్ ఫెలోషిప్ తెలుగు చర్చి',
+    en: 'PGF Telugu Church',
+    te: 'పిజిఎఫ్ తెలుగు చర్చి',
   },
   address: {
     en: 'Anugraha Hall, St. Joseph Convent School Campus, Whitefield, Bangalore-560066, Karnataka, India',
     te: 'అనుగ్రహ హాల్, సెయింట్ జోసెఫ్ కాన్వెంట్ స్కూల్ క్యాంపస్, వైట్‌ఫీల్డ్, బెంగళూరు-560066, కర్ణాటక, భారతదేశం',
   },
   phone: '+91-80-28452100',
-  email: 'info@pgfteluguchurch.org',
+  email: 'pgfbanglore@gmail.com',
   website: 'https://pgfteluguchurch.org',
   socialMedia: {
-    facebook: 'https://www.facebook.com/pgfteluguchurch',
-    youtube: 'https://www.youtube.com/@pgfteluguchurch',
-    instagram: 'https://www.instagram.com/pgfteluguchurch',
-    whatsapp: '+91-98450-12345',
+    facebook: 'https://www.facebook.com/pgf.bangalore',
+    youtube: 'https://www.youtube.com/@pgfteluguchurchbangalore2020',
+    instagram: 'https://www.instagram.com/pgf_teluguchurch_bangalore?igsh=MTBwazJzamRwNnR1bw==',
+    whatsapp: '+919845754515',
   },
   serviceTimings: {
     sunday: '1st Service: 9:00 AM - 10:30 AM | 2nd Service: 10:30 AM - 12:30 PM',
@@ -229,7 +229,7 @@ export const ministries: Ministry[] = [
     category: 'prayer',
     isActive: true,
     contactInfo: {
-      email: 'info@pgfteluguchurch.org',
+      email: 'pgfbanglore@gmail.com',
       phone: '+91-80-28452100',
     },
     createdAt: '2024-01-01T00:00:00Z',
@@ -314,7 +314,7 @@ export const ministries: Ministry[] = [
     category: 'children',
     isActive: true,
     contactInfo: {
-      email: 'info@pgfteluguchurch.org',
+      email: 'pgfbanglore@gmail.com',
       phone: '+91-80-28452100',
     },
     createdAt: '2024-01-01T00:00:00Z',

@@ -190,7 +190,7 @@ export default function Footer({ className }: FooterProps) {
                 <Mail className='w-4 h-4 text-primary flex-shrink-0' />
                 <div>
                   <p className='text-foreground font-medium'>
-                    info@pgfteluguchurch.org
+                    pgfbanglore@gmail.com
                   </p>
                 </div>
               </div>

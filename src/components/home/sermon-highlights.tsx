@@ -17,21 +17,21 @@ export function SermonHighlights() {
     return textObj[currentLanguage] || textObj.en
   }
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
-    if (currentLanguage === 'te') {
-      return date.toLocaleDateString('te-IN', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })
-    }
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })
-  }
+  // const formatDate = (dateString: string) => {
+  //   const date = new Date(dateString)
+  //   if (currentLanguage === 'te') {
+  //     return date.toLocaleDateString('te-IN', {
+  //       year: 'numeric',
+  //       month: 'long',
+  //       day: 'numeric',
+  //     })
+  //   }
+  //   return date.toLocaleDateString('en-US', {
+  //     year: 'numeric',
+  //     month: 'long',
+  //     day: 'numeric',
+  //   })
+  // }
 
   // Duration formatting function (unused but kept for future use)
   // const formatDuration = (minutes?: number) => {
@@ -134,12 +134,11 @@ export function SermonHighlights() {
                   )}
                 </div>
 
-                <CardHeader className='pb-3'>
+                {/**  <CardHeader className='pb-3'>
                   <CardTitle className='text-xl font-bold line-clamp-2 mb-3 text-white'>
                     {getText(sermon.title)}
                   </CardTitle>
 
-                  {/* Sermon Meta */}
                   <div className='flex flex-wrap items-center gap-4 text-sm text-white/80'>
                     <div className='flex items-center gap-1'>
                       <User className='w-4 h-4' />
@@ -152,11 +151,11 @@ export function SermonHighlights() {
                     </div>
                   </div>
                 </CardHeader>
-
+ **/}
                 <CardContent className='pt-0'>
-                  <p className='text-white/70 text-sm line-clamp-3 mb-6'>
+                  {/* <p className='text-white/70 text-sm line-clamp-3 mb-6'>
                     {getText(sermon.description)}
-                  </p>
+                  </p> */}
 
                   {/* Action Buttons */}
                   <div className='flex gap-3'>

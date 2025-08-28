@@ -19,7 +19,7 @@ export const guestSpeakers: GuestSpeaker[] = [
   {
     id: 0,
     name: 'Gantela Prakash garu',
-    description: 'Beloved Bible teacher, Christian apologist, and God\'s faithful warrior who touched countless lives through his ministry in Guntur. His legacy of spreading the Gospel continues to inspire.',
+    description: 'Beloved Bible teacher, Christian apologist',
     image: '/images/guest-speakers/PrakashGantela.jpeg',
     youtubeLink: 'https://www.youtube.com/watch?v=cu_JtxTH4_o',
     isDeceased: true,
@@ -69,9 +69,16 @@ export const guestSpeakers: GuestSpeaker[] = [
   },
   {
     id: 6,
-    name: 'Srimanth Katamala',
+    name: 'Srimanth Katamala garu',
     description: 'Worship Leader | Gospel Songwriter | Founder of Yireh Ministry.',
     image: '/images/guest-speakers/Sreemanth.jpg',
     youtubeLink: 'https://www.youtube.com/watch?v=8IK1AwtsbtA'
-  }
+  },
+  {
+    id: 7,
+    name: 'Deva Prasad garu',
+    description: 'Worship Leader | Gospel Songwriter | Founder of Yireh Ministry.',
+    image: '/images/guest-speakers/DevaPrasad.png',
+    youtubeLink: 'https://www.youtube.com/watch?v=e3tVQNOIPRM'
+  },
 ] 
