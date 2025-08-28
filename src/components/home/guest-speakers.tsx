@@ -133,7 +133,7 @@ export function GuestSpeakers() {
                       {speaker.isDeceased && speaker.tribute && (
                         <div className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3'>
                           <p className='text-white text-xs italic text-center leading-tight'>
-                            "{speaker.tribute}"
+                            &ldquo;{speaker.tribute}&rdquo;
                           </p>
                         </div>
                       )}
