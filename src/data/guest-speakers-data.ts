@@ -4,6 +4,8 @@ export interface GuestSpeaker {
   description: string
   image: string
   youtubeLink: string
+  isDeceased?: boolean
+  tribute?: string
 }
 
 export const guestSpeakers: GuestSpeaker[] = [
@@ -17,9 +19,11 @@ export const guestSpeakers: GuestSpeaker[] = [
   {
     id: 0,
     name: 'Gantela Prakash garu',
-    description: 'Bible teacher and Christian apologist, Guntur',
+    description: 'Beloved Bible teacher, Christian apologist, and God\'s faithful warrior who touched countless lives through his ministry in Guntur. His legacy of spreading the Gospel continues to inspire.',
     image: '/images/guest-speakers/PrakashGantela.jpeg',
-    youtubeLink: 'https://www.youtube.com/watch?v=cu_JtxTH4_o'
+    youtubeLink: 'https://www.youtube.com/watch?v=cu_JtxTH4_o',
+    isDeceased: true,
+    tribute: 'A wise and humble servant of God with deep biblical knowledge. His eye-opening teachings and wisdom live on through his sermons, inspiring and transforming lives through the Gospel.'
   },
   {
     id: 12,
@@ -45,7 +49,7 @@ export const guestSpeakers: GuestSpeaker[] = [
   {
     id: 21,
     name: 'Sudharani garu',
-    description: 'Women\'s Ministry Leader',
+    description: ' ',
     image: '/images/guest-speakers/Sudharanigaru.png',
     youtubeLink: 'https://www.youtube.com/watch?v=AJwEfwASqBU'
   },
@@ -59,14 +63,14 @@ export const guestSpeakers: GuestSpeaker[] = [
   {
     id: 5,
     name: 'Naresh garu',
-    description: 'Christian Evangelist',
+    description: 'Church of Christ, Idupulapaya',
     image: '/images/guest-speakers/Naresh.jpeg',
     youtubeLink: 'https://www.youtube.com/watch?v=O3J1khimfPI'
   },
   {
     id: 6,
     name: 'Srimanth Katamala',
-    description: 'Youth Ministry Leader',
+    description: 'Worship Leader | Gospel Songwriter | Founder of Yireh Ministry.',
     image: '/images/guest-speakers/Sreemanth.jpg',
     youtubeLink: 'https://www.youtube.com/watch?v=8IK1AwtsbtA'
   }
