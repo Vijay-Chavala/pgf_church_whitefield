@@ -244,7 +244,7 @@ export default function Header({ className }: HeaderProps) {
                 >
                   <div className='flex flex-col h-full'>
                     {/* Mobile Header */}
-                    <div className='flex items-center justify-between p-4 border-b border-border'>
+                    <div className='flex items-center justify-between p-4 border-b border-border bg-card'>
                       <div className='flex items-center space-x-3'>
                         <div className='flex items-center justify-center w-8 h-8 bg-gradient-to-br from-primary to-forest-green rounded-lg'>
                           <span className='text-primary-foreground font-bold text-sm'>
@@ -257,19 +257,10 @@ export default function Header({ className }: HeaderProps) {
                           </h2>
                         </div>
                       </div>
-                      <SheetClose asChild>
-                        <Button
-                          variant='ghost'
-                          size='sm'
-                          className='w-8 h-8 p-0'
-                        >
-                          <X className='w-4 h-4' />
-                        </Button>
-                      </SheetClose>
                     </div>
 
                     {/* Mobile Navigation */}
-                    <div className='flex-1 overflow-y-auto'>
+                    <div className='flex-1 overflow-y-auto bg-background'>
                       <nav className='p-4 space-y-2'>
                         {navigationItems.map(item => (
                           <div key={item.id}>
@@ -278,7 +269,7 @@ export default function Header({ className }: HeaderProps) {
                                 <DropdownMenuTrigger asChild>
                                   <Button
                                     variant='ghost'
-                                    className='w-full justify-between h-auto p-3 text-left'
+                                    className='w-full justify-between h-auto p-3 text-left hover:bg-accent hover:text-accent-foreground text-foreground'
                                   >
                                     <div className='flex items-center space-x-3'>
                                       {getIcon(item.icon)}
@@ -291,14 +282,14 @@ export default function Header({ className }: HeaderProps) {
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent
                                   align='start'
-                                  className='w-64'
+                                  className='w-64 bg-popover border border-border shadow-lg z-[60]'
                                   side='bottom'
                                 >
                                   {item.subItems.map(subItem => (
                                     <DropdownMenuItem key={subItem.id} asChild>
                                       <Link
                                         href={subItem.href}
-                                        className='w-full cursor-pointer'
+                                        className='w-full cursor-pointer text-popover-foreground hover:text-accent-foreground'
                                         onClick={closeMenu}
                                       >
                                         <span className='font-medium'>
@@ -313,7 +304,7 @@ export default function Header({ className }: HeaderProps) {
                               <Button
                                 variant='ghost'
                                 className={cn(
-                                  'w-full justify-start h-auto p-3 text-left',
+                                  'w-full justify-start h-auto p-3 text-left hover:bg-accent hover:text-accent-foreground text-foreground',
                                   pathname === item.href &&
                                     'bg-accent text-accent-foreground'
                                 )}
@@ -335,9 +326,9 @@ export default function Header({ className }: HeaderProps) {
                     </div>
 
                     {/* Mobile Footer */}
-                    <div className='p-4 border-t border-border bg-muted/30'>
+                    <div className='p-4 border-t border-border bg-muted/50'>
                       <div className='text-center'>
-                        <p className='text-sm text-muted-foreground'>
+                        <p className='text-primary-foreground font-bold font-medium'>
                           {getLabel(churchSettings.churchName)}
                         </p>
                         <p className='text-xs text-muted-foreground mt-1'>

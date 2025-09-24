@@ -246,10 +246,10 @@ export default function MapSection() {
                       <div className='flex items-center space-x-3'>
                         <Phone className='h-4 w-4 text-slate-500 flex-shrink-0' />
                         <a
-                          href='tel:+919876543210'
+                          href='tel:+9198457 54515'
                           className='text-slate-600 hover:text-primary transition-colors duration-200'
                         >
-                          +91 98765 43210
+                          +91 98457 54515
                         </a>
                       </div>
                       <div className='flex items-center space-x-3'>
@@ -334,7 +334,7 @@ export default function MapSection() {
               asChild
               className='hover:bg-slate-50 transition-colors duration-200'
             >
-              <a href='tel:+919876543210'>
+              <a href='tel:+9198457 54515'>
                 <Phone className='h-5 w-5 mr-2' />
                 {getText({ en: 'Call Us', te: 'కాల్ చేయండి' })}
               </a>

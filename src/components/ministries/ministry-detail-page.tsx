@@ -125,12 +125,12 @@ export function MinistryDetailPage({ ministry }: MinistryDetailPageProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-16'
+              className='grid grid-cols-1 md:grid-cols-2 gap-3 mb-16'
             >
               {ministry.services.map((service, index) => (
                 <Card
                   key={index}
-                  className='overflow-hidden hover:shadow-lg transition-shadow'
+                  className='overflow-hidden hover:shadow-lg transition-shadow p-4'
                 >
                   <CardHeader className='bg-gradient-to-r from-primary/5 to-primary/10'>
                     <CardTitle className='text-xl font-bold flex items-center gap-2'>
@@ -138,7 +138,7 @@ export function MinistryDetailPage({ ministry }: MinistryDetailPageProps) {
                       {getText(service.name)}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className='pt-6 space-y-4'>
+                  <CardContent className=' space-y-4'>
                     <div className='flex items-start gap-3'>
                       <Clock className='w-5 h-5 text-muted-foreground mt-1 flex-shrink-0' />
                       <div>
@@ -244,7 +244,7 @@ export function MinistryDetailPage({ ministry }: MinistryDetailPageProps) {
               transition={{ duration: 0.8, delay: 0.4 }}
               className='mb-16'
             >
-              <Card>
+              <Card className='p-4'>
                 <CardHeader>
                   <CardTitle className='text-2xl font-bold'>
                     {currentLanguage === 'te'
@@ -253,7 +253,7 @@ export function MinistryDetailPage({ ministry }: MinistryDetailPageProps) {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                  <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1'>
                     {getArrayText(ministry.activities).map(
                       (activity, index) => (
                         <motion.div
@@ -280,7 +280,7 @@ export function MinistryDetailPage({ ministry }: MinistryDetailPageProps) {
               className='grid grid-cols-1 md:grid-cols-2 gap-8'
             >
               {/* Leadership */}
-              <Card>
+              <Card className='p-4'>
                 <CardHeader>
                   <CardTitle className='text-xl font-bold flex items-center gap-2'>
                     <Users className='w-5 h-5 text-primary' />
@@ -295,7 +295,7 @@ export function MinistryDetailPage({ ministry }: MinistryDetailPageProps) {
               </Card>
 
               {/* Contact Information */}
-              <Card>
+              <Card className='p-4'>
                 <CardHeader>
                   <CardTitle className='text-xl font-bold'>
                     {currentLanguage === 'te'

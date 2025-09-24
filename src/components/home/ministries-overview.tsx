@@ -2,10 +2,10 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   Users,
   Heart,
-  Video,
   Baby,
   ArrowRight,
   Clock,
@@ -64,7 +64,7 @@ const ministriesData = [
   },
   {
     id: 'online-prayer',
-    icon: Video,
+    iconImage: '/images/icons/zoomIcon.png',
     title: {
       en: 'Online Prayer Meetings',
       te: 'ఆన్‌లైన్ ప్రార్థనా సభలు',
@@ -274,13 +274,26 @@ export function MinistriesOverview() {
               >
                 <CardHeader className='pb-3'>
                   {/* Ministry Icon */}
-                  <div
-                    className={`w-16 h-16 rounded-xl bg-gradient-to-br ${ministry.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <ministry.icon className='w-8 h-8 text-white' />
-                  </div>
-
-                  <CardTitle className='text-xl font-bold mb-3'>
+                  {ministry.iconImage ? (
+                    <div className='mb-4 flex items-center duration-300  overflow-hidden'>
+                      <Image
+                        src={ministry.iconImage}
+                        alt={`${getText(ministry.title)} icon`}
+                        width={100}
+                        height={100}
+                        className='w-16 h-16 object-cover'
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className={`w-16 h-16 rounded-xl bg-gradient-to-br ${ministry.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      {ministry.icon && (
+                        <ministry.icon className='w-8 h-8 text-white' />
+                      )}
+                    </div>
+                  )}
+                  <CardTitle className='text-xl font-bold'>
                     {getText(ministry.title)}
                   </CardTitle>
                 </CardHeader>

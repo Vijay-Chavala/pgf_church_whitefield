@@ -205,7 +205,7 @@ export function MinistriesPage() {
                       >
                         <ministry.icon className='w-8 h-8 text-white' />
                       </div>
-                      <CardTitle className='text-xl font-bold mb-3'>
+                      <CardTitle className='text-xl font-bold'>
                         {getText(ministry.title)}
                       </CardTitle>
                     </CardHeader>

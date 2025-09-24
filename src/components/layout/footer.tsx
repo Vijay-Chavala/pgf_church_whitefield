@@ -182,7 +182,7 @@ export default function Footer({ className }: FooterProps) {
               <div className='flex items-center space-x-2 text-sm'>
                 <Phone className='w-4 h-4 text-primary flex-shrink-0' />
                 <div>
-                  <p className='text-foreground font-medium'>+91 98765 43210</p>
+                  <p className='text-foreground font-medium'>+91 98457 54515</p>
                 </div>
               </div>
 
