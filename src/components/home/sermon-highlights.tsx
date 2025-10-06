@@ -54,10 +54,8 @@ export function SermonHighlights() {
             'linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 80, 0.7)), url(/images/sermons/sermons-bg.jpg) center center / cover no-repeat fixed',
         }}
       />
-
       {/* Overlay for better text readability */}
       <div className='absolute' />
-
       {/* Content Container */}
       <div className='relative z-10 container mx-auto max-w-7xl'>
         {/* Section Header */}

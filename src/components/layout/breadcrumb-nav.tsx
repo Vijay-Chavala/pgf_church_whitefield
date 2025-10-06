@@ -188,7 +188,6 @@ export default function BreadcrumbNav({
                     </BreadcrumbLink>
                   )}
                 </BreadcrumbItem>
-
                 {!isLast && !isEllipsis && (
                   <BreadcrumbSeparator>
                     <ChevronRight className='w-4 h-4' />

@@ -132,28 +132,30 @@ export default function Header({ className }: HeaderProps) {
             className='flex items-center space-x-3 hover:opacity-80 transition-opacity'
             onClick={closeMenu}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className='relative w-12 h-12 rounded-lg overflow-hidden shadow-lg'
-            >
-              <Image
-                src='/PGFLOGO.png'
-                alt='Peniel Gospel Fellowship Logo'
-                fill
-                className='object-contain'
-                priority
-                sizes='48px'
-              />
-            </motion.div>
-            <div className='hidden sm:block'>
-              <h1 className='text-xl font-bold text-foreground leading-tight'>
-                {getLabel(churchSettings.churchName)}
-              </h1>
-              <p className='text-xs text-muted-foreground'>
-                {currentLanguage === 'te'
-                  ? 'పెనీయేల్ గాస్పెల్ ఫెలోషిప్'
-                  : 'Peniel Gospel Fellowship Whitefield,Bangalore'}
-              </p>
+            <div className='flex items-center space-x-3'>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className='relative w-12 h-12 rounded-lg overflow-hidden shadow-lg'
+              >
+                <Image
+                  src='/PGFLOGO.png'
+                  alt='Peniel Gospel Fellowship Logo'
+                  fill
+                  className='object-contain'
+                  priority
+                  sizes='48px'
+                />
+              </motion.div>
+              <div className='hidden sm:block'>
+                <h1 className='text-xl font-bold text-foreground leading-tight'>
+                  {getLabel(churchSettings.churchName)}
+                </h1>
+                <p className='text-xs text-muted-foreground'>
+                  {currentLanguage === 'te'
+                    ? 'పెనీయేల్ గాస్పెల్ ఫెలోషిప్'
+                    : 'Peniel Gospel Fellowship Whitefield,Bangalore'}
+                </p>
+              </div>
             </div>
           </Link>
 
@@ -195,8 +197,9 @@ export default function Header({ className }: HeaderProps) {
                         </NavigationMenuContent>
                       </>
                     ) : (
-                      <Link href={item.href} legacyBehavior passHref>
-                        <NavigationMenuLink
+                      <NavigationMenuLink asChild>
+                        <Link
+                          href={item.href}
                           className={cn(
                             navigationMenuTriggerStyle(),
                             'bg-transparent',
@@ -208,8 +211,8 @@ export default function Header({ className }: HeaderProps) {
                             {getIcon(item.icon)}
                             <span>{getLabel(item)}</span>
                           </div>
-                        </NavigationMenuLink>
-                      </Link>
+                        </Link>
+                      </NavigationMenuLink>
                     )}
                   </NavigationMenuItem>
                 ))}

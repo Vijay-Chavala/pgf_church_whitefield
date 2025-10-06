@@ -77,7 +77,7 @@ export const guestSpeakers: GuestSpeaker[] = [
   {
     id: 7,
     name: 'Deva Prasad garu',
-    description: 'Worship Leader | Gospel Songwriter | Founder of Yireh Ministry.',
+    description: ' ',
     image: '/images/guest-speakers/DevaPrasad.png',
     youtubeLink: 'https://www.youtube.com/watch?v=e3tVQNOIPRM'
   },

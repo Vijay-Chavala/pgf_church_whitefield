@@ -1,64 +1,69 @@
 'use client'
 
-import { Suspense } from 'react'
+import { Suspense, use } from 'react'
 import { MainLayout } from '@/components/layout'
-import { galleryCategories } from '../../data/gallery-data'
+import {
+  getSubcategoriesByCategory,
+  galleryCategories,
+} from '@/data/gallery-data'
 import { useLanguageStore } from '@/lib/stores/language-store'
 import { motion } from 'framer-motion'
-import { Camera, ArrowLeft, Grid3X3 } from 'lucide-react'
+import { Camera, ArrowLeft, Grid3X3, Images } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
-function GalleryPageContent() {
+interface CategoryPageProps {
+  params: Promise<{
+    category: string
+  }>
+}
+
+function CategoryPageContent({ params }: CategoryPageProps) {
   const { currentLanguage } = useLanguageStore()
+  const { category: categoryId } = use(params)
 
   const getText = (textObj: { en: string; te: string }) => {
     return textObj[currentLanguage] || textObj.en
   }
 
-  const pageTitle = getText({
-    en: 'Our Gallery',
-    te: 'మా గ్యాలరీ',
-  })
+  // Find the category
+  const category = galleryCategories.find(cat => cat.id === categoryId)
 
-  const pageSubtitle = getText({
-    en: 'Explore our collection of beautiful moments organized by categories',
-    te: 'వర్గాల వారీగా నిర్వహించబడిన మా అందమైన క్షణాల సేకరణను అన్వేషించండి',
-  })
+  if (!category) {
+    notFound()
+  }
+
+  const subcategories = getSubcategoriesByCategory(categoryId)
 
   const seoConfig = {
     title: getText({
-      en: 'Gallery - Peniel Gospel Fellowship',
-      te: 'గ్యాలరీ - పెనీయేల్ గాస్పెల్ ఫెలోషిప్',
+      en: `${getText(category.title)} - Peniel Gospel Fellowship`,
+      te: `${getText(category.title)} - పెనీయేల్ గాస్పెల్ ఫెలోషిప్`,
     }),
-    description: getText({
-      en: 'View our church photo gallery featuring church events, kids activities, and fellowship moments.',
-      te: 'చర్చి కార్యక్రమాలు, పిల్లల కార్యకలాపాలు మరియు సహవాస క్షణాలను కలిగి ఉన్న మా చర్చి ఫోటో గ్యాలరీని చూడండి.',
-    }),
+    description: getText(category.description),
     keywords: [
       'church gallery',
-      'church events',
-      'kids activities',
-      'fellowship',
+      categoryId === 'church' ? 'church events' : 'kids activities',
       'peniel gospel fellowship',
       'telugu church',
     ],
   }
 
-  const backToHomeText = getText({
-    en: 'Back to Home',
-    te: 'హోమ్‌కు వెళ్లు',
+  const backToGalleryText = getText({
+    en: 'Back to Gallery',
+    te: 'గ్యాలరీకి వెళ్లు',
   })
 
-  const categoriesText = getText({
-    en: 'Categories',
-    te: 'వర్గాలు',
+  const subcategoriesText = getText({
+    en: 'Subcategories',
+    te: 'ఉప వర్గాలు',
   })
 
-  const subcategoriesCountText = (count: number) =>
+  const imagesCountText = (count: number) =>
     getText({
-      en: `${count} ${count === 1 ? 'subcategory' : 'subcategories'}`,
-      te: `${count} ఉప వర్గాలు`,
+      en: `${count} ${count === 1 ? 'image' : 'images'}`,
+      te: `${count} చిత్రాలు`,
     })
 
   return (
@@ -72,14 +77,28 @@ function GalleryPageContent() {
         >
           <div className='flex items-center justify-center mb-4'>
             <Camera className='w-8 h-8 text-primary mr-3' />
-            <h1 className='text-4xl font-bold text-foreground'>{pageTitle}</h1>
+            <h1 className='text-4xl font-bold text-foreground'>
+              {getText(category.title)}
+            </h1>
           </div>
-          <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-            {pageSubtitle}
+          <p className='text-lg text-muted-foreground max-w-2xl mx-auto mb-6'>
+            {getText(category.description)}
           </p>
+
+          {/* Breadcrumb */}
+          <div className='flex items-center justify-center space-x-2 text-sm text-muted-foreground'>
+            <Link
+              href='/gallery'
+              className='hover:text-primary transition-colors'
+            >
+              Gallery
+            </Link>
+            <span>/</span>
+            <span className='text-foreground'>{getText(category.title)}</span>
+          </div>
         </motion.div>
 
-        {/* Categories Header */}
+        {/* Subcategories Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -89,41 +108,38 @@ function GalleryPageContent() {
           <div className='flex items-center space-x-2 mb-6'>
             <Grid3X3 className='w-5 h-5 text-muted-foreground' />
             <span className='text-lg font-medium text-foreground'>
-              {categoriesText}
+              {subcategoriesText}
             </span>
             <span className='text-sm text-muted-foreground'>
-              ({galleryCategories.length})
+              ({subcategories.length})
             </span>
           </div>
         </motion.div>
 
-        {/* Categories Grid */}
+        {/* Subcategories Grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-12'
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12'
         >
-          {galleryCategories.map((category, index) => (
+          {subcategories.map((subcategory, index) => (
             <motion.div
-              key={category.id}
+              key={subcategory.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               className='group relative'
             >
-              <Link href={`/gallery/${category.id}`}>
-                <div className='relative h-[400px] rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]'>
-                  {/* Cover Image - using first subcategory's cover image */}
+              <Link href={`/gallery/${categoryId}/${subcategory.id}`}>
+                <div className='relative h-[300px] rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]'>
+                  {/* Cover Image */}
                   <Image
-                    src={
-                      category.subcategories[0]?.coverImage ||
-                      '/images/gallery/churchFellowship/CF1.webp'
-                    }
-                    alt={getText(category.title)}
+                    src={subcategory.coverImage}
+                    alt={getText(subcategory.title)}
                     fill
                     className='object-cover transition-transform duration-500 group-hover:scale-110'
-                    sizes='(max-width: 768px) 100vw, 50vw'
+                    sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
                   />
 
                   {/* Overlay */}
@@ -133,21 +149,19 @@ function GalleryPageContent() {
                   <div className='absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300' />
 
                   {/* Content */}
-                  <div className='absolute inset-0 flex flex-col justify-end p-8 text-white'>
+                  <div className='absolute inset-0 flex flex-col justify-end p-6 text-white'>
                     <div className='transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300'>
-                      <div className='flex items-center mb-3 opacity-80 group-hover:opacity-100 transition-opacity duration-300'>
-                        <Grid3X3 className='w-4 h-4 mr-2' />
+                      <div className='flex items-center mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300'>
+                        <Images className='w-4 h-4 mr-2' />
                         <span className='text-sm'>
-                          {subcategoriesCountText(
-                            category.subcategories.length
-                          )}
+                          {imagesCountText(subcategory.images.length)}
                         </span>
                       </div>
-                      <h3 className='text-3xl font-bold mb-3 drop-shadow-lg'>
-                        {getText(category.title)}
+                      <h3 className='text-xl font-bold mb-2 drop-shadow-lg'>
+                        {getText(subcategory.title)}
                       </h3>
                       <p className='text-sm text-white/90 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-                        {getText(category.description)}
+                        {getText(subcategory.description)}
                       </p>
                     </div>
                   </div>
@@ -157,7 +171,7 @@ function GalleryPageContent() {
           ))}
         </motion.div>
 
-        {/* Back to Home Button */}
+        {/* Back to Gallery Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -165,11 +179,11 @@ function GalleryPageContent() {
           className='text-center'
         >
           <Link
-            href='/'
+            href='/gallery'
             className='inline-flex items-center space-x-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors'
           >
             <ArrowLeft className='w-4 h-4' />
-            <span>{backToHomeText}</span>
+            <span>{backToGalleryText}</span>
           </Link>
         </motion.div>
       </div>
@@ -178,24 +192,23 @@ function GalleryPageContent() {
 }
 
 // Loading fallback component
-function GalleryPageFallback() {
+function CategoryPageFallback() {
   return (
     <MainLayout>
       <div className='container mx-auto px-4 py-8'>
         <div className='text-center'>
           <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4' />
-          <p className='text-muted-foreground'>Loading gallery...</p>
+          <p className='text-muted-foreground'>Loading category...</p>
         </div>
       </div>
     </MainLayout>
   )
 }
 
-// Main export
-export default function GalleryPage() {
+export default function CategoryPage({ params }: CategoryPageProps) {
   return (
-    <Suspense fallback={<GalleryPageFallback />}>
-      <GalleryPageContent />
+    <Suspense fallback={<CategoryPageFallback />}>
+      <CategoryPageContent params={params} />
     </Suspense>
   )
 }

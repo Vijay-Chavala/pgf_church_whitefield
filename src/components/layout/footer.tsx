@@ -270,9 +270,7 @@ export default function Footer({ className }: FooterProps) {
           </div>
         </div>
       </div>
-
       <Separator />
-
       {/* Bottom Footer */}
       <div className='container mx-auto px-4 py-6'>
         <div className='flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0'>

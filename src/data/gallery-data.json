@@ -1,0 +1,922 @@
+{
+  "images": [
+    {
+      "id": "church_fellowship_1",
+      "src": "/images/gallery/churchFellowship/CF1.webp",
+      "alt": "Church Fellowship - 1",
+      "category": "church",
+      "subcategory": "Church Fellowship"
+    },
+    {
+      "id": "church_fellowship_2",
+      "src": "/images/gallery/churchFellowship/CF2.webp",
+      "alt": "Church Fellowship - 2",
+      "category": "church",
+      "subcategory": "Church Fellowship"
+    },
+    {
+      "id": "christmas_2023_1",
+      "src": "/images/gallery/Christmas2023/Christmas23_1.webp",
+      "alt": "Christmas Celebration 2023 - 1",
+      "category": "church",
+      "subcategory": "Christmas 2023"
+    },
+    {
+      "id": "christmas_2023_2",
+      "src": "/images/gallery/Christmas2023/Christmas23_3.webp",
+      "alt": "Christmas Celebration 2023 - 2",
+      "category": "church",
+      "subcategory": "Christmas 2023"
+    },
+    {
+      "id": "christmas_2023_3",
+      "src": "/images/gallery/Christmas2023/Christmas23_4.webp",
+      "alt": "Christmas Celebration 2023 - 3",
+      "category": "church",
+      "subcategory": "Christmas 2023"
+    },
+    {
+      "id": "easter_2024_1",
+      "src": "/images/gallery/Easter24/Easter24_1.webp",
+      "alt": "Easter Celebration 2024 - 1",
+      "category": "church",
+      "subcategory": "Easter 2024"
+    },
+    {
+      "id": "easter_2024_2",
+      "src": "/images/gallery/Easter24/Easter24_2.webp",
+      "alt": "Easter Celebration 2024 - 2",
+      "category": "church",
+      "subcategory": "Easter 2024"
+    },
+    {
+      "id": "easter_2024_3",
+      "src": "/images/gallery/Easter24/Easter24_3.webp",
+      "alt": "Easter Celebration 2024 - 3",
+      "category": "church",
+      "subcategory": "Easter 2024"
+    },
+    {
+      "id": "easter_2024_4",
+      "src": "/images/gallery/Easter24/Easter24_4.webp",
+      "alt": "Easter Celebration 2024 - 4",
+      "category": "church",
+      "subcategory": "Easter 2024"
+    },
+    {
+      "id": "easter_2024_5",
+      "src": "/images/gallery/Easter24/Easter24_5.webp",
+      "alt": "Easter Celebration 2024 - 5",
+      "category": "church",
+      "subcategory": "Easter 2024"
+    },
+    {
+      "id": "easter_2024_6",
+      "src": "/images/gallery/Easter24/Easter24_6.webp",
+      "alt": "Easter Celebration 2024 - 6",
+      "category": "church",
+      "subcategory": "Easter 2024"
+    },
+    {
+      "id": "baptisms_1",
+      "src": "/images/gallery/Baptisms/IMG_0245.JPG",
+      "alt": "Baptism Ceremony - 1",
+      "category": "church",
+      "subcategory": "Baptisms"
+    },
+    {
+      "id": "4th_anniversary_1",
+      "src": "/images/gallery/4thAnnversday/A4_1.webp",
+      "alt": "4th Anniversary Celebration - 1",
+      "category": "church",
+      "subcategory": "4th Anniversary"
+    },
+    {
+      "id": "4th_anniversary_2",
+      "src": "/images/gallery/4thAnnversday/A4_2.webp",
+      "alt": "4th Anniversary Celebration - 2",
+      "category": "church",
+      "subcategory": "4th Anniversary"
+    },
+    {
+      "id": "4th_anniversary_3",
+      "src": "/images/gallery/4thAnnversday/A4_3.webp",
+      "alt": "4th Anniversary Celebration - 3",
+      "category": "church",
+      "subcategory": "4th Anniversary"
+    },
+    {
+      "id": "4th_anniversary_4",
+      "src": "/images/gallery/4thAnnversday/A4_4.webp",
+      "alt": "4th Anniversary Celebration - 4",
+      "category": "church",
+      "subcategory": "4th Anniversary"
+    },
+    {
+      "id": "4th_anniversary_5",
+      "src": "/images/gallery/4thAnnversday/A4_5.webp",
+      "alt": "4th Anniversary Celebration - 5",
+      "category": "church",
+      "subcategory": "4th Anniversary"
+    },
+    {
+      "id": "4th_anniversary_6",
+      "src": "/images/gallery/4thAnnversday/A4_6.webp",
+      "alt": "4th Anniversary Celebration - 6",
+      "category": "church",
+      "subcategory": "4th Anniversary"
+    },
+    {
+      "id": "4th_anniversary_7",
+      "src": "/images/gallery/4thAnnversday/A4_7.webp",
+      "alt": "4th Anniversary Celebration - 7",
+      "category": "church",
+      "subcategory": "4th Anniversary"
+    },
+    {
+      "id": "4th_anniversary_8",
+      "src": "/images/gallery/4thAnnversday/A4_8.webp",
+      "alt": "4th Anniversary Celebration - 8",
+      "category": "church",
+      "subcategory": "4th Anniversary"
+    },
+    {
+      "id": "4th_anniversary_9",
+      "src": "/images/gallery/4thAnnversday/A4_9.webp",
+      "alt": "4th Anniversary Celebration - 9",
+      "category": "church",
+      "subcategory": "4th Anniversary"
+    },
+    {
+      "id": "pre-christmas_2024_1",
+      "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (1).webp",
+      "alt": "Pre-Christmas Celebration 2024 - 1",
+      "category": "church",
+      "subcategory": "Pre-Christmas 2024"
+    },
+    {
+      "id": "pre-christmas_2024_2",
+      "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (2).webp",
+      "alt": "Pre-Christmas Celebration 2024 - 2",
+      "category": "church",
+      "subcategory": "Pre-Christmas 2024"
+    },
+    {
+      "id": "pre-christmas_2024_3",
+      "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (3).webp",
+      "alt": "Pre-Christmas Celebration 2024 - 3",
+      "category": "church",
+      "subcategory": "Pre-Christmas 2024"
+    },
+    {
+      "id": "pre-christmas_2024_4",
+      "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (4).webp",
+      "alt": "Pre-Christmas Celebration 2024 - 4",
+      "category": "church",
+      "subcategory": "Pre-Christmas 2024"
+    },
+    {
+      "id": "pre-christmas_2024_5",
+      "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (5).webp",
+      "alt": "Pre-Christmas Celebration 2024 - 5",
+      "category": "church",
+      "subcategory": "Pre-Christmas 2024"
+    },
+    {
+      "id": "pre-christmas_2024_6",
+      "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (6).webp",
+      "alt": "Pre-Christmas Celebration 2024 - 6",
+      "category": "church",
+      "subcategory": "Pre-Christmas 2024"
+    },
+    {
+      "id": "pre-christmas_2024_7",
+      "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (7).webp",
+      "alt": "Pre-Christmas Celebration 2024 - 7",
+      "category": "church",
+      "subcategory": "Pre-Christmas 2024"
+    },
+    {
+      "id": "pre-christmas_2024_8",
+      "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (8).webp",
+      "alt": "Pre-Christmas Celebration 2024 - 8",
+      "category": "church",
+      "subcategory": "Pre-Christmas 2024"
+    },
+    {
+      "id": "pre-christmas_2024_9",
+      "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (9).webp",
+      "alt": "Pre-Christmas Celebration 2024 - 9",
+      "category": "church",
+      "subcategory": "Pre-Christmas 2024"
+    },
+    {
+      "id": "watch_night_service_2024_1",
+      "src": "/images/gallery/WatchNightService2024/watchNight2024 (1).webp",
+      "alt": "Watch Night Service 2024 - 1",
+      "category": "church",
+      "subcategory": "Watch Night Service 2024"
+    },
+    {
+      "id": "watch_night_service_2024_2",
+      "src": "/images/gallery/WatchNightService2024/watchNight2024 (2).webp",
+      "alt": "Watch Night Service 2024 - 2",
+      "category": "church",
+      "subcategory": "Watch Night Service 2024"
+    },
+    {
+      "id": "watch_night_service_2024_3",
+      "src": "/images/gallery/WatchNightService2024/watchNight2024 (3).webp",
+      "alt": "Watch Night Service 2024 - 3",
+      "category": "church",
+      "subcategory": "Watch Night Service 2024"
+    },
+    {
+      "id": "sunday_school_1",
+      "src": "/images/gallery/SundaySchool/SS (1).webp",
+      "alt": "Sunday School Activities - 1",
+      "category": "kids",
+      "subcategory": "Sunday School"
+    },
+    {
+      "id": "sunday_school_2",
+      "src": "/images/gallery/SundaySchool/SS (2).webp",
+      "alt": "Sunday School Activities - 2",
+      "category": "kids",
+      "subcategory": "Sunday School"
+    },
+    {
+      "id": "sunday_school_3",
+      "src": "/images/gallery/SundaySchool/SS (3).webp",
+      "alt": "Sunday School Activities - 3",
+      "category": "kids",
+      "subcategory": "Sunday School"
+    },
+    {
+      "id": "vbs_2024_1",
+      "src": "/images/gallery/VBS24/VBS1.webp",
+      "alt": "Vacation Bible School 2024 - 1",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_2",
+      "src": "/images/gallery/VBS24/VBS10.webp",
+      "alt": "Vacation Bible School 2024 - 2",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_3",
+      "src": "/images/gallery/VBS24/VBS11.webp",
+      "alt": "Vacation Bible School 2024 - 3",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_4",
+      "src": "/images/gallery/VBS24/VBS12.webp",
+      "alt": "Vacation Bible School 2024 - 4",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_5",
+      "src": "/images/gallery/VBS24/VBS13.webp",
+      "alt": "Vacation Bible School 2024 - 5",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_6",
+      "src": "/images/gallery/VBS24/VBS14.webp",
+      "alt": "Vacation Bible School 2024 - 6",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_7",
+      "src": "/images/gallery/VBS24/VBS15.webp",
+      "alt": "Vacation Bible School 2024 - 7",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_8",
+      "src": "/images/gallery/VBS24/VBS16.webp",
+      "alt": "Vacation Bible School 2024 - 8",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_9",
+      "src": "/images/gallery/VBS24/VBS17.webp",
+      "alt": "Vacation Bible School 2024 - 9",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_10",
+      "src": "/images/gallery/VBS24/VBS18.webp",
+      "alt": "Vacation Bible School 2024 - 10",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_11",
+      "src": "/images/gallery/VBS24/VBS19.webp",
+      "alt": "Vacation Bible School 2024 - 11",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_12",
+      "src": "/images/gallery/VBS24/VBS2.webp",
+      "alt": "Vacation Bible School 2024 - 12",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_13",
+      "src": "/images/gallery/VBS24/VBS20.webp",
+      "alt": "Vacation Bible School 2024 - 13",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_14",
+      "src": "/images/gallery/VBS24/VBS21.webp",
+      "alt": "Vacation Bible School 2024 - 14",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_15",
+      "src": "/images/gallery/VBS24/VBS22.webp",
+      "alt": "Vacation Bible School 2024 - 15",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_16",
+      "src": "/images/gallery/VBS24/VBS23.webp",
+      "alt": "Vacation Bible School 2024 - 16",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_17",
+      "src": "/images/gallery/VBS24/VBS24.webp",
+      "alt": "Vacation Bible School 2024 - 17",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_18",
+      "src": "/images/gallery/VBS24/VBS25.webp",
+      "alt": "Vacation Bible School 2024 - 18",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_19",
+      "src": "/images/gallery/VBS24/VBS26.webp",
+      "alt": "Vacation Bible School 2024 - 19",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_20",
+      "src": "/images/gallery/VBS24/VBS27.webp",
+      "alt": "Vacation Bible School 2024 - 20",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_21",
+      "src": "/images/gallery/VBS24/VBS28.webp",
+      "alt": "Vacation Bible School 2024 - 21",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_22",
+      "src": "/images/gallery/VBS24/VBS3.webp",
+      "alt": "Vacation Bible School 2024 - 22",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_23",
+      "src": "/images/gallery/VBS24/VBS5.webp",
+      "alt": "Vacation Bible School 2024 - 23",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_24",
+      "src": "/images/gallery/VBS24/VBS6.webp",
+      "alt": "Vacation Bible School 2024 - 24",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_25",
+      "src": "/images/gallery/VBS24/VBS7.webp",
+      "alt": "Vacation Bible School 2024 - 25",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_26",
+      "src": "/images/gallery/VBS24/VBS8.webp",
+      "alt": "Vacation Bible School 2024 - 26",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "vbs_2024_27",
+      "src": "/images/gallery/VBS24/VBS9.webp",
+      "alt": "Vacation Bible School 2024 - 27",
+      "category": "kids",
+      "subcategory": "VBS 2024"
+    },
+    {
+      "id": "pgf_babies_1",
+      "src": "/images/gallery/PGF_BABIES/bhupal.webp",
+      "alt": "PGF Babies - Church Family - 1",
+      "category": "kids",
+      "subcategory": "PGF Babies"
+    }
+  ],
+  "categories": [
+    {
+      "id": "church",
+      "title": {
+        "en": "Church Moments",
+        "te": "చర్చి క్షణాలు"
+      },
+      "images": [
+        {
+          "id": "church_fellowship_1",
+          "src": "/images/gallery/churchFellowship/CF1.webp",
+          "alt": "Church Fellowship - 1",
+          "category": "church",
+          "subcategory": "Church Fellowship"
+        },
+        {
+          "id": "church_fellowship_2",
+          "src": "/images/gallery/churchFellowship/CF2.webp",
+          "alt": "Church Fellowship - 2",
+          "category": "church",
+          "subcategory": "Church Fellowship"
+        },
+        {
+          "id": "christmas_2023_1",
+          "src": "/images/gallery/Christmas2023/Christmas23_1.webp",
+          "alt": "Christmas Celebration 2023 - 1",
+          "category": "church",
+          "subcategory": "Christmas 2023"
+        },
+        {
+          "id": "christmas_2023_2",
+          "src": "/images/gallery/Christmas2023/Christmas23_3.webp",
+          "alt": "Christmas Celebration 2023 - 2",
+          "category": "church",
+          "subcategory": "Christmas 2023"
+        },
+        {
+          "id": "christmas_2023_3",
+          "src": "/images/gallery/Christmas2023/Christmas23_4.webp",
+          "alt": "Christmas Celebration 2023 - 3",
+          "category": "church",
+          "subcategory": "Christmas 2023"
+        },
+        {
+          "id": "easter_2024_1",
+          "src": "/images/gallery/Easter24/Easter24_1.webp",
+          "alt": "Easter Celebration 2024 - 1",
+          "category": "church",
+          "subcategory": "Easter 2024"
+        },
+        {
+          "id": "easter_2024_2",
+          "src": "/images/gallery/Easter24/Easter24_2.webp",
+          "alt": "Easter Celebration 2024 - 2",
+          "category": "church",
+          "subcategory": "Easter 2024"
+        },
+        {
+          "id": "easter_2024_3",
+          "src": "/images/gallery/Easter24/Easter24_3.webp",
+          "alt": "Easter Celebration 2024 - 3",
+          "category": "church",
+          "subcategory": "Easter 2024"
+        },
+        {
+          "id": "easter_2024_4",
+          "src": "/images/gallery/Easter24/Easter24_4.webp",
+          "alt": "Easter Celebration 2024 - 4",
+          "category": "church",
+          "subcategory": "Easter 2024"
+        },
+        {
+          "id": "easter_2024_5",
+          "src": "/images/gallery/Easter24/Easter24_5.webp",
+          "alt": "Easter Celebration 2024 - 5",
+          "category": "church",
+          "subcategory": "Easter 2024"
+        },
+        {
+          "id": "easter_2024_6",
+          "src": "/images/gallery/Easter24/Easter24_6.webp",
+          "alt": "Easter Celebration 2024 - 6",
+          "category": "church",
+          "subcategory": "Easter 2024"
+        },
+        {
+          "id": "baptisms_1",
+          "src": "/images/gallery/Baptisms/IMG_0245.JPG",
+          "alt": "Baptism Ceremony - 1",
+          "category": "church",
+          "subcategory": "Baptisms"
+        },
+        {
+          "id": "4th_anniversary_1",
+          "src": "/images/gallery/4thAnnversday/A4_1.webp",
+          "alt": "4th Anniversary Celebration - 1",
+          "category": "church",
+          "subcategory": "4th Anniversary"
+        },
+        {
+          "id": "4th_anniversary_2",
+          "src": "/images/gallery/4thAnnversday/A4_2.webp",
+          "alt": "4th Anniversary Celebration - 2",
+          "category": "church",
+          "subcategory": "4th Anniversary"
+        },
+        {
+          "id": "4th_anniversary_3",
+          "src": "/images/gallery/4thAnnversday/A4_3.webp",
+          "alt": "4th Anniversary Celebration - 3",
+          "category": "church",
+          "subcategory": "4th Anniversary"
+        },
+        {
+          "id": "4th_anniversary_4",
+          "src": "/images/gallery/4thAnnversday/A4_4.webp",
+          "alt": "4th Anniversary Celebration - 4",
+          "category": "church",
+          "subcategory": "4th Anniversary"
+        },
+        {
+          "id": "4th_anniversary_5",
+          "src": "/images/gallery/4thAnnversday/A4_5.webp",
+          "alt": "4th Anniversary Celebration - 5",
+          "category": "church",
+          "subcategory": "4th Anniversary"
+        },
+        {
+          "id": "4th_anniversary_6",
+          "src": "/images/gallery/4thAnnversday/A4_6.webp",
+          "alt": "4th Anniversary Celebration - 6",
+          "category": "church",
+          "subcategory": "4th Anniversary"
+        },
+        {
+          "id": "4th_anniversary_7",
+          "src": "/images/gallery/4thAnnversday/A4_7.webp",
+          "alt": "4th Anniversary Celebration - 7",
+          "category": "church",
+          "subcategory": "4th Anniversary"
+        },
+        {
+          "id": "4th_anniversary_8",
+          "src": "/images/gallery/4thAnnversday/A4_8.webp",
+          "alt": "4th Anniversary Celebration - 8",
+          "category": "church",
+          "subcategory": "4th Anniversary"
+        },
+        {
+          "id": "4th_anniversary_9",
+          "src": "/images/gallery/4thAnnversday/A4_9.webp",
+          "alt": "4th Anniversary Celebration - 9",
+          "category": "church",
+          "subcategory": "4th Anniversary"
+        },
+        {
+          "id": "pre-christmas_2024_1",
+          "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (1).webp",
+          "alt": "Pre-Christmas Celebration 2024 - 1",
+          "category": "church",
+          "subcategory": "Pre-Christmas 2024"
+        },
+        {
+          "id": "pre-christmas_2024_2",
+          "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (2).webp",
+          "alt": "Pre-Christmas Celebration 2024 - 2",
+          "category": "church",
+          "subcategory": "Pre-Christmas 2024"
+        },
+        {
+          "id": "pre-christmas_2024_3",
+          "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (3).webp",
+          "alt": "Pre-Christmas Celebration 2024 - 3",
+          "category": "church",
+          "subcategory": "Pre-Christmas 2024"
+        },
+        {
+          "id": "pre-christmas_2024_4",
+          "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (4).webp",
+          "alt": "Pre-Christmas Celebration 2024 - 4",
+          "category": "church",
+          "subcategory": "Pre-Christmas 2024"
+        },
+        {
+          "id": "pre-christmas_2024_5",
+          "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (5).webp",
+          "alt": "Pre-Christmas Celebration 2024 - 5",
+          "category": "church",
+          "subcategory": "Pre-Christmas 2024"
+        },
+        {
+          "id": "pre-christmas_2024_6",
+          "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (6).webp",
+          "alt": "Pre-Christmas Celebration 2024 - 6",
+          "category": "church",
+          "subcategory": "Pre-Christmas 2024"
+        },
+        {
+          "id": "pre-christmas_2024_7",
+          "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (7).webp",
+          "alt": "Pre-Christmas Celebration 2024 - 7",
+          "category": "church",
+          "subcategory": "Pre-Christmas 2024"
+        },
+        {
+          "id": "pre-christmas_2024_8",
+          "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (8).webp",
+          "alt": "Pre-Christmas Celebration 2024 - 8",
+          "category": "church",
+          "subcategory": "Pre-Christmas 2024"
+        },
+        {
+          "id": "pre-christmas_2024_9",
+          "src": "/images/gallery/preChristmas2024/pre_christmas_2024 (9).webp",
+          "alt": "Pre-Christmas Celebration 2024 - 9",
+          "category": "church",
+          "subcategory": "Pre-Christmas 2024"
+        },
+        {
+          "id": "watch_night_service_2024_1",
+          "src": "/images/gallery/WatchNightService2024/watchNight2024 (1).webp",
+          "alt": "Watch Night Service 2024 - 1",
+          "category": "church",
+          "subcategory": "Watch Night Service 2024"
+        },
+        {
+          "id": "watch_night_service_2024_2",
+          "src": "/images/gallery/WatchNightService2024/watchNight2024 (2).webp",
+          "alt": "Watch Night Service 2024 - 2",
+          "category": "church",
+          "subcategory": "Watch Night Service 2024"
+        },
+        {
+          "id": "watch_night_service_2024_3",
+          "src": "/images/gallery/WatchNightService2024/watchNight2024 (3).webp",
+          "alt": "Watch Night Service 2024 - 3",
+          "category": "church",
+          "subcategory": "Watch Night Service 2024"
+        }
+      ]
+    },
+    {
+      "id": "kids",
+      "title": {
+        "en": "Kids Activities",
+        "te": "పిల్లల కార్యకలాపాలు"
+      },
+      "images": [
+        {
+          "id": "sunday_school_1",
+          "src": "/images/gallery/SundaySchool/SS (1).webp",
+          "alt": "Sunday School Activities - 1",
+          "category": "kids",
+          "subcategory": "Sunday School"
+        },
+        {
+          "id": "sunday_school_2",
+          "src": "/images/gallery/SundaySchool/SS (2).webp",
+          "alt": "Sunday School Activities - 2",
+          "category": "kids",
+          "subcategory": "Sunday School"
+        },
+        {
+          "id": "sunday_school_3",
+          "src": "/images/gallery/SundaySchool/SS (3).webp",
+          "alt": "Sunday School Activities - 3",
+          "category": "kids",
+          "subcategory": "Sunday School"
+        },
+        {
+          "id": "vbs_2024_1",
+          "src": "/images/gallery/VBS24/VBS1.webp",
+          "alt": "Vacation Bible School 2024 - 1",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_2",
+          "src": "/images/gallery/VBS24/VBS10.webp",
+          "alt": "Vacation Bible School 2024 - 2",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_3",
+          "src": "/images/gallery/VBS24/VBS11.webp",
+          "alt": "Vacation Bible School 2024 - 3",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_4",
+          "src": "/images/gallery/VBS24/VBS12.webp",
+          "alt": "Vacation Bible School 2024 - 4",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_5",
+          "src": "/images/gallery/VBS24/VBS13.webp",
+          "alt": "Vacation Bible School 2024 - 5",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_6",
+          "src": "/images/gallery/VBS24/VBS14.webp",
+          "alt": "Vacation Bible School 2024 - 6",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_7",
+          "src": "/images/gallery/VBS24/VBS15.webp",
+          "alt": "Vacation Bible School 2024 - 7",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_8",
+          "src": "/images/gallery/VBS24/VBS16.webp",
+          "alt": "Vacation Bible School 2024 - 8",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_9",
+          "src": "/images/gallery/VBS24/VBS17.webp",
+          "alt": "Vacation Bible School 2024 - 9",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_10",
+          "src": "/images/gallery/VBS24/VBS18.webp",
+          "alt": "Vacation Bible School 2024 - 10",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_11",
+          "src": "/images/gallery/VBS24/VBS19.webp",
+          "alt": "Vacation Bible School 2024 - 11",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_12",
+          "src": "/images/gallery/VBS24/VBS2.webp",
+          "alt": "Vacation Bible School 2024 - 12",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_13",
+          "src": "/images/gallery/VBS24/VBS20.webp",
+          "alt": "Vacation Bible School 2024 - 13",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_14",
+          "src": "/images/gallery/VBS24/VBS21.webp",
+          "alt": "Vacation Bible School 2024 - 14",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_15",
+          "src": "/images/gallery/VBS24/VBS22.webp",
+          "alt": "Vacation Bible School 2024 - 15",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_16",
+          "src": "/images/gallery/VBS24/VBS23.webp",
+          "alt": "Vacation Bible School 2024 - 16",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_17",
+          "src": "/images/gallery/VBS24/VBS24.webp",
+          "alt": "Vacation Bible School 2024 - 17",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_18",
+          "src": "/images/gallery/VBS24/VBS25.webp",
+          "alt": "Vacation Bible School 2024 - 18",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_19",
+          "src": "/images/gallery/VBS24/VBS26.webp",
+          "alt": "Vacation Bible School 2024 - 19",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_20",
+          "src": "/images/gallery/VBS24/VBS27.webp",
+          "alt": "Vacation Bible School 2024 - 20",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_21",
+          "src": "/images/gallery/VBS24/VBS28.webp",
+          "alt": "Vacation Bible School 2024 - 21",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_22",
+          "src": "/images/gallery/VBS24/VBS3.webp",
+          "alt": "Vacation Bible School 2024 - 22",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_23",
+          "src": "/images/gallery/VBS24/VBS5.webp",
+          "alt": "Vacation Bible School 2024 - 23",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_24",
+          "src": "/images/gallery/VBS24/VBS6.webp",
+          "alt": "Vacation Bible School 2024 - 24",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_25",
+          "src": "/images/gallery/VBS24/VBS7.webp",
+          "alt": "Vacation Bible School 2024 - 25",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_26",
+          "src": "/images/gallery/VBS24/VBS8.webp",
+          "alt": "Vacation Bible School 2024 - 26",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "vbs_2024_27",
+          "src": "/images/gallery/VBS24/VBS9.webp",
+          "alt": "Vacation Bible School 2024 - 27",
+          "category": "kids",
+          "subcategory": "VBS 2024"
+        },
+        {
+          "id": "pgf_babies_1",
+          "src": "/images/gallery/PGF_BABIES/bhupal.webp",
+          "alt": "PGF Babies - Church Family - 1",
+          "category": "kids",
+          "subcategory": "PGF Babies"
+        }
+      ]
+    }
+  ],
+  "generatedAt": "2025-09-25T17:41:37.080Z",
+  "totalImages": 64
+}
