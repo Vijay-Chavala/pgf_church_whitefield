@@ -25,7 +25,7 @@ export function WelcomeMessage() {
       te: 'దేవుని ప్రేమగల సమాజంలో మీ లక్ష్యాన్ని కనుగొనండి',
     },
     description: {
-      en: "At PGF Church, we're thrilled to welcome you into our loving community. Led by Pastor Ravi Kumar and Hepsiba, we're dedicated to creating a space where you can encounter the presence of God and discover your true purpose.",
+      en: "At PGF Church, we're thrilled to welcome you into our loving community. Led by Pastor Ravi Kumar and Sister Hepsiba, we're dedicated to creating a space where you can encounter the presence of God and discover your true purpose.",
       te: 'PGF చర్చిలో, మేము మిమ్మల్ని మా ప్రేమగల సమాజంలోకి స్వాగతం చేయడంలో చాలా సంతోషిస్తున్నాము. పాస్టర్ రవి కుమార్ మరియు హెప్సిబా నేతృత్వంలో, మేము మీరు దేవుని ఉపస్థితిని అనుభవించగలిగే మరియు మీ నిజమైన లక్ష్యాన్ని కనుగొనగలిగే స్థలాన్ని సృష్టించడానికి అంకితం చేసుకున్నాము.',
     },
     history: {
@@ -55,7 +55,7 @@ export function WelcomeMessage() {
           te: 'పాస్టరల్ శ్రద్ధ',
         },
         description: {
-          en: 'Guided by Pastor Ravi Kumar and Hepsiba',
+          en: 'Guided by Pastor Ravi Kumar and Sister Hepsiba',
           te: 'పాస్టర్ రవి కుమార్ మరియు హెప్సిబా మార్గదర్శకత్వం',
         },
       },

@@ -54,7 +54,7 @@ const ministriesData = [
       te: 'అనుగ్రహ హాల్, సెయింట్ జోసెఫ్ కాన్వెంట్ స్కూల్ క్యాంపస్',
     },
     leader: {
-      en: 'Pastor Ravi Kumar & Hepsiba',
+      en: 'Pastor Ravi Kumar & Sister Hepsiba',
       te: 'పాస్టర్ రవి కుమార్ & హెప్సిబా',
     },
     members: 200,
@@ -154,7 +154,7 @@ const ministriesData = [
       te: 'యువజన సేవ',
     },
     description: {
-      en: 'Empowering young people to grow in faith and leadership through Christ-centered activities and fellowship. Led by Pastor Ravi Kumar and Hepsiba.',
+      en: 'Empowering young people to grow in faith and leadership through Christ-centered activities and fellowship. Led by Pastor Ravi Kumar and Sister Hepsiba.',
       te: 'క్రీస్తు-కేంద్రిత కార్యకలాపాలు మరియు సహవాసం ద్వారా యువజనులను విశ్వాసం మరియు నాయకత్వంలో ఎదగడానికి శక్తివంతం చేయడం. పాస్టర్ రవి కుమార్ మరియు హెప్సిబా నేతృత్వంలో.',
     },
     activities: {
@@ -175,7 +175,7 @@ const ministriesData = [
       te: 'పిజిఎఫ్ తెలుగు చర్చి',
     },
     leader: {
-      en: 'Pastor Ravi Kumar & Hepsiba',
+      en: 'Pastor Ravi Kumar & Sister Hepsiba',
       te: 'పాస్టర్ రవి కుమార్ & హెప్సిబా',
     },
     members: 50,

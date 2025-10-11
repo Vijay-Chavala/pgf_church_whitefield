@@ -48,7 +48,7 @@ const ministriesData = {
       ],
     },
     leaders: {
-      en: 'Pastor Ravi Kumar & Hepsiba',
+      en: 'Pastor Ravi Kumar & Sister Hepsiba',
       te: 'పాస్టర్ రవి కుమార్ & హెప్సిబా',
     },
     contact: {

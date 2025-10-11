@@ -143,7 +143,7 @@ export const latestSermonsData: SermonData[] = [
       te: "ఇప్పటివరకు ఇవ్వబడిన గొప్ప బహుమతిని అర్థం చేసుకోవడం - మన ప్రభువైన యేసు క్రీస్తు ద్వారా మోక్షం."
     },
     speaker: {
-      en: "Pastor Hepsiba",
+      en: "Sister Hepsiba",
       te: "పాస్టర్ హెప్సిబా"
     },
     date: "2023-12-17",
@@ -239,7 +239,7 @@ export const latestSermonsData: SermonData[] = [
       te: "క్రీస్తు శరీరంలో ఐక్యత ఎలా పురోగతి మరియు ఆశీర్వాదం తెస్తుందో అర్థం చేసుకోవడం."
     },
     speaker: {
-      en: "Pastor Hepsiba",
+      en: "Sister Hepsiba",
       te: "పాస్టర్ హెప్సిబా"
     },
     date: "2023-11-19",
