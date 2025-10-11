@@ -26,16 +26,212 @@ export interface GalleryCategory {
 // Church Moments Images
 const churchFellowshipImages: GalleryImage[] = [
     {
-        id: 'cf_1',
-        src: '/images/gallery/church-events/churchFellowship/CF1.webp',
+        id: 'cfi_1',
+        src: '/images/gallery/church-events/churchFellowship/CFI (1).webp',
         alt: 'Church Fellowship 1',
         category: 'church',
         subcategory: 'Church Fellowship'
     },
     {
-        id: 'cf_2',
-        src: '/images/gallery/church-events/churchFellowship/CF2.webp',
+        id: 'cfi_2',
+        src: '/images/gallery/church-events/churchFellowship/CFI (2).webp',
         alt: 'Church Fellowship 2',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_3',
+        src: '/images/gallery/church-events/churchFellowship/CFI (3).webp',
+        alt: 'Church Fellowship 3',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_4',
+        src: '/images/gallery/church-events/churchFellowship/CFI (4).webp',
+        alt: 'Church Fellowship 4',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_5',
+        src: '/images/gallery/church-events/churchFellowship/CFI (5).webp',
+        alt: 'Church Fellowship 5',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_6',
+        src: '/images/gallery/church-events/churchFellowship/CFI (6).webp',
+        alt: 'Church Fellowship 6',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_7',
+        src: '/images/gallery/church-events/churchFellowship/CFI (7).webp',
+        alt: 'Church Fellowship 7',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_8',
+        src: '/images/gallery/church-events/churchFellowship/CFI (8).webp',
+        alt: 'Church Fellowship 8',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_9',
+        src: '/images/gallery/church-events/churchFellowship/CFI (9).webp',
+        alt: 'Church Fellowship 9',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_10',
+        src: '/images/gallery/church-events/churchFellowship/CFI (10).webp',
+        alt: 'Church Fellowship 10',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_11',
+        src: '/images/gallery/church-events/churchFellowship/CFI (11).webp',
+        alt: 'Church Fellowship 11',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_12',
+        src: '/images/gallery/church-events/churchFellowship/CFI (12).webp',
+        alt: 'Church Fellowship 12',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_13',
+        src: '/images/gallery/church-events/churchFellowship/CFI (13).webp',
+        alt: 'Church Fellowship 13',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_14',
+        src: '/images/gallery/church-events/churchFellowship/CFI (14).webp',
+        alt: 'Church Fellowship 14',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_15',
+        src: '/images/gallery/church-events/churchFellowship/CFI (15).webp',
+        alt: 'Church Fellowship 15',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_16',
+        src: '/images/gallery/church-events/churchFellowship/CFI (16).webp',
+        alt: 'Church Fellowship 16',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_17',
+        src: '/images/gallery/church-events/churchFellowship/CFI (17).webp',
+        alt: 'Church Fellowship 17',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_18',
+        src: '/images/gallery/church-events/churchFellowship/CFI (18).webp',
+        alt: 'Church Fellowship 18',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_19',
+        src: '/images/gallery/church-events/churchFellowship/CFI (19).webp',
+        alt: 'Church Fellowship 19',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_20',
+        src: '/images/gallery/church-events/churchFellowship/CFI (20).webp',
+        alt: 'Church Fellowship 20',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_21',
+        src: '/images/gallery/church-events/churchFellowship/CFI (21).webp',
+        alt: 'Church Fellowship 21',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_22',
+        src: '/images/gallery/church-events/churchFellowship/CFI (22).webp',
+        alt: 'Church Fellowship 22',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_23',
+        src: '/images/gallery/church-events/churchFellowship/CFI (23).webp',
+        alt: 'Church Fellowship 23',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_24',
+        src: '/images/gallery/church-events/churchFellowship/CFI (24).webp',
+        alt: 'Church Fellowship 24',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_25',
+        src: '/images/gallery/church-events/churchFellowship/CFI (25).webp',
+        alt: 'Church Fellowship 25',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_26',
+        src: '/images/gallery/church-events/churchFellowship/CFI (26).webp',
+        alt: 'Church Fellowship 26',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_27',
+        src: '/images/gallery/church-events/churchFellowship/CFI (27).webp',
+        alt: 'Church Fellowship 27',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_28',
+        src: '/images/gallery/church-events/churchFellowship/CFI (28).webp',
+        alt: 'Church Fellowship 28',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_29',
+        src: '/images/gallery/church-events/churchFellowship/CFI (29).webp',
+        alt: 'Church Fellowship 29',
+        category: 'church',
+        subcategory: 'Church Fellowship'
+    },
+    {
+        id: 'cfi_30',
+        src: '/images/gallery/church-events/churchFellowship/CFI (30).webp',
+        alt: 'Church Fellowship 30',
         category: 'church',
         subcategory: 'Church Fellowship'
     }
@@ -276,6 +472,529 @@ const watchNightService2024Images: GalleryImage[] = [
     }
 ]
 
+const marriedCoupleMeetImages: GalleryImage[] = [
+    {
+        id: 'mcm_1',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (1).webp',
+        alt: 'Married Couple Meet - 1',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_2',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (2).webp',
+        alt: 'Married Couple Meet - 2',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_3',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (3).webp',
+        alt: 'Married Couple Meet - 3',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_4',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (4).webp',
+        alt: 'Married Couple Meet - 4',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_5',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (5).webp',
+        alt: 'Married Couple Meet - 5',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_6',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (6).webp',
+        alt: 'Married Couple Meet - 6',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_7',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (7).webp',
+        alt: 'Married Couple Meet - 7',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_8',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (8).webp',
+        alt: 'Married Couple Meet - 8',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_9',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (9).webp',
+        alt: 'Married Couple Meet - 9',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_10',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (10).webp',
+        alt: 'Married Couple Meet - 10',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_11',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (11).webp',
+        alt: 'Married Couple Meet - 11',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_12',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (12).webp',
+        alt: 'Married Couple Meet - 12',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_13',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (13).webp',
+        alt: 'Married Couple Meet - 13',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_14',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (14).webp',
+        alt: 'Married Couple Meet - 14',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_15',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (15).webp',
+        alt: 'Married Couple Meet - 15',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_16',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (16).webp',
+        alt: 'Married Couple Meet - 16',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_17',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (17).webp',
+        alt: 'Married Couple Meet - 17',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_18',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (18).webp',
+        alt: 'Married Couple Meet - 18',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_19',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (19).webp',
+        alt: 'Married Couple Meet - 19',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_20',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (20).webp',
+        alt: 'Married Couple Meet - 20',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_21',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (21).webp',
+        alt: 'Married Couple Meet - 21',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_22',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (22).webp',
+        alt: 'Married Couple Meet - 22',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_23',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (23).webp',
+        alt: 'Married Couple Meet - 23',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_24',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (24).webp',
+        alt: 'Married Couple Meet - 24',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_25',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (25).webp',
+        alt: 'Married Couple Meet - 25',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_26',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (26).webp',
+        alt: 'Married Couple Meet - 26',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_27',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (27).webp',
+        alt: 'Married Couple Meet - 27',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_28',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (28).webp',
+        alt: 'Married Couple Meet - 28',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_29',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (29).webp',
+        alt: 'Married Couple Meet - 29',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    },
+    {
+        id: 'mcm_30',
+        src: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (30).webp',
+        alt: 'Married Couple Meet - 30',
+        category: 'church',
+        subcategory: 'Married Couple Meet'
+    }
+]
+
+const oldTestamentSeminarImages: GalleryImage[] = [
+    {
+        id: 'ots_1',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (1).webp',
+        alt: 'Old Testament Seminar - 1',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_2',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (2).webp',
+        alt: 'Old Testament Seminar - 2',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_3',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (3).webp',
+        alt: 'Old Testament Seminar - 3',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_4',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (4).webp',
+        alt: 'Old Testament Seminar - 4',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_5',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (5).webp',
+        alt: 'Old Testament Seminar - 5',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_6',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (6).webp',
+        alt: 'Old Testament Seminar - 6',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_7',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (7).webp',
+        alt: 'Old Testament Seminar - 7',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_8',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (8).webp',
+        alt: 'Old Testament Seminar - 8',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_9',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (9).webp',
+        alt: 'Old Testament Seminar - 9',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_10',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (10).webp',
+        alt: 'Old Testament Seminar - 10',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_11',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (11).webp',
+        alt: 'Old Testament Seminar - 11',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    },
+    {
+        id: 'ots_12',
+        src: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (12).webp',
+        alt: 'Old Testament Seminar - 12',
+        category: 'church',
+        subcategory: 'Old Testament Seminar'
+    }
+]
+
+const pastoralCareImages: GalleryImage[] = [
+    {
+        id: 'pc_1',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (1).webp',
+        alt: 'Pastoral Care - 1',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_2',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (2).webp',
+        alt: 'Pastoral Care - 2',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_3',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (3).webp',
+        alt: 'Pastoral Care - 3',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_4',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (4).webp',
+        alt: 'Pastoral Care - 4',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_5',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (5).webp',
+        alt: 'Pastoral Care - 5',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_6',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (6).webp',
+        alt: 'Pastoral Care - 6',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_7',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (7).webp',
+        alt: 'Pastoral Care - 7',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_8',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (8).webp',
+        alt: 'Pastoral Care - 8',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_9',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (9).webp',
+        alt: 'Pastoral Care - 9',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_10',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (10).webp',
+        alt: 'Pastoral Care - 10',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_11',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (11).webp',
+        alt: 'Pastoral Care - 11',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_12',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (12).webp',
+        alt: 'Pastoral Care - 12',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_13',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (13).webp',
+        alt: 'Pastoral Care - 13',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_14',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (14).webp',
+        alt: 'Pastoral Care - 14',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_15',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (15).webp',
+        alt: 'Pastoral Care - 15',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    },
+    {
+        id: 'pc_16',
+        src: '/images/gallery/church-events/pastoralCare/pastoralCare (16).webp',
+        alt: 'Pastoral Care - 16',
+        category: 'church',
+        subcategory: 'Pastoral Care'
+    }
+]
+
+const youthMeetingImages: GalleryImage[] = [
+    {
+        id: 'ym_1',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet1 (1).webp',
+        alt: 'Youth Meeting - 1',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_2',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet1 (2).webp',
+        alt: 'Youth Meeting - 2',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_3',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet1 (3).webp',
+        alt: 'Youth Meeting - 3',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_4',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet1 (4).webp',
+        alt: 'Youth Meeting - 4',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_5',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet1 (5).webp',
+        alt: 'Youth Meeting - 5',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_6',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet1 (6).webp',
+        alt: 'Youth Meeting - 6',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_7',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet1 (7).webp',
+        alt: 'Youth Meeting - 7',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_8',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet1 (8).webp',
+        alt: 'Youth Meeting - 8',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_9',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet2 (1).webp',
+        alt: 'Youth Meeting - 9',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_10',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet2 (2).webp',
+        alt: 'Youth Meeting - 10',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_11',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet2 (3).webp',
+        alt: 'Youth Meeting - 11',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_12',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet2 (4).webp',
+        alt: 'Youth Meeting - 12',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_13',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet2 (5).webp',
+        alt: 'Youth Meeting - 13',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_14',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet2 (6).webp',
+        alt: 'Youth Meeting - 14',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    },
+    {
+        id: 'ym_15',
+        src: '/images/gallery/church-events/YouthMeeting/youthMeet2 (7).webp',
+        alt: 'Youth Meeting - 15',
+        category: 'church',
+        subcategory: 'Youth Meeting'
+    }
+]
+
 // Kids Activities Images
 const sundaySchoolImages: GalleryImage[] = [
     {
@@ -286,16 +1005,121 @@ const sundaySchoolImages: GalleryImage[] = [
         subcategory: 'Sunday School'
     },
     {
-        id: 'ss_2',
-        src: '/images/gallery/kids-activities/SundaySchool/SS (2).webp',
-        alt: 'Sunday School Activities - 2',
+        id: 'ss_4',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (4).webp',
+        alt: 'Sunday School Activities - 4',
         category: 'kids',
         subcategory: 'Sunday School'
     },
     {
-        id: 'ss_3',
-        src: '/images/gallery/kids-activities/SundaySchool/SS (3).webp',
-        alt: 'Sunday School Activities - 3',
+        id: 'ss_5',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (5).webp',
+        alt: 'Sunday School Activities - 5',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_6',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (6).webp',
+        alt: 'Sunday School Activities - 6',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_7',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (7).webp',
+        alt: 'Sunday School Activities - 7',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_8',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (8).webp',
+        alt: 'Sunday School Activities - 8',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_9',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (9).webp',
+        alt: 'Sunday School Activities - 9',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_10',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (10).webp',
+        alt: 'Sunday School Activities - 10',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_11',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (11).webp',
+        alt: 'Sunday School Activities - 11',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_12',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (12).webp',
+        alt: 'Sunday School Activities - 12',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_13',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (13).webp',
+        alt: 'Sunday School Activities - 13',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_14',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (14).webp',
+        alt: 'Sunday School Activities - 14',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_15',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (15).webp',
+        alt: 'Sunday School Activities - 15',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_16',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (16).webp',
+        alt: 'Sunday School Activities - 16',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_17',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (17).webp',
+        alt: 'Sunday School Activities - 17',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_18',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (18).webp',
+        alt: 'Sunday School Activities - 18',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_19',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (19).webp',
+        alt: 'Sunday School Activities - 19',
+        category: 'kids',
+        subcategory: 'Sunday School'
+    },
+    {
+        id: 'ss_20',
+        src: '/images/gallery/kids-activities/SundaySchool/SS (20).webp',
+        alt: 'Sunday School Activities - 20',
         category: 'kids',
         subcategory: 'Sunday School'
     }
@@ -720,7 +1544,11 @@ const allChurchImages = [
     ...watchNightService2024Images,
     ...palmSunday24Images,
     ...palmSundayRallyImages,
-    ...preChristmas23Images
+    ...preChristmas23Images,
+    ...marriedCoupleMeetImages,
+    ...oldTestamentSeminarImages,
+    ...pastoralCareImages,
+    ...youthMeetingImages
 ]
 
 const allKidsImages = [
@@ -736,7 +1564,7 @@ const churchSubcategories: GallerySubcategory[] = [
         name: 'Church Fellowship',
         title: { en: 'Church Fellowship', te: 'చర్చి సహవాసం' },
         description: { en: 'Beautiful moments of fellowship and community', te: 'సహవాసం మరియు సమాజం యొక్క అందమైన క్షణాలు' },
-        coverImage: '/images/gallery/church-events/churchFellowship/CF1.webp',
+        coverImage: '/images/gallery/church-events/churchFellowship/CFI (1).webp',
         images: churchFellowshipImages,
         category: 'church'
     },
@@ -819,6 +1647,42 @@ const churchSubcategories: GallerySubcategory[] = [
         description: { en: 'Preparing hearts for Christmas celebration 2023', te: 'క్రిస్మస్ వేడుక 2023కు హృదయాలను సిద్ధం చేస్తున్నాం' },
         coverImage: '/images/gallery/church-events/preChristmas23/PreChristmas2023_1.webp',
         images: preChristmas23Images,
+        category: 'church'
+    },
+    {
+        id: 'married-couple-meet',
+        name: 'Married Couple Meet',
+        title: { en: 'Married Couple Meet', te: 'వివాహిత జంటల సమావేశం' },
+        description: { en: 'Fellowship and strengthening of married couples', te: 'వివాహిత జంటల సహవాసం మరియు బలపరచడం' },
+        coverImage: '/images/gallery/church-events/marriedCoupleMeet/marriedCoupleMeet (1).webp',
+        images: marriedCoupleMeetImages,
+        category: 'church'
+    },
+    {
+        id: 'old-testament-seminar',
+        name: 'Old Testament Seminar',
+        title: { en: 'Old Testament Made Easy', te: 'పాత నిబంధన సులభం చేయబడింది' },
+        description: { en: 'Bible study seminar by J. Godwin Nickelson', te: 'J. గాడ్విన్ నికెల్సన్ చేత బైబిల్ అధ్యయన సెమినార్' },
+        coverImage: '/images/gallery/church-events/Old Testament Made Easy by J. Godwin Nickelson/seminar (1).webp',
+        images: oldTestamentSeminarImages,
+        category: 'church'
+    },
+    {
+        id: 'pastoral-care',
+        name: 'Pastoral Care',
+        title: { en: 'Pastoral Care', te: 'పాస్టరల్ కేర్' },
+        description: { en: 'Caring for the flock with love and compassion', te: 'ప్రేమ మరియు కరుణతో మంద పట్ల శ్రద్ధ' },
+        coverImage: '/images/gallery/church-events/pastoralCare/pastoralCare (1).webp',
+        images: pastoralCareImages,
+        category: 'church'
+    },
+    {
+        id: 'youth-meeting',
+        name: 'Youth Meeting',
+        title: { en: 'Youth Meeting', te: 'యువజన సమావేశం' },
+        description: { en: 'Empowering and inspiring the next generation', te: 'తరువాతి తరానికి శక్తినిచ్చి ప్రేరేపించడం' },
+        coverImage: '/images/gallery/church-events/YouthMeeting/youthMeet1 (1).webp',
+        images: youthMeetingImages,
         category: 'church'
     }
 ]

@@ -20,7 +20,7 @@ interface HeroSlide {
 const heroSlides: HeroSlide[] = [
   {
     id: 'sunday-school',
-    image: '/images/hero/IMG_3331.JPEG',
+    image: '/images/hero/IMG_3331.webp',
     title: {
       en: 'Training Up Our Children',
       te: 'మా పిల్లలను చక్కగా పెంచుతున్నాము',
@@ -44,7 +44,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 'womens-ministry',
-    image: '/images/hero/IMG_3330.JPEG',
+    image: '/images/hero/IMG_3330.webp',
     title: {
       en: 'Women of Faith and Strength',
       te: 'విశ్వాసం మరియు బలం గల మహిళలు',
@@ -68,7 +68,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 'mens-ministry',
-    image: '/images/hero/IMG_3332.JPEG',
+    image: '/images/hero/IMG_3332.webp',
     title: {
       en: 'Men of God Standing Strong',
       te: 'దేవుని మనుషులు దృఢంగా నిలుచున్నారు',
@@ -92,7 +92,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 'youth-girls',
-    image: '/images/hero/IMG_3329.JPEG',
+    image: '/images/hero/IMG_3329.webp',
     title: {
       en: 'Daughters of the King',
       te: 'రాజు యొక్క కుమార్తెలు',
@@ -116,7 +116,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 'youth-boys',
-    image: '/images/hero/IMG_3327.JPEG',
+    image: '/images/hero/IMG_3327.webp',
     title: {
       en: 'Future Leaders in Christ',
       te: 'క్రీస్తులో భవిష్యత్ నాయకులు',
@@ -140,7 +140,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 'children-babies',
-    image: '/images/hero/IMG_3335.JPEG',
+    image: '/images/hero/IMG_3335.webp',
     title: {
       en: 'Little Ones, Big Hearts',
       te: 'చిన్న పిల్లలు, పెద్ద హృదయాలు',
@@ -164,7 +164,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 'pastor-family',
-    image: '/images/hero/IMG_3328.JPEG',
+    image: '/images/hero/IMG_3328.webp',
     title: {
       en: 'Shepherds of the Flock',
       te: 'మందకు కాపరులు',
@@ -188,7 +188,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 'church-worship',
-    image: '/images/hero/church-worship.jpg',
+    image: '/images/hero/church-worship.webp',
     title: {
       en: 'United in Worship',
       te: 'ఆరాధనలో ఐక్యపడిన',
@@ -212,7 +212,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 'fellowship',
-    image: '/images/hero/congregation.jpg',
+    image: '/images/hero/congregation.webp',
     title: {
       en: 'Sweet Fellowship Together',
       te: 'కలిసి తియ్యని సహవాసం',
@@ -236,7 +236,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 'church-service',
-    image: '/images/hero/ravi.jpg',
+    image: '/images/hero/ravi.webp',
     title: {
       en: 'Called to Serve',
       te: 'సేవకు పిలువబడినవారు',
@@ -452,7 +452,7 @@ export function HeroBanner() {
               src={
                 currentSlideData?.image ||
                 heroSlides[0]?.image ||
-                '/images/hero/church-worship.jpg'
+                '/images/hero/church-worship.webp'
               }
               alt={getText(
                 currentSlideData?.title ||

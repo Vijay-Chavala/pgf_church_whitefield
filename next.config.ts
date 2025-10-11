@@ -29,6 +29,12 @@ const nextConfig: NextConfig = {
       'www.gravatar.com',
       'secure.gravatar.com',
     ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pgfteluguchurch.org',
+      },
+    ],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
